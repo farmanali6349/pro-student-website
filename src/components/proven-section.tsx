@@ -9,8 +9,8 @@ export async function ProvenSection() {
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
         <div className="relative h-72 overflow-hidden rounded-2xl sm:h-96">
           <Image
-            src="/placeholder.svg?height=500&width=600"
-            alt="Happy student"
+            src="/images/student-traveler.png"
+            alt="Happy student exploring a new city"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

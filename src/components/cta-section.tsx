@@ -9,7 +9,7 @@ export async function CtaSection() {
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-0">
         <div className="relative h-72 overflow-hidden rounded-2xl lg:my-12 lg:h-80">
           <Image
-            src="/placeholder.svg?height=400&width=560"
+            src="/images/consultant.png"
             alt="Consultant on a call"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
