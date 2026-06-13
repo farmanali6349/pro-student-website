@@ -1,0 +1,44 @@
+[
+  {
+    "id": "new-york",
+    "countryId": "usa",
+    "name": { "en": "United States", "ar": "الولايات المتحدة" },
+    "image": "/placeholder.svg?height=420&width=320",
+    "schoolsCount": 12
+  },
+  {
+    "id": "london",
+    "countryId": "uk",
+    "name": { "en": "United Kingdom", "ar": "المملكة المتحدة" },
+    "image": "/placeholder.svg?height=420&width=320",
+    "schoolsCount": 13
+  },
+  {
+    "id": "sydney",
+    "countryId": "australia",
+    "name": { "en": "Australia", "ar": "أستراليا" },
+    "image": "/placeholder.svg?height=420&width=320",
+    "schoolsCount": 13
+  },
+  {
+    "id": "toronto",
+    "countryId": "canada",
+    "name": { "en": "Canada", "ar": "كندا" },
+    "image": "/placeholder.svg?height=420&width=320",
+    "schoolsCount": 13
+  },
+  {
+    "id": "boston",
+    "countryId": "usa",
+    "name": { "en": "Boston", "ar": "بوسطن" },
+    "image": "/placeholder.svg?height=420&width=320",
+    "schoolsCount": 9
+  },
+  {
+    "id": "manchester",
+    "countryId": "uk",
+    "name": { "en": "Manchester", "ar": "مانشستر" },
+    "image": "/placeholder.svg?height=420&width=320",
+    "schoolsCount": 7
+  }
+]
