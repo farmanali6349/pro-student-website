@@ -1,5 +1,88 @@
 {
   "homePage": {
-    "heroTitle": "We are Pro Student"
+    "heroTitle": "Start your journey today and learn at the world's best institutions",
+    "heroSubtitle": "Explore the world's best study abroad programs and discover your perfect destination.",
+    "searchPlaceholder": "Search destinations...",
+    "selectRegion": "Select Region",
+    "selectCountry": "Select Country",
+    "selectCity": "Select City",
+    "selectSchool": "Select School",
+    "selectCourse": "Select Course",
+    "exploreButton": "Explore Now",
+    
+    "destinationsTitle": "Explore Destinations",
+    "destinationsDescription": "Discover amazing study destinations around the world",
+    
+    "institutionsTitle": "Explore Institutions",
+    "institutionsDescription": "Learn from the world's leading universities and colleges",
+    
+    "coursesTitle": "Explore All Courses & Programmes",
+    "coursesDescription": "Find the perfect course to match your goals and interests",
+    
+    "provenTitle": "Trusted by 30K+ People",
+    "provenSubtitle": "Since 2018, Pro Student has helped thousands of students study at top institutions worldwide. Thousands of Emirati students study at top institutions around the world.",
+    "students": "Students",
+    "studentsDesc": "Placed in top institutions",
+    "success": "Success Rate",
+    "successDesc": "of our students achieve their goals",
+    "countries": "Countries",
+    "countriesDesc": "where our students study",
+    "consultants": "Consultants",
+    "consultantsDesc": "dedicated to your success",
+    
+    "featuresTitle": "Everything you need to study abroad",
+    "feature1Title": "Expert Guidance",
+    "feature1Desc": "Get personalized advice from our experienced consultants who know what it takes to succeed.",
+    "feature2Title": "Wide Selection",
+    "feature2Desc": "Access thousands of courses and programs from the world's leading institutions.",
+    "feature3Title": "Support & Assistance",
+    "feature3Desc": "We guide you through every step of the application and enrollment process.",
+    "feature4Title": "Affordability",
+    "feature4Desc": "Find scholarships and financial aid options to make your dreams affordable.",
+    
+    "ctaTitle": "Ready to begin your journey?",
+    "ctaDesc": "Connect with our consultants today to explore your study abroad options.",
+    "startNow": "Start Now",
+    
+    "faqTitle": "Frequently Asked Questions",
+    "faq1Q": "How do I get started?",
+    "faq1A": "Simply provide your academic background and career goals, and our consultants will guide you through the entire process.",
+    "faq2Q": "What courses are available?",
+    "faq2A": "We offer thousands of courses across all fields of study from universities worldwide.",
+    "faq3Q": "Do you provide financial assistance?",
+    "faq3A": "Yes, we help students find scholarships and financing options from various sources.",
+    "faq4Q": "How long does the application process take?",
+    "faq4A": "It typically takes 3-6 months, depending on the institution and program you choose.",
+    
+    "contactTitle": "Start the conversation",
+    "contactDesc": "Share your details and let us help you find the perfect program.",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Your Message",
+    "submit": "Submit",
+    "successMessage": "Thank you! We'll be in touch soon.",
+    
+    "reviewsTitle": "Student Reviews",
+    "review1Name": "Ahmed Al Mansouri",
+    "review1Text": "Pro Student helped me secure a scholarship at one of the world's best universities. Their guidance was invaluable throughout the process.",
+    "review2Name": "Fatima Al Zahra",
+    "review2Text": "The team at Pro Student made studying abroad seem achievable. I'm now studying at my dream university!",
+    "review3Name": "Mohamed Hassan",
+    "review3Text": "Outstanding service from start to finish. I would recommend Pro Student to anyone looking to study abroad.",
+    "review4Name": "Layla Ahmed",
+    "review4Text": "The consultants understood exactly what I needed and helped me find the perfect fit for my goals.",
+    
+    "footerAbout": "About Pro Student",
+    "footerAboutDesc": "Pro Student is a leading study abroad consultancy helping students achieve their dreams of studying at the world's best institutions.",
+    "footerServices": "Services",
+    "footerContact": "Contact",
+    "footerCompany": "Company",
+    "footerSocial": "Follow us",
+    "footerRights": "© 2024 Pro Student. All rights reserved.",
+    
+    "viewMore": "View More",
+    "previous": "Previous",
+    "next": "Next"
   }
 }
