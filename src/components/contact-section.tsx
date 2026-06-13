@@ -11,9 +11,10 @@ type ContactValues = {
 };
 
 const socials = [
+  { icon: "ic:baseline-call", href: "#", label: "Call" },
+  { icon: "ic:baseline-whatsapp", href: "#", label: "WhatsApp" },
   { icon: "ri:twitter-x-fill", href: "#", label: "X" },
   { icon: "mdi:instagram", href: "#", label: "Instagram" },
-  { icon: "ic:baseline-whatsapp", href: "#", label: "WhatsApp" },
 ];
 
 export function ContactSection() {
@@ -32,7 +33,7 @@ export function ContactSection() {
     "w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-sm text-gray-dark outline-none transition focus:border-dark-orange";
 
   return (
-    <section id="contact" className="bg-light-orange/10 py-14 sm:py-16">
+    <section id="contact" className="py-14 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-dark-orange">
@@ -60,7 +61,7 @@ export function ContactSection() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5"
+          className="flex flex-col gap-4 rounded-2xl  p-6"
         >
           <div>
             <label className="mb-1.5 block text-sm font-semibold text-gray-dark">
@@ -104,9 +105,10 @@ export function ContactSection() {
           </div>
           <button
             type="submit"
-            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-dark-orange py-3 text-sm font-bold text-white transition hover:bg-red"
+            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-dark-orange py-3 text-sm font-bold text-white transition hover:bg-red w-fit px-3 cursor-pointer"
           >
-            {t("schedule")}
+            <Icon icon={"lucide:send"} />
+            {t("submit")}
           </button>
         </form>
       </div>

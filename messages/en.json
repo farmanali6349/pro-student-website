@@ -6,12 +6,16 @@
     "language": "Language",
     "tagline": "Competitive prices. Genuine service. Real results."
   },
+  "ctas": {
+    "seeReviews": "See Reviews"
+  },
   "nav": {
     "destinations": "Destinations",
     "institutes": "Institutes",
     "courses": "Courses",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "home": "Home"
   },
   "hero": {
     "title": "Start your journey today and learn at the world's best institutes.",
@@ -26,6 +30,7 @@
     "yes": "Yes",
     "no": "No",
     "search": "Search",
+    "getAQuote": "Get A Quote",
     "reviewsTitle": "Read what our learners think about us",
     "reviewsCount": "100+",
     "rating": "4.9"
@@ -169,6 +174,53 @@
       "Language institutes in Liverpool",
       "Language institutes in Manchester",
       "Language institutes in Cambridge"
+    ],
+    "countriesLinks": [
+      {
+        "flagEmoji": "🇬🇧",
+        "linkText": "Language schools in the UK",
+        "link": "/schoools?country=UK"
+      },
+      {
+        "flagEmoji": "🇿🇦",
+        "linkText": "Language schools in South Africa",
+        "link": "/schoools?country=ZA"
+      },
+      {
+        "flagEmoji": "🇨🇦",
+        "linkText": "Language schools in Canada",
+        "link": "/schoools?country=CA"
+      },
+      {
+        "flagEmoji": "🇺🇸",
+        "linkText": "Language schools in the USA",
+        "link": "/schoools?country=US"
+      },
+      {
+        "flagEmoji": "🇦🇺",
+        "linkText": "Language schools in Australia",
+        "link": "/schoools?country=AU"
+      },
+      {
+        "flagEmoji": "🇨🇾",
+        "linkText": "Language schools in Cyprus",
+        "link": "/schoools?country=CY"
+      },
+      {
+        "flagEmoji": "🇮🇪",
+        "linkText": "Language schools in Ireland",
+        "link": "/schoools?country=IE"
+      },
+      {
+        "flagEmoji": "🇳🇿",
+        "linkText": "Language schools in New Zealand",
+        "link": "/schoools?country=NZ"
+      },
+      {
+        "flagEmoji": "🇲🇹",
+        "linkText": "Language schools in Malta",
+        "link": "/schoools?country=MT"
+      }
     ]
   },
   "notFound": {

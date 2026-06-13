@@ -5,11 +5,11 @@ export async function ProvenSection() {
   const t = await getTranslations("proven");
 
   return (
-    <section className="bg-white py-14 sm:py-16">
+    <section className="py-14 sm:py-16">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
-        <div className="relative h-72 overflow-hidden rounded-2xl sm:h-96">
+        <div className="relative h-80 overflow-hidden rounded-2xl sm:h-120">
           <Image
-            src="/images/student-traveler.png"
+            src="/images/happy-boy.png"
             alt="Happy student exploring a new city"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

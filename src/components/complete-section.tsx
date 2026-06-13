@@ -28,7 +28,7 @@ export async function CompleteSection() {
   ];
 
   return (
-    <section className="relative bg-white py-14 sm:py-16">
+    <section className="relative  py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-dark-orange">
           {t("label")}
@@ -44,17 +44,19 @@ export async function CompleteSection() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="rounded-2xl bg-white/80 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur"
+              className="rounded-2xl bg-linear-to-t from-dark-orange/50 to-white/30 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur-xs h-100 flex flex-col gap-10"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-light-orange/20 text-dark-orange">
-                <Icon icon={card.icon} width={26} />
+              <div className="flex flex-col gap-5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-light-orange/20 text-dark-orange">
+                  <Icon icon={card.icon} width={26} />
+                </div>
+                <h3 className="mt-4 text-xl font-bold text-gray-dark">
+                  {card.title}
+                </h3>
               </div>
-              <h3 className="mt-4 text-base font-bold text-gray-dark">
-                {card.title}
-              </h3>
-              <p className="mt-2 text-xs leading-relaxed text-gray-light">
-                {card.desc}
-              </p>
+              <div>
+                <p className="mt-2 text-base leading-relaxed">{card.desc}</p>
+              </div>
             </div>
           ))}
         </div>

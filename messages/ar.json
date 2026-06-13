@@ -6,12 +6,16 @@
     "language": "اللغة",
     "tagline": "أسعار تنافسية. خدمة حقيقية. نتائج فعلية."
   },
+  "ctas": {
+    "seeReviews": "عرض المراجعات"
+  },
   "nav": {
     "destinations": "الوجهات",
     "institutes": "المعاهد",
     "courses": "الدورات",
     "about": "من نحن",
-    "contact": "تواصل معنا"
+    "contact": "تواصل معنا",
+    "home": "الرئيسية"
   },
   "hero": {
     "title": "ابدأ رحلتك اليوم وتعلّم في أفضل المعاهد حول العالم.",
@@ -26,6 +30,7 @@
     "yes": "نعم",
     "no": "لا",
     "search": "بحث",
+    "getAQuote": "احصل على عرض سعر",
     "reviewsTitle": "اقرأ ما يقوله متعلمونا عنا",
     "reviewsCount": "+100",
     "rating": "4.9"
@@ -169,6 +174,53 @@
       "معاهد اللغة في ليفربول",
       "معاهد اللغة في مانشستر",
       "معاهد اللغة في كامبريدج"
+    ],
+    "countriesLinks": [
+      {
+        "flagEmoji": "🇬🇧",
+        "linkText": "مدارس اللغة في المملكة المتحدة",
+        "link": "/schoools?country=UK"
+      },
+      {
+        "flagEmoji": "🇿🇦",
+        "linkText": "مدارس اللغة في جنوب أفريقيا",
+        "link": "/schoools?country=ZA"
+      },
+      {
+        "flagEmoji": "🇨🇦",
+        "linkText": "مدارس اللغة في كندا",
+        "link": "/schoools?country=CA"
+      },
+      {
+        "flagEmoji": "🇺🇸",
+        "linkText": "مدارس اللغة في الولايات المتحدة",
+        "link": "/schoools?country=US"
+      },
+      {
+        "flagEmoji": "🇦🇺",
+        "linkText": "مدارس اللغة في أستراليا",
+        "link": "/schoools?country=AU"
+      },
+      {
+        "flagEmoji": "🇨🇾",
+        "linkText": "مدارس اللغة في قبرص",
+        "link": "/schoools?country=CY"
+      },
+      {
+        "flagEmoji": "🇮🇪",
+        "linkText": "مدارس اللغة في أيرلندا",
+        "link": "/schoools?country=IE"
+      },
+      {
+        "flagEmoji": "🇳🇿",
+        "linkText": "مدارس اللغة في نيوزيلندا",
+        "link": "/schoools?country=NZ"
+      },
+      {
+        "flagEmoji": "🇲🇹",
+        "linkText": "مدارس اللغة في مالطا",
+        "link": "/schoools?country=MT"
+      }
     ]
   },
   "notFound": {

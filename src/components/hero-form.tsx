@@ -51,7 +51,8 @@ export function HeroForm() {
 
   const selectClass =
     "w-full appearance-none rounded-lg border border-white/40 bg-white/70 px-3 py-2.5 text-sm text-gray-dark outline-none transition focus:border-dark-orange focus:bg-white";
-  const labelClass = "mb-1.5 block text-xs font-semibold text-white drop-shadow";
+  const labelClass =
+    "mb-1.5 block text-xs font-semibold text-white drop-shadow";
 
   return (
     <form
@@ -130,7 +131,11 @@ export function HeroForm() {
         {/* Start date */}
         <div>
           <label className={labelClass}>{t("courseStartDate")}</label>
-          <input type="date" className={selectClass} {...register("startDate")} />
+          <input
+            type="date"
+            className={selectClass}
+            {...register("startDate")}
+          />
         </div>
 
         {/* Duration */}
@@ -147,17 +152,6 @@ export function HeroForm() {
             </select>
             <Chevron />
           </div>
-        </div>
-
-        {/* Search button aligned with last column */}
-        <div className="flex items-end">
-          <button
-            type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-dark-orange px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red"
-          >
-            <Icon icon="lucide:search" width={18} />
-            {t("search")}
-          </button>
         </div>
       </div>
 
@@ -179,6 +173,16 @@ export function HeroForm() {
           yes={t("yes")}
           no={t("no")}
         />
+      </div>
+
+      <div className="mt-6">
+        <button
+          type="submit"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-dark-orange px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red"
+        >
+          <Icon icon="lucide:search" width={18} />
+          Get A Quote
+        </button>
       </div>
     </form>
   );
@@ -209,29 +213,35 @@ function YesNo({
   no: string;
 }) {
   return (
-    <div className="flex items-center justify-between gap-3">
-      <span className="text-xs font-semibold text-white drop-shadow">
+    <fieldset className="space-y-2">
+      <legend className="text-xs font-semibold text-white drop-shadow">
         {label}
-      </span>
+      </legend>
       <div className="flex gap-2">
         {[
           { v: "yes", l: yes },
           { v: "no", l: no },
         ].map((opt) => (
-          <button
+          <label
             key={opt.v}
-            type="button"
-            onClick={() => onChange(opt.v)}
-            className={`rounded-md px-3 py-1 text-xs font-semibold transition ${
+            className={`inline-flex items-center gap-2 rounded-md border px-3 py-1 text-xs font-semibold transition ${
               value === opt.v
-                ? "bg-dark-orange text-white"
-                : "bg-white/70 text-gray-dark hover:bg-white"
+                ? "bg-dark-orange text-white border-dark-orange"
+                : "bg-white/70 text-gray-dark border-transparent hover:bg-white"
             }`}
           >
+            <input
+              type="radio"
+              // name={name}
+              value={opt.v}
+              checked={value === opt.v}
+              onChange={() => onChange(opt.v)}
+              className="h-4 w-4 accent-dark-orange"
+            />
             {opt.l}
-          </button>
+          </label>
         ))}
       </div>
-    </div>
+    </fieldset>
   );
 }

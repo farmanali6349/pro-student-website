@@ -64,40 +64,60 @@ export async function Footer() {
 
           <FooterColumn
             title={t("services")}
-            links={[t("links.institutes"), t("links.visaApplication"), t("links.offers")]}
+            links={[
+              t("links.institutes"),
+              t("links.visaApplication"),
+              t("links.offers"),
+            ]}
           />
           <FooterColumn
             title={t("company")}
-            links={[t("links.aboutCompany"), t("links.terms"), t("links.getQuote")]}
+            links={[
+              t("links.aboutCompany"),
+              t("links.terms"),
+              t("links.getQuote"),
+            ]}
           />
 
           <div>
             <h3 className="mb-4 text-sm font-bold">{t("getInTouch")}</h3>
-            <a
-              href="tel:0580666525"
-              className="flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
-            >
-              <Icon icon="lucide:phone" width={14} />
-              058-0666-525
-            </a>
-            <a
-              href="mailto:admin@prostudent.com"
-              className="mt-2 flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
-            >
-              <Icon icon="lucide:mail" width={14} />
-              admin@prostudent.com
-            </a>
-            <div className="mt-4 flex gap-3">
-              {socials.map((icon) => (
-                <a
-                  key={icon}
-                  href="#"
-                  aria-label={icon}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-dark-orange"
-                >
-                  <Icon icon={icon} width={16} />
-                </a>
-              ))}
+            <div className="flex flex-col gap-1">
+              <a
+                href="tel:966530896716"
+                className="flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
+              >
+                <Icon icon="lucide:phone" width={14} />
+                +966 53 089 6716
+              </a>
+              <a
+                href="tel:9660504782222"
+                className="flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
+              >
+                <Icon icon="lucide:phone" width={14} />
+                +966 050 478 2222
+              </a>
+              <a
+                href="#"
+                className="mt-2 flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
+              >
+                <div className="size-14 h-fit">
+                  <Icon icon="lucide:map" width={14} />
+                </div>
+                 Reem Commercial Center -عمارة معرض السيارات - VIP Lounge -الدور
+                الاول-مكتب ١١, District, 3776 Dajla Street, AlSahafa, Riyadh
+              </a>
+              <div className="mt-4 flex gap-3">
+                {socials.map((icon) => (
+                  <a
+                    key={icon}
+                    href="#"
+                    aria-label={icon}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-dark-orange"
+                  >
+                    <Icon icon={icon} width={16} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

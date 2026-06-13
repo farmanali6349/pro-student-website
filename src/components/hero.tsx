@@ -7,11 +7,22 @@ export async function Hero() {
   const t = await getTranslations("hero");
 
   return (
-    <section className="hero-gradient relative overflow-hidden">
+    <section className="relative overflow-hidden hero-gradient">
+      {/* BG Layer */}
+      {/* <div className="absolute inset-0 flex items-end justify-center overflow-hidden hero-gradient">
+        <Image
+          src="/images/hero-bg.png"
+          alt="Pro Student"
+          width={500}
+          height={500}
+          className="absolute h-full w-auto -bottom-50"
+        />
+      </div> */}
+      {/* <div className="absolute inset-0 hero-gradient"></div> */}
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:pb-24 lg:pt-14">
         <div className="grid items-start gap-8 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <h1 className="max-w-3xl text-balance text-3xl font-extrabold leading-tight text-gray-dark sm:text-4xl lg:text-5xl">
+            <h1 className="max-w-3xl text-balance text-3xl font-extrabold leading-tight text-gray-dark">
               {t("title")}
             </h1>
             <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-gray-dark/80 sm:text-base">
@@ -30,7 +41,7 @@ export async function Hero() {
           </div>
         </div>
 
-        <div className="mt-8 grid items-end gap-6 lg:grid-cols-[1.4fr_1fr]">
+        <div className="mt-8 grid items-center lg:grid-cols-[1.4fr_1fr] gap-10">
           <HeroForm />
           <div className="flex justify-center lg:justify-end lg:pb-2">
             <GoogleRating

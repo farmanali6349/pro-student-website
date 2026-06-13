@@ -5,11 +5,11 @@ export async function CtaSection() {
   const t = await getTranslations("cta");
 
   return (
-    <section className="bg-dark-orange">
+    <section className="">
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-0">
-        <div className="relative h-72 overflow-hidden rounded-2xl lg:my-12 lg:h-80">
+        <div className="relative h-72 overflow-hidden rounded-2xl lg:my-12 lg:h-140">
           <Image
-            src="/images/consultant.png"
+            src="/images/girl-on-phone.png"
             alt="Consultant on a call"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

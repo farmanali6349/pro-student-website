@@ -17,9 +17,11 @@
   --color-primary-foreground: #ffffff;
   --color-accent: #ffc116;
   --color-accent-foreground: #3a3a3c;
+  --color-cream: #fff6c0;
 
   /* Fonts */
   --font-sans: var(--font-inter), "Inter Fallback", sans-serif;
+  /* --font-sans: var(--font-inter), "Inter Fallback", sans-serif; */
   --font-arabic: var(--font-tajawal), "Tajawal Fallback", sans-serif;
 
   --radius: 0.75rem;
@@ -49,12 +51,7 @@ body {
 
 /* Hero gradient: dark-orange 0% -> light-orange 34% -> white 100% */
 .hero-gradient {
-  background: linear-gradient(
-    180deg,
-    #f8801f 0%,
-    #ffc116 34%,
-    #ffffff 100%
-  );
+  background: linear-gradient(180deg, #f8801f 0%, #ffc116 34%, #ffffff 100%);
 }
 
 /* Destination card image overlay */
@@ -73,4 +70,15 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.page-gradient {
+  background: linear-gradient(
+    to bottom,
+    var(--color-background) 10%,
+    var(--color-light-orange) 40%,
+    var(--color-dark-orange) 40%,
+    var(--color-light-orange) 6%,
+    var(--color-background) 100%
+  );
 }

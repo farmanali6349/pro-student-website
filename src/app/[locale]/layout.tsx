@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Tajawal } from "next/font/google";
+import { Inter, Tajawal, Poppins } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -13,6 +13,12 @@ type Props = {
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+const popppins = Poppins({
+  weight: ["100", "400", "600", "700", "800"],
+  variable: "--font-poppin",
   subsets: ["latin"],
   display: "swap",
 });
@@ -47,7 +53,7 @@ export default async function RootLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={dir}
-      className={`${inter.variable} ${tajawal.variable} h-full bg-background antialiased`}
+      className={`${inter.variable} ${popppins.variable} ${tajawal.variable} h-full bg-background antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>

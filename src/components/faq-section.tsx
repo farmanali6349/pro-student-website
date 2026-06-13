@@ -12,7 +12,7 @@ export function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-white py-14 sm:py-16">
+    <section id="faq" className="py-14 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.6fr]">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-dark-orange">
@@ -21,12 +21,12 @@ export function FaqSection() {
           <h2 className="mt-2 text-2xl font-extrabold text-gray-dark sm:text-3xl">
             {t("title")}
           </h2>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-gray-light">
+          <p className="mt-3 max-w-xs text-sm leading-relaxed">
             {t("description")}
           </p>
           <button
             type="button"
-            className="mt-6 rounded-lg bg-dark-orange px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-red"
+            className="mt-6 rounded-lg bg-dark-orange px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-red cursor-pointer"
           >
             {t("contactButton")}
           </button>
@@ -36,30 +36,23 @@ export function FaqSection() {
           {items.map((item, i) => {
             const isOpen = open === i;
             return (
-              <div
-                key={i}
-                className="overflow-hidden rounded-xl border border-black/10 bg-white"
-              >
+              <div key={i} className="overflow-hidden border-b border-b-black">
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-start"
+                  className="flex w-full items-center justify-between gap-4 py-4 text-start"
                 >
-                  <span className="text-sm font-semibold text-gray-dark">
-                    {item.q}
-                  </span>
+                  <span className="text-lg font-semibold">{item.q}</span>
                   <Icon
                     icon="lucide:chevron-down"
                     width={20}
-                    className={`shrink-0 text-dark-orange transition-transform ${
+                    className={`shrink-0 transition-transform ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-gray-light">
-                    {item.a}
-                  </p>
+                  <p className="pb-5 text-base leading-relaxed">{item.a}</p>
                 )}
               </div>
             );
