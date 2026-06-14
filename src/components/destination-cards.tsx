@@ -30,7 +30,11 @@ export async function DestinationsCards({
             .map((city) => (
               <DestinationCard
                 key={city.id}
-                image={`/images/destinations/cities/${city.image}`}
+                image={
+                  city.image
+                    ? `/images/destinations/cities/${city.image}`
+                    : `/images/destinations/cities/city-placeholder.jpg`
+                }
                 alt={tx(city.name, locale)}
                 name={tx(city.name, locale)}
                 labelCount={13}

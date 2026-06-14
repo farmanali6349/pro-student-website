@@ -95,7 +95,7 @@
       "ar": "مركز عالمي للتاريخ والفنون والثقافة."
     },
     "slug": "london",
-    "image": "london.png",
+    "image": "",
     "countryId": 3
   },
   {
@@ -106,7 +106,7 @@
       "ar": "التميز الأكاديمي المشهور عالميًا."
     },
     "slug": "cambridge",
-    "image": "cambridge.png",
+    "image": "",
     "countryId": 3
   },
   {
@@ -117,7 +117,7 @@
       "ar": "مدينة الأبراج الحالمة الشهيرة."
     },
     "slug": "oxford",
-    "image": "oxford.png",
+    "image": "",
     "countryId": 3
   },
   {
@@ -128,7 +128,7 @@
       "ar": "مدينة ساحلية حيوية ذات روح إبداعية."
     },
     "slug": "brighton",
-    "image": "brighton.png",
+    "image": "",
     "countryId": 3
   },
   {
@@ -139,7 +139,7 @@
       "ar": "إطلالات الميناء الشهيرة والشواطئ الحضرية."
     },
     "slug": "sydney",
-    "image": "sydney.png",
+    "image": "",
     "countryId": 4
   },
   {
@@ -150,7 +150,7 @@
       "ar": "عاصمة الثقافة والقهوة في أستراليا."
     },
     "slug": "melbourne",
-    "image": "melbourne.png",
+    "image": "",
     "countryId": 4
   },
   {
@@ -161,7 +161,7 @@
       "ar": "مدينة مشمسة وحديثة تقع على ضفاف نهر متعرج."
     },
     "slug": "brisbane",
-    "image": "brisbane.png",
+    "image": "",
     "countryId": 4
   },
   {
@@ -172,7 +172,7 @@
       "ar": "حيث تلتقي الحياة الحضرية البسيطة بالطبيعة البكر."
     },
     "slug": "perth",
-    "image": "perth.png",
+    "image": "",
     "countryId": 4
   },
   {
@@ -183,7 +183,7 @@
       "ar": "مدينة ودودة غنية بالتاريخ الأدبي."
     },
     "slug": "dublin",
-    "image": "dublin.png",
+    "image": "",
     "countryId": 5
   },
   {
@@ -194,7 +194,7 @@
       "ar": "مدينة بحرية نابضة بالحياة وتتميز بتراثها العريق في الطهي."
     },
     "slug": "cork",
-    "image": "cork.png",
+    "image": "",
     "countryId": 5
   },
   {
@@ -205,7 +205,7 @@
       "ar": "القلب الثقافي البوهيمي لأيرلندا."
     },
     "slug": "galway",
-    "image": "galway.png",
+    "image": "",
     "countryId": 5
   },
   {
@@ -216,7 +216,7 @@
       "ar": "مدينة أثرية عريقة تعد بوابة تاريخية غنية."
     },
     "slug": "drogheda",
-    "image": "drogheda.png",
+    "image": "",
     "countryId": 5
   },
   {
@@ -227,7 +227,7 @@
       "ar": "مناظر طبيعية خلابة وتراث غني."
     },
     "slug": "cape-town",
-    "image": "cape-town.png",
+    "image": "",
     "countryId": 6
   },
   {
@@ -238,7 +238,7 @@
       "ar": "مركز ساحلي حيوي مثالي لطلاب اللغة."
     },
     "slug": "st-julians",
-    "image": "st-julians.png",
+    "image": "",
     "countryId": 7
   }
 ]
