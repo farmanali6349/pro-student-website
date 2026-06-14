@@ -1,4 +1,5 @@
-import { getLocale } from "next-intl/server";
+"use client";
+
 import Image from "next/image";
 
 type Props = {
@@ -6,14 +7,15 @@ type Props = {
   description: string;
   image: string;
   cta: string;
+  locale: "en" | "ar";
 };
-export default async function InstituteCard({
+export default function InstituteCard({
   name,
   description,
   image,
   cta,
+  locale,
 }: Props) {
-  const locale = await getLocale();
   return (
     <article className="flex h-full w-full flex-col overflow-hidden rounded-2xl bg-dark-orange shadow-sm ring-1 ring-black/5">
       <div className="relative h-60">

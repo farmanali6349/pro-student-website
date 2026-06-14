@@ -19,6 +19,7 @@ export async function InstitutesSection() {
               description={tx(school.description, locale)}
               image={school.image || "school-placeholder.jpg"}
               cta={t("explore")}
+              locale={locale}
             />
           ))}
         </Carousel>

@@ -58,7 +58,7 @@
       "ar": "تقدم مجموعة متنوعة من البرامج في لندن. مدرسة بريطانية مرموقة معتمدة من المجلس الثقافي البريطاني."
     },
     "slug": "bayswater-english-school",
-    "image": "",
+    "image": "bayswater-english-school.png",
     "logo": "bayswater-english-school-logo.png",
     "cityId": 9
   },
@@ -70,7 +70,7 @@
       "ar": "شبكة مدارس عالمية تأسست عام 1953 في لندن، وتضم أكثر من 150 مدرسة في 40 دولة حول العالم."
     },
     "slug": "international-house",
-    "image": "",
+    "image": "international-house.png",
     "logo": "international-house-logo.png",
     "cityId": 9
   },
@@ -82,7 +82,7 @@
       "ar": "مدرسة لغات حديثة ومعتمدة لها مراكز في لندن ومانشستر، وتوفر بيئة تعليمية متطورة."
     },
     "slug": "english-path",
-    "image": "",
+    "image": "english-path.png",
     "logo": "english-path-logo.png",
     "cityId": 9
   },
@@ -94,7 +94,7 @@
       "ar": "تأسس عام 1965، وله أكثر من 12 مركزاً في المملكة المتحدة والولايات المتحدة الأمريكية وكندا وسويسرا."
     },
     "slug": "lsi-language-school",
-    "image": "",
+    "image": "lsi-language-school.png",
     "logo": "lsi-language-school-logo.png",
     "cityId": 5
   },
@@ -106,7 +106,7 @@
       "ar": "وهي مدرسة بريطانية معتمدة لها مراكز في قلب المدن البريطانية الكبرى، وتقدم برامج متخصصة مكثفة."
     },
     "slug": "oxford-international",
-    "image": "",
+    "image": "oxford.jpg",
     "logo": "oxford-international-logo.png",
     "cityId": 11
   },
@@ -118,7 +118,7 @@
       "ar": "مجموعة أكاديمية بريطانية تضم العديد من الكليات المرموقة في لندن ومانشستر، معتمدة من المجلس الثقافي البريطاني."
     },
     "slug": "new-college-group",
-    "image": "",
+    "image": "new-college-group.png",
     "logo": "new-college-group-logo.png",
     "cityId": 9
   },
@@ -133,7 +133,7 @@
       "ar": "أكاديمية بريطانية معتمدة تقدم برامج متخصصة في بيئة تعليمية احترافية."
     },
     "slug": "britannia-english-academy",
-    "image": "",
+    "image": "britannia-english-academy.png",
     "logo": "britannia-english-academy-logo.png",
     "cityId": 9
   },
@@ -145,7 +145,7 @@
       "ar": "مركز متخصص لتعلم اللغة الإنجليزية يقدم مناهج معتمدة دولياً وطرق تدريس مبتكرة."
     },
     "slug": "elc-learning-centre",
-    "image": "",
+    "image": "elc-learning-centre.png",
     "logo": "elc-learning-centre-logo.png",
     "cityId": 12
   }

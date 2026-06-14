@@ -50,6 +50,11 @@
   "institutes": {
     "label": "INSTITUTES",
     "title": "Explore Institutes",
+    "filterCity": "Filter city",
+    "searchByName": "Search by name",
+    "allCities": "All cities",
+    "noResults": "No results found",
+    "noResultsDescription": "Try another city or institute name to see matching schools.",
     "explore": "Explore"
   },
   "courses": {

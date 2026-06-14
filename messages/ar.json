@@ -50,6 +50,11 @@
   "institutes": {
     "label": "المعاهد",
     "title": "استكشف المعاهد",
+    "filterCity": "تصفية المدينة",
+    "searchByName": "ابحث بالاسم",
+    "allCities": "كل المدن",
+    "noResults": "لم يتم العثور على نتائج",
+    "noResultsDescription": "حاول اسم مدينة آخر أو اسم معهد لعرض المدارس المتطابقة.",
     "explore": "استكشف"
   },
   "courses": {
