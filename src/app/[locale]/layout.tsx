@@ -56,6 +56,7 @@ export default async function RootLayout({ children, params }: Props) {
       lang={locale}
       dir={dir}
       className={`${inter.variable} ${popppins.variable} ${tajawal.variable} h-full bg-background antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider>

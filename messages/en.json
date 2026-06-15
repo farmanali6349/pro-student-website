@@ -277,6 +277,20 @@
     "noResults": "No results found",
     "noResultsDescription": "Try a different search term or sort option."
   },
+  "contactPage": {
+    "title": "Contact Us",
+    "description": "You can subscribe to our newsletter and stay updated with our latest offers. We are also happy to hear from you—our 'Pro Student' team welcomes your feedback and inquiries at the following addresses:",
+    "email": "Email",
+    "phone": "Phone Number",
+    "address": "Address",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "message": "Message",
+    "messagePlaceholder": "Your message",
+    "send": "Send",
+    "sent": "Sent",
+    "certificateTitle": "We are licensed as an authorized agent by ICEF."
+  },
   "notFound": {
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",

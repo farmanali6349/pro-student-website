@@ -114,15 +114,15 @@ export function Header() {
 
       {openMenu && (
         <div className="flex items-center justify-center">
-          <div className="py-4 w-full bg-white flex items-center justify-center gap-6 mx-auto px-4">
+          <div className="py-4 w-full bg-white flex flex-wrap px-4 items-center justify-center gap-2 sm:gap-4 mx-auto">
             {navLinks.map(({ href, icon, label }) => (
               <Link
                 key={label}
                 href={href(locale)}
-                className="flex flex-col gap-2 items-center justify-center font-medium hover:text-dark-orange transition"
+                className="flex flex-col gap-1 items-center justify-center font-medium hover:text-dark-orange transition"
               >
                 <Icon icon={icon} className="size-6" />
-                <span className="text-nowrap">{navT(label)}</span>
+                <span className="text-nowrap text-sm">{navT(label)}</span>
               </Link>
             ))}
           </div>
