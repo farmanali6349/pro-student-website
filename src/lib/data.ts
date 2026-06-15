@@ -7,6 +7,7 @@ import citiesData from "../../public/data/_cities.json";
 import schoolsData from "../../public/data/_schools.json";
 import categoriesData from "../../public/data/_categories.json";
 import coursesData from "../../public/data/_courses.json";
+import blogsData from "../../public/data/blogs.json";
 
 export type Locale = "en" | "ar";
 
@@ -73,13 +74,22 @@ export type Course2 = {
   category: number; // link with CourseCategory such as (Language, IELTS, Dimploma, Certificate, Bachelor Program)
 };
 
+export type Blog = {
+  id: number;
+  title: Localized;
+  description: Localized;
+  image: string;
+  content: Localized; // html content can converted by html-react-parser
+  publishedAt: Localized;
+};
+
 export const regions = regionsData as Region[];
 export const countries = countriesData as Country[];
 export const cities = citiesData as City[];
 export const schools = schoolsData as School[];
 export const courses = coursesData as Course2[];
 export const categories = categoriesData as CourseCategory[];
-
+export const blogs = blogsData as Blog[];
 /** Resolve a localized field for the given locale. */
 export function tx(value: Localized, locale: Locale): string {
   return value[locale] ?? value.en;

@@ -8,7 +8,8 @@
   },
   "ctas": {
     "seeReviews": "See Reviews",
-    "explore": "Explore"
+    "explore": "Explore",
+    "readMore": "Read More"
   },
   "nav": {
     "destinations": "Destinations",
@@ -16,7 +17,8 @@
     "courses": "Courses",
     "about": "About",
     "contact": "Contact",
-    "home": "Home"
+    "home": "Home",
+    "blogs": "Blogs"
   },
   "hero": {
     "title": "Start your journey today and learn at the world's best institutes.",
@@ -260,6 +262,20 @@
       "applyNow": "Apply Now",
       "learnMore": "Learn More"
     }
+  },
+  "blogsPage": {
+    "label": "BLOGS FILTER",
+    "title": "Find the blog article you need",
+    "description": "Search by title or description and sort by date while keeping the same blog cards layout.",
+    "search": "Search",
+    "searchPlaceholder": "Search blog title or description",
+    "sortDate": "Sort by date",
+    "sortDefault": "Default order",
+    "sortNewest": "Newest first",
+    "sortOldest": "Oldest first",
+    "results": "results found",
+    "noResults": "No results found",
+    "noResultsDescription": "Try a different search term or sort option."
   },
   "notFound": {
     "title": "Page not found",

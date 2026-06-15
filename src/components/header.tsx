@@ -7,9 +7,42 @@ import { useState } from "react";
 import Link from "next/link";
 export function Header() {
   const t = useTranslations("header");
-  const locale = useLocale();
+  const locale = useLocale() as "en" | "ar";
   const navT = useTranslations("nav");
   const [openMenu, setOpenMenu] = useState(false);
+  const navLinks = [
+    {
+      href: (locale: "en" | "ar") => `/${locale}`,
+      icon: "lucide:home",
+      label: "home",
+    },
+    {
+      href: (locale: "en" | "ar") => `/${locale}/courses`,
+      icon: "lucide:book-open-check",
+      label: "courses",
+    },
+    {
+      href: (locale: "en" | "ar") => `/${locale}/institutes`,
+      icon: "lucide:school",
+      label: "institutes",
+    },
+    {
+      href: (locale: "en" | "ar") => `/${locale}/destinations`,
+      icon: "iconoir:globe",
+      label: "destinations",
+    },
+    {
+      href: (locale: "en" | "ar") => `/${locale}/blogs`,
+      icon: "material-symbols:article-outline",
+      label: "blogs",
+    },
+    {
+      href: (locale: "en" | "ar") => `/${locale}/contact`,
+      icon: "bytesize:telephone",
+      label: "contact",
+      nowrap: true, // optional flag for text-nowrap
+    },
+  ];
 
   return (
     <header className="relative z-30" dir="ltr">
@@ -80,35 +113,19 @@ export function Header() {
       </div>
 
       {openMenu && (
-        <div className="py-4 w-full bg-white flex items-center justify-between gap-6 mx-auto max-w-100 px-4">
-          <Link
-            href={"/" + locale}
-            className="flex flex-col gap-2 items-center justify-center"
-          >
-            <Icon icon={"lucide:home"} className="size-8" />
-            {navT("home")}
-          </Link>
-          <Link
-            href={`/${locale}/courses`}
-            className="flex flex-col gap-2 items-center justify-center"
-          >
-            <Icon icon={"lucide:book-open-check"} className="size-8" />
-            {navT("courses")}
-          </Link>
-          <Link
-            href={`/${locale}/institutes`}
-            className="flex flex-col gap-2 items-center justify-center"
-          >
-            <Icon icon={"lucide:school"} className="size-8" />
-            {navT("institutes")}
-          </Link>
-          <Link
-            href={`/${locale}/destinations`}
-            className="flex flex-col gap-2 items-center justify-center"
-          >
-            <Icon icon={"iconoir:globe"} className="size-8" />
-            {navT("destinations")}
-          </Link>
+        <div className="flex items-center justify-center">
+          <div className="py-4 w-full bg-white flex items-center justify-center gap-6 mx-auto px-4">
+            {navLinks.map(({ href, icon, label }) => (
+              <Link
+                key={label}
+                href={href(locale)}
+                className="flex flex-col gap-2 items-center justify-center font-medium hover:text-dark-orange transition"
+              >
+                <Icon icon={icon} className="size-6" />
+                <span className="text-nowrap">{navT(label)}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </header>
