@@ -5,7 +5,8 @@ import regionsData from "../../public/data/regions.json";
 import countriesData from "../../public/data/_countries.json";
 import citiesData from "../../public/data/_cities.json";
 import schoolsData from "../../public/data/_schools.json";
-import coursesData from "../../public/data/courses.json";
+import categoriesData from "../../public/data/_categories.json";
+import coursesData from "../../public/data/_courses.json";
 
 export type Locale = "en" | "ar";
 
@@ -53,11 +54,31 @@ export type Course = {
   schoolIds: string[];
 };
 
+export type CourseCategory = {
+  id: number;
+  name: Localized;
+  description?: Localized;
+};
+export type Course2 = {
+  id: string;
+  name: Localized;
+  description: Localized;
+  image: string;
+  discount: number; // percent
+  instituteIds: number[]; // link to institutes offering this course
+  week: number; // number of weeks
+  lessons?: number;
+  requiredLevel?: Localized; // Beginner, Intermediate, Expert
+  price: number;
+  category: number; // link with CourseCategory such as (Language, IELTS, Dimploma, Certificate, Bachelor Program)
+};
+
 export const regions = regionsData as Region[];
 export const countries = countriesData as Country[];
 export const cities = citiesData as City[];
 export const schools = schoolsData as School[];
-export const courses = coursesData as Course[];
+export const courses = coursesData as Course2[];
+export const categories = categoriesData as CourseCategory[];
 
 /** Resolve a localized field for the given locale. */
 export function tx(value: Localized, locale: Locale): string {
@@ -70,6 +91,6 @@ export function schoolsByCity(cityId: number): School[] {
 }
 
 /** Courses available at a given school. */
-export function coursesBySchool(schoolId: string): Course[] {
-  return courses.filter((c) => c.schoolIds.includes(schoolId));
+export function coursesBySchool(schoolId: number): Course2[] {
+  return courses.filter((c) => c.instituteIds.includes(schoolId));
 }

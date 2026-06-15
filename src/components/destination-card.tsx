@@ -18,7 +18,7 @@ export default function DestinationCard({
   return (
     <article className="group relative h-105 overflow-hidden rounded-2xl">
       <Image
-        src={`/images/destinations/cities/${image}`}
+        src={image}
         alt={alt}
         fill
         sizes="(max-width: 768px) 80vw, 25vw"

@@ -125,7 +125,11 @@ export function DestinationsFilter() {
                   {cities.map((city) => (
                     <DestinationCard
                       key={city.id}
-                      image={city.image || "city-placeholder.jpg"}
+                      image={
+                        city?.image
+                          ? `/images/destinations/cities/${city.image}`
+                          : `/images/destinations/cities/city-placeholder.jpg`
+                      }
                       alt={tx(city.name, locale)}
                       name={tx(city.name, locale)}
                       labelCount={13}

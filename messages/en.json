@@ -235,6 +235,32 @@
       }
     ]
   },
+  "coursesPage": {
+    "filterLabel": "COURSES FILTER",
+    "filterTitle": "Find the right course for your goals",
+    "filterDescription": "Search by category, name, price or required level without changing the course cards layout.",
+    "category": "Category",
+    "allCategories": "All categories",
+    "search": "Search",
+    "searchPlaceholder": "Search course name",
+    "sortPrice": "Sort by price",
+    "sortDefault": "Default order",
+    "sortHigh": "Price high to low",
+    "sortLow": "Price low to high",
+    "requiredLevel": "Required Level",
+    "allLevels": "All levels",
+    "results": "results found",
+    "noCoursesFound": "No courses found",
+    "noCoursesFoundDescription": "Try a different category, search term, or required level.",
+    "courseCard": {
+      "lessons": "Lessons / Week",
+      "hours": "Hours / Week",
+      "required": "Required Level",
+      "sar": "SAR",
+      "applyNow": "Apply Now",
+      "learnMore": "Learn More"
+    }
+  },
   "notFound": {
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",

@@ -1,7 +1,9 @@
-import React from "react";
+import { CoursesFilter } from "@/components/courses-filter";
 
-const CoursesPage = () => {
-  return <div>Courses Page</div>;
-};
-
-export default CoursesPage;
+export default function InstitutesPage() {
+  return (
+    <div className="bg-linear-to-b from-dark-orange via-light-orange to-white w-full">
+      <CoursesFilter />
+    </div>
+  );
+}

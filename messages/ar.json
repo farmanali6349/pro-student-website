@@ -235,6 +235,32 @@
       }
     ]
   },
+  "coursesPage": {
+    "filterLabel": "تصفية الدورات",
+    "filterTitle": "اعثر على الدورة المناسبة لأهدافك",
+    "filterDescription": "ابحث حسب الفئة، الاسم، السعر، أو المستوى المطلوب مع الحفاظ على شكل بطاقات الدورة.",
+    "category": "الفئة",
+    "allCategories": "كل الفئات",
+    "search": "البحث",
+    "searchPlaceholder": "ابحث باسم الدورة",
+    "sortPrice": "ترتيب السعر",
+    "sortDefault": "الترتيب الافتراضي",
+    "sortHigh": "السعر من الأعلى إلى الأقل",
+    "sortLow": "السعر من الأقل إلى الأعلى",
+    "requiredLevel": "المستوى المطلوب",
+    "allLevels": "كل المستويات",
+    "results": "نتائج",
+    "noCoursesFound": "لم يتم العثور على دورات",
+    "noCoursesFoundDescription": "جرّب فئة مختلفة أو مصطلح بحث أو مستوى مطلوب آخر.",
+    "courseCard": {
+      "lessons": "دروس / أسبوع",
+      "hours": "ساعات / أسبوع",
+      "required": "المستوى المطلوب",
+      "sar": "ريال سعودي",
+      "applyNow": "قدّم الآن",
+      "learnMore": "اعرف المزيد"
+    }
+  },
   "notFound": {
     "title": "الصفحة غير موجودة",
     "description": "عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها.",
