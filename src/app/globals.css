@@ -82,3 +82,27 @@ body {
     var(--color-background) 100%
   );
 }
+
+.custom-scrollbar {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: orange #000;
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* adjust width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #000; /* scrollbar background */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-light-orange); /* scroll wheel color */
+  border-radius: 6px; /* optional rounded edges */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-orange); /* hover effect */
+}
