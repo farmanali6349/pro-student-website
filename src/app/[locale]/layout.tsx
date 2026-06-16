@@ -7,6 +7,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "../globals.css";
 import { CountryLinks } from "@/components/country-links";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   children: React.ReactNode;
@@ -50,6 +51,7 @@ export default async function RootLayout({ children, params }: Props) {
   }
 
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const t = await getTranslations("header");
 
   return (
     <html
@@ -61,6 +63,12 @@ export default async function RootLayout({ children, params }: Props) {
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider>
           <Header />
+          {/* Tagline strip */}
+          <div className="sticky top-0 left-0 z-20">
+            <p className="px-4 py-4 text-center font-bold tracking-wid mb-2 bg-white">
+              {t("tagline")}
+            </p>
+          </div>
           {children}
           <CountryLinks />
           <Footer />

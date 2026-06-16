@@ -32,11 +32,11 @@ export function FaqSection() {
           </button>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 h-100 overflow-y-auto">
           {items.map((item, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="overflow-hidden border-b border-b-black">
+              <div key={i} className="border-b border-b-black">
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}

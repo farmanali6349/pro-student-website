@@ -47,8 +47,8 @@ export async function CompleteSection() {
               className="rounded-2xl bg-linear-to-t from-dark-orange/50 to-white/30 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur-xs h-100 flex flex-col gap-10"
             >
               <div className="flex flex-col gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-light-orange/20 text-dark-orange">
-                  <Icon icon={card.icon} width={26} />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl">
+                  <Icon icon={card.icon} width={30} />
                 </div>
                 <h3 className="mt-4 text-xl font-bold text-gray-dark">
                   {card.title}
