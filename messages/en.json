@@ -99,24 +99,48 @@
     "contactButton": "Contact Us",
     "items": [
       {
-        "q": "How long does the application process take to receive a decision?",
-        "a": "The application process usually takes between 2 to 6 weeks, depending on the university and program. Some universities respond faster, while others may take longer during busy admission periods."
+        "q": "Which countries are best for studying ESL?",
+        "a": "Popular destinations include the United States, Canada, and Australia. The best choice depends on your budget, study goals, preferred location, and visa requirements."
       },
       {
-        "q": "How much is the application fee?",
-        "a": "Application fees vary by institution and program. Our advisors will share the exact amounts before you apply, and many partner schools waive the fee entirely."
+        "q": "How much does an ESL program cost?",
+        "a": "The cost of an ESL program depends on the destination, school, course length, and accommodation option selected. We can provide a personalized quotation based on the student's preferences and study goals."
       },
       {
-        "q": "Do you provide visa support?",
-        "a": "Yes. We guide you through every step of the student visa process, from document preparation to interview coaching."
+        "q": "What are the admission requirements?",
+        "a": "Admission requirements usually include a valid passport and proof of funds. Additional requirements may vary depending on the country, school, and program selected."
       },
       {
-        "q": "What countries do you work with?",
-        "a": "We work with leading institutions across the United States, United Kingdom, Canada, and Australia, with more destinations added regularly."
+        "q": "How long can I study ESL?",
+        "a": "Programs can range from a few weeks to one year or longer, depending on your visa and study goals."
       },
       {
-        "q": "What is the duration of the course?",
-        "a": "Course durations range from a couple of weeks to a full academic year, depending on the programme and your goals."
+        "q": "Can you help me obtain a student visa?",
+        "a": "Yes, we can guide you through the visa application process and help prepare the required documents."
+      },
+      {
+        "q": "What accommodation options are available?",
+        "a": "You can choose from homestays, student residences, shared apartments."
+      },
+      {
+        "q": "Which school do you recommend for my budget?",
+        "a": "After reviewing your budget and goals, we can recommend schools that offer quality education at a suitable cost."
+      },
+      {
+        "q": "Are there any scholarships or discounts available?",
+        "a": "Some schools offer promotions, discounts, We can check the current offers for you."
+      },
+      {
+        "q": "What is included in your agency service?",
+        "a": "Our services may include school placement, application processing, visa guidance, accommodation assistance, and pre-departure support."
+      },
+      {
+        "q": "How long does the application process take?",
+        "a": "It usually takes a few days to receive an offer letter, while visa processing times vary by country."
+      },
+      {
+        "q": "Will I receive a certificate?",
+        "a": "Yes, most ESL schools provide a certificate showing your attendance and English level achieved."
       }
     ]
   },
