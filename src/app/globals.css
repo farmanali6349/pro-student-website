@@ -86,7 +86,7 @@ body {
 .custom-scrollbar {
   /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: orange #000;
+  scrollbar-color: var(--color-gray-light) #00000000;
 }
 
 /* Chrome, Edge, Safari */
@@ -95,14 +95,14 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #000; /* scrollbar background */
+  background: #00000000; /* scrollbar background */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--color-light-orange); /* scroll wheel color */
+  background: var(--color-gray-light); /* scroll wheel color */
   border-radius: 6px; /* optional rounded edges */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--color-dark-orange); /* hover effect */
+  background: var(--color-gray-light); /* hover effect */
 }
