@@ -51,13 +51,13 @@ export function Header() {
   ];
 
   return (
-    <header className="relative z-30" dir="ltr">
+    <header dir="ltr">
       <div className="bg-white h-25">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
           {/* Left cluster */}
           <div className="flex items-center gap-3 sm:gap-5">
             <a
-              href="tel:0580666525"
+              href="tel:966580666525"
               className="flex items-center gap-1.5 text-sm font-medium text-gray-dark transition hover:text-dark-orange"
             >
               <Icon
@@ -65,12 +65,16 @@ export function Header() {
                 width={16}
                 className="text-dark-orange"
               />
-              <span className="hidden sm:inline">{t("phone")}</span>
+              <span className="hidden sm:inline" dir="ltr">
+                +966 58 066 6525
+              </span>
             </a>
             <span className="hidden h-4 w-px bg-black/10 sm:block" />
             <LanguageSwitcher />
             <span className="hidden h-4 w-px bg-black/10 sm:block" />
-            <button
+            <Link
+              href={"https://maps.app.goo.gl/oUMif88UVAuj2jqe7"}
+              target="_blank"
               type="button"
               className="hidden items-center gap-1.5 text-sm font-medium text-gray-dark transition hover:text-dark-orange sm:flex"
             >
@@ -80,7 +84,7 @@ export function Header() {
                 className="text-dark-orange"
               />
               {t("officeLocation")}
-            </button>
+            </Link>
           </div>
 
           {/* Center logo */}
@@ -111,15 +115,11 @@ export function Header() {
         </div>
       </div>
 
-      {/* Tagline strip */}
-      <div className="">
-        <p className="px-4 text-center font-bold tracking-wid mb-2">
-          {t("tagline")}
-        </p>
-      </div>
-
       {openMenu && (
-        <div className="flex items-center justify-center">
+        <div
+          className="flex items-center justify-center"
+          dir={locale === "en" ? "ltr" : "rtl"}
+        >
           <div className="py-4 w-full bg-white flex flex-wrap px-4 items-center justify-center gap-2 sm:gap-4 mx-auto">
             {navLinks.map(({ href, icon, label }) => (
               <Link

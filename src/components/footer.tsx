@@ -83,21 +83,15 @@ export async function Footer() {
             <h3 className="mb-4 text-sm font-bold">{t("getInTouch")}</h3>
             <div className="flex flex-col gap-1">
               <a
-                href="tel:966530896716"
+                href="tel:966580666525"
                 className="flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
               >
                 <Icon icon="lucide:phone" width={14} />
-                +966 53 089 6716
+                <span dir="ltr">+966 58 066 6525</span>
               </a>
               <a
-                href="tel:9660504782222"
-                className="flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
-              >
-                <Icon icon="lucide:phone" width={14} />
-                +966 050 478 2222
-              </a>
-              <a
-                href="#"
+                href="https://maps.app.goo.gl/oUMif88UVAuj2jqe7"
+                target="_blank"
                 className="mt-2 flex items-center gap-2 text-xs text-white/70 transition hover:text-light-orange"
               >
                 <div className="size-14 h-fit">

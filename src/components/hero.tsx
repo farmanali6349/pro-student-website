@@ -9,17 +9,18 @@ export async function Hero() {
   return (
     <section className="relative overflow-hidden hero-gradient">
       {/* BG Layer */}
-      {/* <div className="absolute inset-0 flex items-end justify-center overflow-hidden hero-gradient">
+      <div className="absolute inset-0 flex items-end justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-t"></div>
         <Image
-          src="/images/hero-bg.png"
+          src="/images/hero-bg2.png"
           alt="Pro Student"
           width={500}
           height={500}
-          className="absolute h-full w-auto -bottom-50"
+          className="h-auto w-full max-w-150"
         />
-      </div> */}
+      </div>
       {/* <div className="absolute inset-0 hero-gradient"></div> */}
-      <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:pb-24 lg:pt-14">
+      <div className="relative z-2 mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:pb-24 lg:pt-14">
         <div className="grid items-start gap-8 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <h1 className="max-w-3xl text-balance text-3xl font-extrabold leading-tight text-gray-dark">

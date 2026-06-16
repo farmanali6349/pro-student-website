@@ -59,7 +59,7 @@ export function HeroForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="glass rounded-2xl p-4 shadow-2xl sm:p-5"
+      className="backdrop-blur-xs bg-white/20 border-1/2 border-white/40 rounded-2xl p-4 shadow-2xl sm:p-5"
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {/* Destination */}
@@ -158,7 +158,7 @@ export function HeroForm() {
       </div>
 
       {/* Yes / No options */}
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         <YesNo
           label={t("accommodation")}
           name="accommodation"
@@ -175,16 +175,14 @@ export function HeroForm() {
           yes={t("yes")}
           no={t("no")}
         />
-      </div>
-
-      <div className="mt-6">
-        <button
-          type="submit"
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-dark-orange px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red"
-        >
-          <Icon icon="lucide:search" width={18} />
-          Get A Quote
-        </button>
+        <div className="mt-6">
+          <button
+            type="submit"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-dark-orange px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red"
+          >
+            {t("search")}
+          </button>
+        </div>
       </div>
     </form>
   );
@@ -229,7 +227,7 @@ function YesNo({
             className={`inline-flex items-center gap-2 rounded-md border px-3 py-1 text-xs font-semibold transition ${
               value === opt.v
                 ? "bg-dark-orange text-white border-dark-orange"
-                : "bg-white/70 text-gray-dark border-transparent hover:bg-white"
+                : "bg-transparent hover:bg-white/50 border-transparent"
             }`}
           >
             <input
