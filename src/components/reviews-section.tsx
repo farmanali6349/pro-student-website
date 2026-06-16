@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Icon } from "@iconify/react";
 import { Carousel } from "./carousel";
-
+import Link from "next/link";
 type Review = { name: string; time: string; text: string };
 
 export function ReviewsSection() {
@@ -61,12 +61,16 @@ export function ReviewsSection() {
           </Carousel>
         </div>
         <div className="mt-8 flex justify-center">
-          <button
-            type="button"
+          <Link
+            href={
+              "https://www.google.com/maps/place/%D8%A7%D9%84%D8%B7%D8%A7%D9%84%D8%A8+%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D8%B1%D9%81+%D8%A7%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9+%D8%A8%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC%E2%80%AD/@24.7917656,46.6455765,17z/data=!4m8!3m7!1s0x3e2ee38770eb7917:0x1ca7174ebb00e878!8m2!3d24.7917656!4d46.6481568!9m1!1b1!16s%2Fg%2F11rw_rlwxc?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D"
+            }
+            target="_blank"
+            // type="button"
             className="rounded-lg bg-light-orange px-6 py-3 text-sm font-bold text-gray-dark shadow-md transition hover:bg-dark-orange hover:text-white"
           >
             {t("rateButton")}
-          </button>
+          </Link>
         </div>
       </div>
     </section>

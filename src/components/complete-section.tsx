@@ -44,7 +44,7 @@ export async function CompleteSection() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="rounded-2xl bg-linear-to-t from-dark-orange/50 to-white/30 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur-xs h-100 flex flex-col gap-10"
+              className="rounded-2xl bg-linear-to-t from-dark-orange to-white/30 p-6 shadow-sm ring-1 ring-black/5 backdrop-blur-xs h-100 flex flex-col gap-10"
             >
               <div className="flex flex-col gap-5">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl">

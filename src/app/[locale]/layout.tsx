@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer";
 import "../globals.css";
 import { CountryLinks } from "@/components/country-links";
 import { getTranslations } from "next-intl/server";
+import WhatsappWidget from "@/components/whats-app-widget";
 
 type Props = {
   children: React.ReactNode;
@@ -72,6 +73,7 @@ export default async function RootLayout({ children, params }: Props) {
           {children}
           <CountryLinks />
           <Footer />
+          <WhatsappWidget />
         </NextIntlClientProvider>
       </body>
     </html>

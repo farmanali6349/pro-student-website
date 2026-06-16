@@ -22,22 +22,26 @@
     "requestVisa": "Request Visa"
   },
   "hero": {
-    "title": "Start your journey today and learn at the world's best institutes.",
-    "description": "We are proud to have Saudi consultants who are graduates of American universities, to help you confidently choose your educational path.",
-    "description2": "Start your journey today and explore the best study abroad opportunities.",
-    "selectDestination": "Select Destination",
-    "selectSchool": "Select School",
+    "title": "Start your journey today and learn at the world's best institutes",
+    "description": "We are proud of our Saudi advisors, graduates of American universities, ready to help you confidently choose your educational path",
+    "description2": "Explore the best study abroad opportunities",
+    "selectDestination": "Study Destination",
+    "selectDestinationPlaceholder": "Country",
+    "selectSchool": "Institute",
+    "selectSchoolPlaceholder": "School",
     "selectCourse": "Select Course / Degree",
     "courseStartDate": "Course Start Date",
+    "courseStartDatePlaceholder": "Choose start date",
     "courseDuration": "Course Duration (Weeks)",
-    "accommodation": "Do You Need Accommodation?",
-    "airportPickup": "Do You Need Airport Pickup?",
+    "courseDurationPlaceholder": "Number of weeks",
+    "accommodation": "Accommodation",
+    "airportPickup": "Airport Pickup",
     "yes": "Yes",
     "no": "No",
     "search": "Search",
-    "getAQuote": "Get A Quote",
-    "reviewsTitle": "Read what our learners think about us",
-    "reviewsCount": "100+",
+    "getAQuote": "Get a Quote",
+    "reviewsTitle": "Read what learners say about us",
+    "reviewsCount": "+100",
     "rating": "4.9"
   },
   "destinations": {
@@ -156,7 +160,8 @@
     "phone": "Phone",
     "phonePlaceholder": "+966",
     "schedule": "SCHEDULE A CONSULTATION",
-    "submit": "Submit"
+    "submit": "Submit",
+    "contactLine": "Need help? Request your advisor"
   },
   "reviews": {
     "title": "Student Reviews",
@@ -185,21 +190,23 @@
     ]
   },
   "footer": {
-    "about": "Begin your academic journey now with academic advisors who are graduates of American universities. Through our partnerships with international institutions and universities, we strive to provide the best educational opportunities and help you achieve your goals with confidence.",
+    "about": "Start your study journey now with academic advisors who are graduates of American universities. Through our partnerships with international institutes and universities, we strive to provide the best educational opportunities and help you achieve your goals with confidence.",
     "studyAbroad": "Study Abroad",
     "services": "Services",
     "company": "Company",
-    "sources": "Sources",
-    "getInTouch": "Get in touch",
+    "sources": "Resources",
+    "getInTouch": "Get in Touch",
     "rights": "© 2026 Pro Student. All rights reserved.",
     "links": {
       "institutes": "Institutes",
-      "visaApplication": "Visa application",
+      "visaApplication": "Visa Application",
       "offers": "Offers",
-      "aboutCompany": "About the company",
-      "terms": "Terms and Conditions",
-      "getQuote": "Get a quote",
-      "articles": "Articles"
+      "aboutCompany": "About Company",
+      "refundPolicy": "Refund Policy",
+      "termsAndCondition": "Terms and Conditions",
+      "getQuote": "Get a Quote",
+      "articles": "Articles",
+      "sources": "Resources"
     },
     "studyingEnglish": "Studying English in Britain",
     "recommendedSchools": "Recommended language schools",

@@ -13,10 +13,26 @@ export async function Footer() {
   ];
 
   const socials = [
-    "ri:twitter-x-fill",
-    "mdi:instagram",
-    "ic:baseline-whatsapp",
-    "mdi:linkedin",
+    {
+      icon: "ri:twitter-x-fill",
+      href: " https://x.com/prostudent_sa1?s=21&t=vBm6wMn94WQxunzIFhN6Yw",
+      label: "X",
+    },
+    {
+      icon: "mdi:instagram",
+      href: "https://www.instagram.com/prostudent_sa1",
+      label: "Instagram",
+    },
+    {
+      icon: "ic:baseline-whatsapp",
+      href: "https://wa.me/966580666525",
+      label: "Whatsapp",
+    },
+    {
+      icon: "mingcute:snapchat-line",
+      href: "https://snapchat.com/t/UHZPEO9D",
+      label: "Snapchat",
+    },
   ];
 
   return (
@@ -48,7 +64,8 @@ export async function Footer() {
 
       {/* Main dark footer */}
       <div className="bg-gray-dark text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-5">
+          {/* [1.6fr_1fr_1fr_1.2fr] */}
           <div>
             <Image
               src="/logo.png"
@@ -74,8 +91,16 @@ export async function Footer() {
             title={t("company")}
             links={[
               t("links.aboutCompany"),
-              t("links.terms"),
+              t("links.refundPolicy"),
+              t("links.termsAndCondition"),
+            ]}
+          />
+          <FooterColumn
+            title={t("sources")}
+            links={[
+              t("links.offers"),
               t("links.getQuote"),
+              t("links.articles"),
             ]}
           />
 
@@ -101,14 +126,15 @@ export async function Footer() {
                 الاول-مكتب ١١, District, 3776 Dajla Street, AlSahafa, Riyadh
               </a>
               <div className="mt-4 flex gap-3">
-                {socials.map((icon) => (
+                {socials.map((soc) => (
                   <a
-                    key={icon}
-                    href="#"
-                    aria-label={icon}
+                    target="_blank"
+                    key={soc.href}
+                    href={soc.href}
+                    aria-label={soc.label}
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-dark-orange"
                   >
-                    <Icon icon={icon} width={16} />
+                    <Icon icon={soc.icon} width={16} />
                   </a>
                 ))}
               </div>

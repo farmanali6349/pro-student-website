@@ -15,7 +15,7 @@ export async function InstitutesSection() {
           {schools.map((school) => (
             <InstituteCard
               key={school.id}
-              name={tx(school.name, locale)}
+              name={tx(school.name, "en")}
               description={tx(school.description, locale)}
               image={school.image || "school-placeholder.jpg"}
               cta={t("explore")}

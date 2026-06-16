@@ -11,10 +11,26 @@ type ContactValues = {
 };
 
 const socials = [
-  { icon: "ic:baseline-call", href: "#", label: "Call" },
-  { icon: "ic:baseline-whatsapp", href: "#", label: "WhatsApp" },
-  { icon: "ri:twitter-x-fill", href: "#", label: "X" },
-  { icon: "mdi:instagram", href: "#", label: "Instagram" },
+  {
+    icon: "ri:twitter-x-fill",
+    href: " https://x.com/prostudent_sa1?s=21&t=vBm6wMn94WQxunzIFhN6Yw",
+    label: "X",
+  },
+  {
+    icon: "mdi:instagram",
+    href: "https://www.instagram.com/prostudent_sa1",
+    label: "Instagram",
+  },
+  {
+    icon: "ic:baseline-whatsapp",
+    href: "https://wa.me/966580666525",
+    label: "Whatsapp",
+  },
+  {
+    icon: "mingcute:snapchat-line",
+    href: "https://snapchat.com/t/UHZPEO9D",
+    label: "Snapchat",
+  },
 ];
 
 export function ContactSection() {
@@ -52,6 +68,7 @@ export function ContactSection() {
                 href={s.href}
                 aria-label={s.label}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-dark-orange text-white transition hover:bg-red"
+                target="_blank"
               >
                 <Icon icon={s.icon} width={20} />
               </a>
@@ -103,6 +120,8 @@ export function ContactSection() {
               <span className="mt-1 block text-xs text-red">required</span>
             )}
           </div>
+
+          <p className="font-bold text-lg">{t("schedule")}</p>
           <button
             type="submit"
             className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-dark-orange py-3 text-sm font-bold text-white transition hover:bg-red w-fit px-3 cursor-pointer"
