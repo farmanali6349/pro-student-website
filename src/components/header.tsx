@@ -116,7 +116,7 @@ export function Header() {
       </div>
 
       <div
-        className={`${openMenu ? "h-20" : "h-0"} overflow-hidden transition-all duration-300 flex items-center justify-center`}
+        className={`${openMenu ? "h-40 sm:h-20" : "h-0"} overflow-hidden transition-all duration-300 flex items-center justify-center`}
         dir={locale === "en" ? "ltr" : "rtl"}
       >
         <div className="py-4 w-full bg-white flex flex-wrap px-4 items-center justify-center gap-2 sm:gap-4 mx-auto">

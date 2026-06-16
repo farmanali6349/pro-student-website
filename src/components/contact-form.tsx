@@ -35,7 +35,6 @@ export default function ContactForm() {
           placeholder={t("namePlaceholder") || "Your name"}
         />
       </label>
-
       <label className="block">
         <span className="mb-2 block text-sm font-semibold text-gray-dark">
           {t("email")}
@@ -49,7 +48,6 @@ export default function ContactForm() {
           placeholder={t("email") || "you@email.com"}
         />
       </label>
-
       <label className="block">
         <span className="mb-2 block text-sm font-semibold text-gray-dark">
           {t("message") || "Message"}

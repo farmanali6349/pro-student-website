@@ -20,12 +20,12 @@ export default function Home() {
       </div>
 
       <div className="page-gradient">
+        <ProvenSection />
         <DestinationsSection />
         <InstitutesSection />
         <CoursesSection />
-        <ProvenSection />
       </div>
-      <div className="min-h-180 w-full bg-[url('/images/bg-illustration.png')] bg-contain bg-no-repeat bg-bottom">
+      <div className="min-h-180 w-full bg-[url('/images/bg-illustration.jpg')] bg-contain bg-no-repeat bg-bottom">
         <CompleteSection />
       </div>
       <div className="bg-linear-to-b from-dark-orange via-light-orange to-white">

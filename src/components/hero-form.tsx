@@ -74,7 +74,7 @@ export function HeroForm() {
                 setValue("course", "");
               }}
             >
-              <option value="">{t("selectDestination")}</option>
+              <option value="">{t("selectDestinationPlaceholder")}</option>
               {cities.map((c) => (
                 <option key={c.id} value={c.id}>
                   {tx(c.name, locale)}
@@ -98,7 +98,7 @@ export function HeroForm() {
                 setValue("course", "");
               }}
             >
-              <option value="">{t("selectSchool")}</option>
+              <option value="">{t("selectSchoolPlaceholder")}</option>
               {availableSchools.map((s) => (
                 <option key={s.id} value={s.id}>
                   {tx(s.name, locale)}
@@ -144,7 +144,7 @@ export function HeroForm() {
           <label className={labelClass}>{t("courseDuration")}</label>
           <div className="relative">
             <select className={selectClass} {...register("duration")}>
-              <option value="">{t("courseDuration")}</option>
+              <option value="">{t("courseDurationPlaceholder")}</option>
               {durations.map((d) => (
                 <option key={d} value={d}>
                   {d}

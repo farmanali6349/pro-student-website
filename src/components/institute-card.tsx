@@ -31,7 +31,7 @@ export default function InstituteCard({
         <div
           className={`bg-cream/79 p-4 ${locale === "ar" ? "rounded-r-xl" : "rounded-l-xl"} mt-[-25%] relative z-2 w-[80%] min-h-50 h-auto`}
         >
-          <h3 className="text-2xl font-medium text-gray-dark">{name}</h3>
+          <h3 className="text-2xl text-black font-bold">{name}</h3>
           <p className="mt-2 line-clamp-4 flex-1 text-base leading-relaxed text-black">
             {description}
           </p>
