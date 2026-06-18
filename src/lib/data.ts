@@ -67,9 +67,11 @@ export type Course2 = {
   image: string;
   discount: number; // percent
   instituteIds: number[]; // link to institutes offering this course
+  universal?: boolean;
   week: number; // number of weeks
   lessons?: number;
-  requiredLevel?: Localized; // Beginner, Intermediate, Expert
+  requiredLevel?: Localized;
+  actualPrice?: number; // Beginner, Intermediate, Expert
   price: number;
   category: number; // link with CourseCategory such as (Language, IELTS, Dimploma, Certificate, Bachelor Program)
 };
@@ -102,5 +104,7 @@ export function schoolsByCity(cityId: number): School[] {
 
 /** Courses available at a given school. */
 export function coursesBySchool(schoolId: number): Course2[] {
-  return courses.filter((c) => c.instituteIds.includes(schoolId));
+  return courses.filter(
+    (c) => c.instituteIds.includes(schoolId) || c.universal,
+  );
 }

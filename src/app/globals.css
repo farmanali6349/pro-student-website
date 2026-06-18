@@ -106,3 +106,7 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--color-gray-light); /* hover effect */
 }
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

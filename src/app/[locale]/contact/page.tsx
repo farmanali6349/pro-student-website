@@ -65,19 +65,20 @@ export default async function ContactPage() {
               {/* Use a simple Google Maps embed by searching the address */}
               {/** Address used for map search */}
               <iframe
-                title="Pro Student Office Location"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                  "Reem Commercial Center -عمارة معرض السيارات - VIP Lounge -الدور الاول-مكتب 11, District, 3776 Dajla Street, AlSahafa, Riyadh",
-                )}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                className="w-full h-80 border-0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.1076937000116!2d46.648156799999995!3d24.791765599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee38770eb7917%3A0x1ca7174ebb00e878!2zUFJPIFN0dWRlbnQgLSDYp9mE2LfYp9mE2Kgg2KfZhNmF2K3Yqtix2YE!5e0!3m2!1sen!2s!4v1781789261223!5m2!1sen!2s"
+                width="600"
+                height="450"
+                // style="border:0;"
+                // allowfullscreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+                // referrerpolicy="no-referrer-when-downgrade"
+                className="w-full"
+              ></iframe>
             </div>
           </div>
         </div>
         {/* Certificate & Heading */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 mt-8 py-10">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 mt-8 py-10">
           <h4 className="text-2xl font-medium">{t("certificateTitle")}</h4>
           <div>
             <Image
@@ -87,7 +88,7 @@ export default async function ContactPage() {
               height={150}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

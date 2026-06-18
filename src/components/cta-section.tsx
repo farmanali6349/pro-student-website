@@ -1,8 +1,10 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function CtaSection() {
   const t = await getTranslations("cta");
+  const locale = await getLocale();
 
   return (
     <section className="">
@@ -24,12 +26,13 @@ export async function CtaSection() {
           <p className="mt-3 max-w-md text-pretty text-sm leading-relaxed text-black">
             {t("description")}
           </p>
-          <button
+          <Link
+            href={`/${locale}/#contact`}
             type="button"
-            className="mt-6 rounded-lg bg-light-orange px-6 py-3 text-sm font-bold text-gray-dark shadow-md transition hover:bg-white"
+            className="inline-block mt-6 rounded-lg bg-light-orange px-6 py-3 text-sm font-bold text-gray-dark shadow-md transition hover:bg-white"
           >
             {t("button")}
-          </button>
+          </Link>
         </div>
       </div>
     </section>

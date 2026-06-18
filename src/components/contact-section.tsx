@@ -121,7 +121,7 @@ export function ContactSection() {
             )}
           </div>
 
-          <p className="font-bold text-lg">{t("schedule")}</p>
+          {/* <p className="font-bold text-lg">{t("schedule")}</p> */}
           <button
             type="submit"
             className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-dark-orange py-3 text-sm font-bold text-white transition hover:bg-red w-fit px-3 cursor-pointer"
