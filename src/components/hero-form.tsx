@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useLocale, useTranslations } from "next-intl";
 import { Icon } from "@iconify/react";
 import {
@@ -10,7 +10,8 @@ import {
   tx,
   type Locale,
 } from "@/lib/data";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 type FormValues = {
   destination: string;
   school: string;
@@ -21,23 +22,24 @@ type FormValues = {
   airportPickup: string;
 };
 
-const durations = ["2", "4", "8", "12", "24", "36"];
+const durations = Array.from({ length: 48 }, (_, i) => i + 1);
 
 export function HeroForm() {
   const t = useTranslations("hero");
   const locale = useLocale() as Locale;
 
-  const { register, handleSubmit, watch, setValue } = useForm<FormValues>({
-    defaultValues: {
-      destination: "",
-      school: "",
-      course: "",
-      startDate: "",
-      duration: "",
-      accommodation: "no",
-      airportPickup: "no",
-    },
-  });
+  const { register, handleSubmit, watch, setValue, control } =
+    useForm<FormValues>({
+      defaultValues: {
+        destination: "",
+        school: "",
+        course: "",
+        startDate: "",
+        duration: "",
+        accommodation: "no",
+        airportPickup: "no",
+      },
+    });
 
   const destination = watch("destination");
   const school = watch("school");
@@ -130,13 +132,27 @@ export function HeroForm() {
         </div>
 
         {/* Start date */}
-        <div>
-          <label className={labelClass}>{t("courseStartDate")}</label>
-          <input
-            type="date"
-            className={selectClass}
-            {...register("startDate")}
-          />
+        <div className="w-full">
+          <label className="labelClass w-full">{t("courseStartDate")}</label>
+          <div className="w-full" dir="ltr">
+            <Controller
+              name="startDate"
+              control={control}
+              render={({ field }) => (
+                <DatePicker
+                  {...field}
+                  placeholderText={t("courseStartDatePlaceholder")}
+                  filterDate={(date) => date.getDay() === 1} // only Mondays
+                  dateFormat="yyyy-MM-dd"
+                  className={selectClass}
+                  calendarStartDay={1} // Monday as first column
+                  selected={field.value as unknown as Date} // ensures selected date shows in input
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  onChange={(date: any) => field.onChange(date)} // updates form state
+                />
+              )}
+            />
+          </div>
         </div>
 
         {/* Duration */}

@@ -24,12 +24,6 @@ export function FaqSection() {
           <p className="mt-3 max-w-xs text-sm leading-relaxed">
             {t("description")}
           </p>
-          <button
-            type="button"
-            className="mt-6 rounded-lg bg-dark-orange px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-red cursor-pointer"
-          >
-            {t("contactButton")}
-          </button>
         </div>
 
         <div className="flex flex-col gap-3 h-100 overflow-y-auto custom-scrollbar">
