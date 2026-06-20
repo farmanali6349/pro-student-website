@@ -29,7 +29,7 @@ export default async function BlogPage({ params }: Props) {
   const title = tx(blog.title, currentLocale as Locale);
   const publishedAt = tx(blog.publishedAt, currentLocale as Locale);
   const rawContent = tx(blog.content, currentLocale as Locale);
-  const content = rawContent.replace(/^\s*<h1>[\s\S]*?<\/h1>\s*/i, "");
+  const content = rawContent.replace(/^\s*<h1>.*?<\/h1>\s*/is, "");
 
   const isYearOnly = /^\d{4}$/.test(publishedAt.trim());
   const formattedDate = isYearOnly
