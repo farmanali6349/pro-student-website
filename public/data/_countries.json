@@ -3,7 +3,7 @@
     "id": 1,
     "name": {
       "en": "United States of America",
-      "ar": "الولايات المتحدة الأمريكية"
+      "ar": "الأمريكية"
     },
     "description": {
       "en": "Study English in the USA and experience world-class education and culture.",
@@ -61,15 +61,5 @@
     },
     "slug": "south-africa",
     "image": "south-africa.jpg"
-  },
-  {
-    "id": 7,
-    "name": { "en": "Malta", "ar": "مالطا" },
-    "description": {
-      "en": "Learn English on a beautiful, sun-drenched Mediterranean island.",
-      "ar": "تعلم اللغة الإنجليزية في جزيرة متوسطية جميلة ومشمسة."
-    },
-    "slug": "malta",
-    "image": "malta.jpg"
   }
 ]

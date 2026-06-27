@@ -229,16 +229,5 @@
     "slug": "cape-town",
     "image": "",
     "countryId": 6
-  },
-  {
-    "id": 22,
-    "name": { "en": "St. Julian's", "ar": "سانت جوليان" },
-    "description": {
-      "en": "A lively coastal hub perfect for language students.",
-      "ar": "مركز ساحلي حيوي مثالي لطلاب اللغة."
-    },
-    "slug": "st-julians",
-    "image": "",
-    "countryId": 7
   }
 ]

@@ -4,7 +4,9 @@ import { useForm, Controller } from "react-hook-form";
 import { useLocale, useTranslations } from "next-intl";
 import { Icon } from "@iconify/react";
 import {
+  countries,
   cities,
+  citiesByCountry,
   schoolsByCity,
   coursesBySchool,
   tx,
@@ -13,7 +15,8 @@ import {
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 type FormValues = {
-  destination: string;
+  country: string;
+  city: string;
   school: string;
   course: string;
   startDate: string;
@@ -31,7 +34,8 @@ export function HeroForm() {
   const { register, handleSubmit, watch, setValue, control } =
     useForm<FormValues>({
       defaultValues: {
-        destination: "",
+        country: "",
+        city: "",
         school: "",
         course: "",
         startDate: "",
@@ -41,12 +45,12 @@ export function HeroForm() {
       },
     });
 
-  const destination = watch("destination");
+  const country = watch("country");
+  const city = watch("city");
   const school = watch("school");
 
-  const availableSchools = destination
-    ? schoolsByCity(Number(destination))
-    : [];
+  const availableCities = country ? citiesByCountry(Number(country)) : [];
+  const availableSchools = city ? schoolsByCity(Number(city)) : [];
   const availableCourses = school ? coursesBySchool(Number(school)) : [];
 
   function onSubmit(data: FormValues) {
@@ -63,21 +67,47 @@ export function HeroForm() {
       className="backdrop-blur-xs bg-white/20 border-1/2 border-white/40 rounded-2xl p-4 shadow-2xl sm:p-5"
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Destination */}
+        {/* Country */}
         <div>
-          <label className={labelClass}>{t("selectDestination")}</label>
+          <label className={labelClass}>{t("selectCountry")}</label>
           <div className="relative">
             <select
               className={selectClass}
-              {...register("destination")}
+              {...register("country")}
               onChange={(e) => {
-                setValue("destination", e.target.value);
+                setValue("country", e.target.value);
+                setValue("city", "");
                 setValue("school", "");
                 setValue("course", "");
               }}
             >
-              <option value="">{t("selectDestinationPlaceholder")}</option>
-              {cities.map((c) => (
+              <option value="">{t("selectCountryPlaceholder")}</option>
+              {countries.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {tx(c.name, locale)}
+                </option>
+              ))}
+            </select>
+            <Chevron />
+          </div>
+        </div>
+
+        {/* City */}
+        <div>
+          <label className={labelClass}>{t("selectCity")}</label>
+          <div className="relative">
+            <select
+              className={selectClass}
+              disabled={!country}
+              {...register("city")}
+              onChange={(e) => {
+                setValue("city", e.target.value);
+                setValue("school", "");
+                setValue("course", "");
+              }}
+            >
+              <option value="">{t("selectCityPlaceholder")}</option>
+              {availableCities.map((c) => (
                 <option key={c.id} value={c.id}>
                   {tx(c.name, locale)}
                 </option>
@@ -93,7 +123,7 @@ export function HeroForm() {
           <div className="relative">
             <select
               className={selectClass}
-              disabled={!destination}
+              disabled={!city}
               {...register("school")}
               onChange={(e) => {
                 setValue("school", e.target.value);

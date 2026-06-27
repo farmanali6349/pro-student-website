@@ -18,7 +18,7 @@
     "about": "من نحن",
     "contact": "تواصل معنا",
     "home": "الرئيسية",
-    "blogs": "مدونات",
+    "blogs": "المقالات",
     "requestVisa": "طلب تأشيرة"
   },
   "hero": {
@@ -27,6 +27,10 @@
     "description2": "استعرض أفضل فرص الدراسة بالخارج",
     "selectDestination": "بلد الدراسة",
     "selectDestinationPlaceholder": "الدولة",
+    "selectCountry": "الدولة",
+    "selectCountryPlaceholder": "اختر دولة",
+    "selectCity": "المدينة",
+    "selectCityPlaceholder": "اختر مدينة",
     "selectSchool": "المعهد",
     "selectSchoolPlaceholder": "المدرسة",
     "selectCourse": "اختر الدورة / الدرجة",

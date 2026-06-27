@@ -1,9 +1,11 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
+import Link from "next/link";
 import { Icon } from "@iconify/react";
 
 export async function Footer() {
   const t = await getTranslations("footer");
+  const locale = await getLocale();
   const columnLinks = t.raw("columnLinks") as string[];
 
   const linkColumns = [
@@ -82,25 +84,25 @@ export async function Footer() {
           <FooterColumn
             title={t("services")}
             links={[
-              t("links.institutes"),
-              t("links.visaApplication"),
-              t("links.offers"),
+              { href: "#", name: t("links.institutes") },
+              { href: "#", name: t("links.visaApplication") },
+              { href: "#", name: t("links.offers") },
             ]}
           />
           <FooterColumn
             title={t("company")}
             links={[
-              t("links.aboutCompany"),
-              t("links.refundPolicy"),
-              t("links.termsAndCondition"),
+              { href: "#", name: t("links.aboutCompany") },
+              { href: "#", name: t("links.refundPolicy") },
+              { href: "#", name: t("links.termsAndCondition") },
             ]}
           />
           <FooterColumn
             title={t("sources")}
             links={[
-              t("links.offers"),
-              t("links.getQuote"),
-              t("links.articles"),
+              { href: "#", name: t("links.offers") },
+              { href: "#", name: t("links.getQuote") },
+              { href: `/${locale}/blogs`, name: t("links.articles") },
             ]}
           />
 
@@ -152,19 +154,25 @@ export async function Footer() {
   );
 }
 
-function FooterColumn({ title, links }: { title: string; links: string[] }) {
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: { name: string; href: string }[];
+}) {
   return (
     <div>
       <h3 className="mb-4 text-sm font-bold">{title}</h3>
       <ul className="flex flex-col gap-2.5">
         {links.map((link, i) => (
           <li key={i}>
-            <a
-              href="#"
+            <Link
+              href={link.href}
               className="text-xs text-white/70 transition hover:text-light-orange"
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           </li>
         ))}
       </ul>
