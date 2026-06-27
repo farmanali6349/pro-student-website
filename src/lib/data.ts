@@ -98,6 +98,11 @@ export function tx(value: Localized, locale: Locale): string {
   return value[locale] ?? value.en;
 }
 
+/** Cities located in a given country. */
+export function citiesByCountry(countryId: number): City[] {
+  return cities.filter((c) => c.countryId === countryId);
+}
+
 /** Schools located in a given city (destination). */
 export function schoolsByCity(cityId: number): School[] {
   return schools.filter((s) => s.cityId === cityId);
