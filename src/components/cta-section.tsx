@@ -27,7 +27,7 @@ export async function CtaSection() {
             {t("description")}
           </p>
           <Link
-            href={`/${locale}/#contact`}
+            href={`/${locale}/contact`}
             type="button"
             className="inline-block mt-6 rounded-lg bg-light-orange px-6 py-3 text-sm font-bold text-gray-dark shadow-md transition hover:bg-white"
           >
