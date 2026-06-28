@@ -1,0 +1,31 @@
+[
+  {
+    "instituteId": 1,
+    "name": "Airport",
+    "note": "Transfer prices can include up to 2 people  per vehicle - same flight and address",
+    "packages": [
+      {
+        "name": "Larnaca or Paphos",
+        "prices": [
+          {
+            "name": "Medium 1–4 people with 3 bags",
+            "location": "Larnaca or Paphos, Cyprus",
+            "price": 180,
+            "mode": "One Way"
+          }
+        ]
+      },
+      {
+        "name": "Summer Camp Transfers",
+        "prices": [
+          {
+            "name": "Medium 1–4 people with 3 bags",
+            "location": "Larnaca, Cyprus",
+            "price": 60,
+            "mode": "One Way"
+          }
+        ]
+      }
+    ]
+  }
+]

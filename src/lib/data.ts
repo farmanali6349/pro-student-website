@@ -48,8 +48,8 @@ export type School = {
 export type Course = {
   id: string;
   name: Localized;
-  provider: Localized;
   description: Localized;
+  provider: Localized;
   image: string;
   discount: string;
   schoolIds: string[];
@@ -60,6 +60,7 @@ export type CourseCategory = {
   name: Localized;
   description?: Localized;
 };
+
 export type Course2 = {
   id: string;
   name: Localized;

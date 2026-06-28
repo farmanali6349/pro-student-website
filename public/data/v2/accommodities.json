@@ -1,0 +1,983 @@
+[
+  {
+    "id": 1,
+    "schoolId": 1,
+    "accPackages": [
+      {
+        "packageName": { "en": "Homestay", "ar": "الإقامة مع عائلة" },
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Single Shared Bathroom (Zone 4-5)",
+              "ar": "غرفة مفردة حمام مشترك (منطقة ٤-٥)"
+            },
+            "durationWeeks": null,
+            "remarks": { "en": "Zone 4 - 5", "ar": "المنطقة ٤ - ٥" },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 45, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 240,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 270,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Twin Shared Bathroom (Zone 4-5)",
+              "ar": "غرفة مشتركة شخصين حمام مشترك (منطقة ٤-٥)"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Twin rooms are only available for two people traveling together",
+              "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معًا"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 45, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 230,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 260,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Single Shared Bathroom (Zone 3)",
+              "ar": "غرفة مفردة حمام مشترك (منطقة ٣)"
+            },
+            "durationWeeks": null,
+            "remarks": { "en": "Zone 3", "ar": "المنطقة ٣" },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 260,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 290,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Twin Shared Bathroom (Zone 3)",
+              "ar": "غرفة مشتركة شخصين حمام مشترك (منطقة ٣)"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Twin rooms are only available for two people traveling together",
+              "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معًا"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 250,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 280,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Single Shared Bathroom (Zone 2)",
+              "ar": "غرفة مفردة حمام مشترك (منطقة ٢)"
+            },
+            "durationWeeks": null,
+            "remarks": { "en": "Zone 2", "ar": "المنطقة ٢" },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 20, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 270,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 300,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Twin Shared Bathroom (Zone 2)",
+              "ar": "غرفة مشتركة شخصين حمام مشترك (منطقة ٢)"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Twin rooms are only available for two people traveling together",
+              "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معًا"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 20, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 260,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 290,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": {
+              "en": "Summer Supplement",
+              "ar": "رسوم إضافية للصيف"
+            },
+            "duration": { "from": "2026-06-21", "to": "2026-08-22" },
+            "amount": 30,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Christmas Supplement",
+              "ar": "رسوم إضافية لعيد الميلاد"
+            },
+            "duration": { "from": "2026-12-20", "to": "2026-12-27" },
+            "amount": 50,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Private Bathroom Supplement",
+              "ar": "رسوم إضافية لحمام خاص"
+            },
+            "note": {
+              "en": "Only available in Zone 4/5",
+              "ar": "متاح فقط في المنطقة ٤/٥"
+            },
+            "amount": 45,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Dietary Supplement",
+              "ar": "رسوم إضافية للنظام الغذائي الخاص"
+            },
+            "amount": 35,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Under 18 Supplement",
+              "ar": "رسوم إضافية لمن هم دون ١٨ عامًا"
+            },
+            "note": {
+              "en": "Applicable to ages 16-17. Under 18s must book at least Half Board, a return transfer and provide parental consent.",
+              "ar": "تنطبق على الأعمار ١٦-١٧. يجب حجز إقامة مع وجبتين على الأقل، ونقل المطار ذهابًا وإيابًا وتقديم موافقة الوالدين."
+            },
+            "amount": 20,
+            "frequency": "weekly"
+          }
+        ]
+      },
+      {
+        "packageName": { "en": "Residences", "ar": "السكن الطلابي" },
+        "minimumAge": 18,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Standard Single Studio",
+              "ar": "استوديو مفرد قياسي"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Year round. Zone 1 - 2",
+              "ar": "طوال العام. المنطقة ١ - ٢"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 20, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": {
+                  "en": "Studio (Self-Catering)",
+                  "ar": "استوديو (خدمة ذاتية)"
+                },
+                "amount": 460,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Premium Single Studio",
+              "ar": "استوديو مفرد مميز"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Year round. Zone 1 - 4",
+              "ar": "طوال العام. المنطقة ١ - ٤"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 20, "max": 60, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Tube", "ar": "مترو الأنفاق" },
+                  "icon": "tube"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": {
+                  "en": "Studio (Self-Catering)",
+                  "ar": "استوديو (خدمة ذاتية)"
+                },
+                "amount": 595,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": null
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "schoolId": 2,
+    "accPackages": [
+      {
+        "packageName": { "en": "Student Residence", "ar": "سكن طلابي" },
+        "minimumAge": 18,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Atlantic Point Single Room En-suite",
+              "ar": "غرفة مفردة بحمام داخلي في أتلانتيك بوينت"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Self-catering, year-round student residence",
+              "ar": "خدمة ذاتية، سكن طلابي على مدار العام"
+            },
+            "location": [
+              {
+                "name": {
+                  "en": "Atlantic Point, Liverpool",
+                  "ar": "أتلانتيك بوينت، ليفربول"
+                },
+                "mapUrl": null
+              }
+            ],
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Standard Plan", "ar": "خطة قياسية" },
+                "amount": 145,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Ablett House Single Room En-suite",
+              "ar": "غرفة مفردة بحمام داخلي في أبليت هاوس"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Self-catering, year-round student residence",
+              "ar": "خدمة ذاتية، سكن طلابي على مدار العام"
+            },
+            "location": [
+              {
+                "name": {
+                  "en": "Ablett House, Liverpool",
+                  "ar": "أبليت هاوس، ليفربول"
+                },
+                "mapUrl": null
+              }
+            ],
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 10, "max": 10, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Standard Plan", "ar": "خطة قياسية" },
+                "amount": 165,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": []
+      },
+      {
+        "packageName": { "en": "Homestay", "ar": "سكن مع عائلة" },
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Homestay Twin Shared Bathroom B&B",
+              "ar": "سكن مع عائلة - غرفة مشتركة لشخصين بحمام مشترك مع فطور"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Shared room, residential area with breakfast included",
+              "ar": "غرفة مشتركة، منطقة سكنية شاملة وجبة الإفطار"
+            },
+            "location": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "مبيت وإفطار" },
+                "amount": 175,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Homestay Single Shared Bathroom Half Board",
+              "ar": "سكن مع عائلة - غرفة مفردة بحمام مشترك مع وجبتين"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Private room, breakfast and dinner included",
+              "ar": "غرفة خاصة، شاملة وجبتي الإفطار والعشاء"
+            },
+            "location": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Half Board", "ar": "نصف إقامة (وجبتين)" },
+                "amount": 210,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": {
+              "en": "Summer Supplement",
+              "ar": "رسوم إضافية لفترة الصيف"
+            },
+            "duration": {
+              "from": "2026-06-14",
+              "to": "2026-08-30"
+            },
+            "amount": 35,
+            "frequency": "weekly",
+            "location": null,
+            "note": {
+              "en": "Applicable during high summer season dates",
+              "ar": "تطبق خلال تواريخ موسم الصيف المزدحم"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "schoolId": 3,
+    "accPackages": [
+      {
+        "packageName": { "en": "Student Residence", "ar": "سكن طلابي" },
+        "minimumAge": 18,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "The Pitlane Single Room En-suite",
+              "ar": "غرفة مفردة بحمام داخلي في ذا بيتلين"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Self-catering, year-round student residence",
+              "ar": "خدمة ذاتية، سكن طلابي على مدار العام"
+            },
+            "location": [
+              {
+                "name": { "en": "The Pitlane, Leeds", "ar": "ذا بيتلين، ليدز" },
+                "mapUrl": null
+              }
+            ],
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Standard Plan", "ar": "خطة قياسية" },
+                "amount": 205,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": []
+      },
+      {
+        "packageName": { "en": "Homestay", "ar": "سكن مع عائلة" },
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Homestay Twin Shared Bathroom B&B",
+              "ar": "سكن مع عائلة - غرفة مشتركة لشخصين بحمام مشترك مع فطور"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Shared room, residential area with breakfast included",
+              "ar": "غرفة مشتركة، منطقة سكنية شاملة وجبة الإفطار"
+            },
+            "location": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "مبيت وإفطار" },
+                "amount": 175,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Homestay Single Shared Bathroom Half Board",
+              "ar": "سكن مع عائلة - غرفة مفردة بحمام مشترك مع وجبتين"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Private room, breakfast and dinner included",
+              "ar": "غرفة خاصة، شاملة وجبتي الإفطار والعشاء"
+            },
+            "location": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Half Board", "ar": "نصف إقامة (وجبتين)" },
+                "amount": 210,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": {
+              "en": "Summer Supplement",
+              "ar": "رسوم إضافية لفترة الصيف"
+            },
+            "duration": {
+              "from": "2026-06-14",
+              "to": "2026-08-30"
+            },
+            "amount": 35,
+            "frequency": "weekly",
+            "location": null,
+            "note": {
+              "en": "Applicable during high summer season dates",
+              "ar": "تطبق خلال تواريخ موسم الصيف المزدحم"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "schoolId": 4,
+    "accPackages": [
+      {
+        "packageName": { "en": "Student Residence", "ar": "سكن طلابي" },
+        "minimumAge": 18,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Britannia Study Hotel Single Room En-suite",
+              "ar": "غرفة مفردة بحمام داخلي في فندق بريتانيا ستادي"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Self-catering, year-round student residence",
+              "ar": "خدمة ذاتية، سكن طلابي على مدار العام"
+            },
+            "location": [
+              {
+                "name": {
+                  "en": "Britannia Study Hotel, Brighton",
+                  "ar": "فندق بريتانيا ستادي، برايتون"
+                },
+                "mapUrl": null
+              }
+            ],
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 10, "max": 10, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Standard Plan", "ar": "خطة قياسية" },
+                "amount": 310,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": []
+      },
+      {
+        "packageName": { "en": "Homestay", "ar": "سكن مع عائلة" },
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Homestay Twin Shared Bathroom B&B",
+              "ar": "سكن مع عائلة - غرفة مشتركة لشخصين بحمام مشترك مع فطور"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Shared room, residential area with breakfast included",
+              "ar": "غرفة مشتركة، منطقة سكنية شاملة وجبة الإفطار"
+            },
+            "location": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "مبيت وإفطار" },
+                "amount": 190,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Homestay Single Shared Bathroom Half Board",
+              "ar": "سكن مع عائلة - غرفة مفردة بحمام مشترك مع وجبتين"
+            },
+            "durationWeeks": null,
+            "remarks": {
+              "en": "Private room, breakfast and dinner included",
+              "ar": "غرفة خاصة، شاملة وجبتي الإفطار والعشاء"
+            },
+            "location": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Half Board", "ar": "نصف إقامة (وجبتين)" },
+                "amount": 240,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": {
+              "en": "Summer Supplement",
+              "ar": "رسوم إضافية لفترة الصيف"
+            },
+            "duration": {
+              "from": "2026-06-14",
+              "to": "2026-08-30"
+            },
+            "amount": 35,
+            "frequency": "weekly",
+            "location": null,
+            "note": {
+              "en": "Applicable during high summer season dates",
+              "ar": "تطبق خلال تواريخ موسم الصيف المزدحم"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "schoolId": 5,
+    "accPackages": [
+      {
+        "packageName": {
+          "en": "Homestay",
+          "ar": "سكن مع عائلة"
+        },
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Single Shared Bathroom",
+              "ar": "غرفة مفردة - حمام مشترك"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 20, "max": 50, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Bus", "ar": "حافلة" }
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 160,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 190,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Twin Shared Bathroom",
+              "ar": "غرفة مشتركة (توأم) - حمام مشترك"
+            },
+            "remarks": {
+              "en": "Twin rooms are only available for two people traveling together",
+              "ar": "الغرف المشتركة متاحة فقط لشخصين يسافران معاً"
+            },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 20, "max": 50, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Bus", "ar": "حافلة" }
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+                "amount": 140,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": { "en": "Half Board", "ar": "إقامة مع وجبتين" },
+                "amount": 170,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": {
+              "en": "Summer Supplement",
+              "ar": "رسوم إضافية للصيف"
+            },
+            "duration": { "from": "2026-06-21", "to": "2026-08-22" },
+            "amount": 30,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Christmas Supplement",
+              "ar": "رسوم إضافية لعيد الميلاد"
+            },
+            "duration": { "from": "2026-12-20", "to": "2026-12-27" },
+            "amount": 50,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Private Bathroom Supplement",
+              "ar": "رسوم إضافية لحمام خاص"
+            },
+            "amount": 45,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Dietary Supplement",
+              "ar": "رسوم إضافية للنظام الغذائي الخاص"
+            },
+            "amount": 35,
+            "frequency": "weekly"
+          },
+          {
+            "extraName": {
+              "en": "Under 18 Supplement",
+              "ar": "رسوم إضافية لمن هم دون 18 عاماً"
+            },
+            "note": {
+              "en": "Applicable to ages 16-17. Must book at least Half Board, a return transfer and provide a parental consent form.",
+              "ar": "ينطبق على الأعمار من 16 إلى 17 عاماً. يجب حجز إقامة مع وجبتين على الأقل، وتوصيل عودة، وتقديم نموذج موافقة الوالدين."
+            },
+            "amount": 20,
+            "frequency": "weekly"
+          }
+        ]
+      },
+      {
+        "packageName": {
+          "en": "Residences (Age 18+)",
+          "ar": "سكن طلابي (عمر 18+)"
+        },
+        "minimumAge": 18,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Standard Single En suite",
+              "ar": "غرفة مفردة قياسية بحمام داخلي"
+            },
+            "remarks": { "en": "Year round", "ar": "على مدار العام" },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 18, "max": 18, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              },
+              {
+                "travelTime": { "min": 10, "max": 10, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": {
+                  "en": "Room Only (1 week)",
+                  "ar": "غرفة فقط (أسبوع واحد)"
+                },
+                "amount": 175,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          },
+          {
+            "roomName": {
+              "en": "Premium Single En suite",
+              "ar": "غرفة مفردة مميزة بحمام داخلي"
+            },
+            "remarks": { "en": "Year round", "ar": "على مدار العام" },
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              },
+              {
+                "travelTime": { "min": 8, "max": 8, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": {
+                  "en": "Room Only (1 week)",
+                  "ar": "غرفة فقط (أسبوع واحد)"
+                },
+                "amount": 275,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "packageName": {
+          "en": "Residences (Age 16+)",
+          "ar": "سكن طلابي (عمر 16+)"
+        },
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": {
+              "en": "Standard Single En suite Half Board (Summer only)",
+              "ar": "غرفة مفردة قياسية بحمام داخلي مع وجبتين (الصيف فقط)"
+            },
+            "durationWeeks": null,
+            "commuteOptions": [
+              {
+                "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+                "transport": {
+                  "mode": { "en": "Walk", "ar": "مشياً على الأقدام" }
+                }
+              },
+              {
+                "travelTime": { "min": 8, "max": 8, "unit": "minutes" },
+                "transport": { "mode": { "en": "Bus", "ar": "حافلة" } }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": {
+                  "en": "Half Board (1 week)",
+                  "ar": "إقامة مع وجبتين (أسبوع واحد)"
+                },
+                "amount": 445,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": {
+              "en": "Summer Full Board Supplement (packed lunch)",
+              "ar": "رسوم إضافية للإقامة الكاملة في الصيف (غداء مرزوم)"
+            },
+            "duration": { "from": "2026-06-28", "to": "2026-08-09" },
+            "amount": 50,
+            "frequency": "weekly"
+          }
+        ]
+      }
+    ]
+  }
+]

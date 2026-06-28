@@ -1,0 +1,65 @@
+[
+  {
+    "schoolId": 1,
+    "accPackages": [
+      {
+        "packageName": "Homestay Age 16+",
+        "minimumAge": 16,
+        "roomTypes": [
+          {
+            "roomName": "Twin Shared Bathroom",
+            "durationWeeks": null,
+            "remarks": "Twin rooms are only available for two people traveling together",
+            "locations": [
+              { "name": "Zone 4", "mapUrl": null },
+              { "name": "Zone 5", "mapUrl": null }
+            ],
+            "commuteOptions": [
+              {
+                "travelTime": {
+                  "value": {
+                    "min": 45,
+                    "max": 60
+                  },
+                  "unit": "min"
+                },
+                "commute": {
+                  "name": "Tube",
+                  "icon": "tube:123"
+                }
+              }
+            ],
+            "roomPlans": [
+              {
+                "planName": "Bed & Breakfast",
+                "amount": 230,
+                "frequency": "weekly",
+                "optional": false
+              },
+              {
+                "planName": "Half Board",
+                "amount": 270,
+                "frequency": "weekly",
+                "optional": false
+              }
+            ]
+          }
+        ],
+        "extras": [
+          {
+            "extraName": "Summer Supplement ",
+            "duration": {
+              "from": "21 Jun",
+              "to": "22 Aug"
+            },
+            "amount": 30,
+            "frequency": "weekly",
+            "amountUnit": "Per Week",
+            "location": null,
+            "note": null
+          }
+        ]
+      }
+    ]
+  }
+]

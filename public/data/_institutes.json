@@ -1,0 +1,19 @@
+[
+  {
+    "name": "My Institute",
+    "fees": [
+      {
+        "name": "Admission",
+        "amount": 234,
+        "optional": false,
+        "frequency": "fixed"
+      },
+      {
+        "name": "Insurance",
+        "amount": 7,
+        "optional": true,
+        "frequency": "weekly"
+      }
+    ]
+  }
+]

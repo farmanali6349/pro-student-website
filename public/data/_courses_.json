@@ -1,0 +1,31 @@
+{
+  "schoolId": 1,
+  "programs": [
+    {
+      "programName": "General English and IELTS Preparation",
+      "courses": [
+        {
+          "courseName": "Standard",
+          "lessonsPerWeek": 20,
+          "pricingTiers": [
+            {
+              "weekRange": {
+                "min": 1,
+                "max": 11
+              },
+              "price": 375
+            }
+          ]
+        }
+      ],
+      "addOns": [
+        {
+          "addOnName": "One to one lessons",
+          "lessons": 5,
+          "price": 445,
+          "note": "Custom pricing available"
+        }
+      ]
+    }
+  ]
+}
