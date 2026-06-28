@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { type SchoolSearchFilters } from "@/lib/v2-search-data";
 import { type Locale } from "@/lib/data";
@@ -16,8 +16,14 @@ export default function SchoolsSearchPage({ initialFilters, locale }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const [filters, setFilters] = useState<SchoolSearchFilters>(initialFilters);
+  const hasMounted = useRef(false);
 
   useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+
     const params = new URLSearchParams();
 
     if (filters.search) params.set("search", filters.search);
@@ -33,7 +39,14 @@ export default function SchoolsSearchPage({ initialFilters, locale }: Props) {
 
     const query = params.toString();
     const nextUrl = query ? `${pathname}?${query}` : pathname;
-    router.replace(nextUrl, { scroll: false });
+    const currentSearch =
+      typeof window !== "undefined"
+        ? window.location.search.replace(/^\?/, "")
+        : "";
+
+    if (query !== currentSearch) {
+      router.replace(nextUrl, { scroll: false });
+    }
   }, [filters, pathname, router]);
 
   return (

@@ -24,17 +24,19 @@ export default async function InstitutesPage({ params, searchParams }: Props) {
     notFound();
   }
 
+  const awaitedParams = await searchParams;
+
   const initialFilters = {
-    search: parseString(searchParams.search),
-    countryId: parseNumber(searchParams.country_id),
-    cityId: parseNumber(searchParams.city_id),
+    search: parseString(awaitedParams.search),
+    countryId: parseNumber(awaitedParams.country_id),
+    cityId: parseNumber(awaitedParams.city_id),
     durationWeeks:
-      parseNumber(searchParams.duration_weeks) ??
-      parseNumber(searchParams.duration_min),
-    startDate: parseString(searchParams.start_date),
-    accommodation: searchParams.accommodation === "1",
-    airportPickup: searchParams.airport_pickup === "1",
-    insurance: searchParams.insurance === "1",
+      parseNumber(awaitedParams.duration_weeks) ??
+      parseNumber(awaitedParams.duration_min),
+    startDate: parseString(awaitedParams.start_date),
+    accommodation: awaitedParams.accommodation === "1",
+    airportPickup: awaitedParams.airport_pickup === "1",
+    insurance: awaitedParams.insurance === "1",
   };
 
   return (

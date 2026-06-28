@@ -38,6 +38,8 @@
     "courseStartDatePlaceholder": "اختر تاريخ البداية",
     "courseDuration": "عدد أسابيع الكورس",
     "courseDurationPlaceholder": "عدد الأسابيع",
+    "showAdvancedOptions": "عرض الخيارات المتقدمة",
+    "hideAdvancedOptions": "إخفاء الخيارات المتقدمة",
     "accommodation": "السكن",
     "airportPickup": "استقبال المطار",
     "yes": "نعم",
@@ -46,7 +48,8 @@
     "getAQuote": "احصل على عرض سعر",
     "reviewsTitle": "اقرأ رأي المتعلمين عنا",
     "reviewsCount": "+100",
-    "rating": "4.9"
+    "rating": "4.9",
+    "requireInsurance": "يتطلب التأمين"
   },
   "destinations": {
     "label": "الوجهة",

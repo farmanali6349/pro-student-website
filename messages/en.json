@@ -38,6 +38,8 @@
     "courseStartDatePlaceholder": "Choose start date",
     "courseDuration": "Course Duration (Weeks)",
     "courseDurationPlaceholder": "Number of weeks",
+    "showAdvancedOptions": "Show Advance Options",
+    "hideAdvancedOptions": "Hide Advance Options",
     "accommodation": "Accommodation",
     "airportPickup": "Airport Pickup",
     "yes": "Yes",
@@ -46,7 +48,8 @@
     "getAQuote": "Get a Quote",
     "reviewsTitle": "Read what learners say about us",
     "reviewsCount": "+100",
-    "rating": "4.9"
+    "rating": "4.9",
+    "requireInsurance": "Require Insurance"
   },
   "destinations": {
     "label": "DESTINATION",
