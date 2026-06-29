@@ -89,12 +89,12 @@ export default function CourseCard({
         <div className="h-0.5 my-1 bg-black w-full"></div>
         {/* Pricing */}
         <div className="flex items-center justify-end gap-2">
-          <p className="line-through text-sm font-medium text-red-600">
-            {t("sar")} {price}
-          </p>
-          <p className="font-bold text-xl">
-            {t("sar")} {discountedPrice}
-          </p>
+          {false && (
+            <p className="line-through text-sm font-medium text-red-600">
+              £{price}
+            </p>
+          )}
+          <p className="font-bold text-xl">£{discountedPrice}</p>
         </div>
 
         <div className="mt-4">
