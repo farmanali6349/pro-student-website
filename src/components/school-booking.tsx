@@ -308,7 +308,7 @@ export default function SchoolBooking({
                     {t("findCourses")}
                   </h2>
                 </div>
-                <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                <div className="mt-4 grid gap-4 lg:grid-cols-3">
                   {availableCourses.map((item) => {
                     const selected = item.id === selectedCourseId;
                     const price =
