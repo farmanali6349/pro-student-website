@@ -49,26 +49,16 @@ export type Accommodation = {
 
 ## References
 
-schoolId: 1
-cityId:1
-countryId:1
 instituteId:1
+countryId:1
+cityId:5
+schoolId: 5
 home-stay-16 category id : 1
-stude-residence-18 category is: 2
+student-residence-18 category is: 2
 
-start the accommodations id from 1
+start the accommodations id from 25
 
 ## Task
 
 Please extract the accomodities from the refrence page according to the provided structure
 Also add ar (arabic) translations as well.
-
-- Courses
-  Please extract the courses data from the attached image according to the provided structure.
-
-- Accomodities & Transfers
-  Please extract the accodmodation & transfers data from the attached image according to the above provided structure
-
-```json
-
-```
