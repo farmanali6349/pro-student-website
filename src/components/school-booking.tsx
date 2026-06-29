@@ -24,7 +24,7 @@ import Image from "next/image";
 const weeksRange = Array.from({ length: 48 }, (_, index) => index + 1);
 
 function formatPrice(value: number) {
-  return `$${value.toFixed(0)}`;
+  return `£${value.toFixed(0)}`;
 }
 
 export default function SchoolBooking({

@@ -51,7 +51,7 @@ export default function SchoolResultCard({
           <div className="text-right">
             <p className="text-sm text-gray-dark/75">Price from</p>
             <p className="text-xl font-bold text-dark-orange">
-              {price ? `${price} SAR` : "N/A"}
+              {price ? `£${price}` : "N/A"}
             </p>
           </div>
         </div>

@@ -273,5 +273,738 @@
         "optional": false
       }
     ]
+  },
+  {
+    "id": 9,
+    "accommodationName": {
+      "en": "Homestay - Single Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة فردية بحمام مشترك"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 2,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 175,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 200,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "accommodationName": {
+      "en": "Homestay - Twin Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة مشتركة لشخصين بحمام مشترك"
+    },
+    "note": {
+      "en": "Twin rooms are only available for two people traveling together",
+      "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معاً"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 2,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 165,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 190,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "accommodationName": {
+      "en": "Residences - Standard Single En suite",
+      "ar": "سكن طلابي - غرفة فردية قياسية بحمام داخلي"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 2,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 10, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Standard Single En suite",
+          "ar": "غرفة فردية قياسية بحمام داخلي"
+        },
+        "amount": 175,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "accommodationName": {
+      "en": "Residences - Premium Single En suite",
+      "ar": "سكن طلابي - غرفة فردية مميزة بحمام داخلي"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 2,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 10, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Premium Single En suite",
+          "ar": "غرفة فردية مميزة بحمام داخلي"
+        },
+        "amount": 205,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "accommodationName": {
+      "en": "Residences - Premium Studio",
+      "ar": "سكن طلابي - ستوديو مميز"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 2,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 10, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Premium Studio", "ar": "ستوديو مميز" },
+        "amount": 265,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "accommodationName": {
+      "en": "Homestay - Single Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة فردية بحمام مشترك"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 3,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 175,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 200,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "accommodationName": {
+      "en": "Homestay - Twin Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة مشتركة لشخصين بحمام مشترك"
+    },
+    "note": {
+      "en": "Twin rooms are only available for two people traveling together",
+      "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معاً"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 3,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 60, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 165,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 190,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "accommodationName": {
+      "en": "Residences - Standard Single En suite",
+      "ar": "سكن طلابي - غرفة فردية قياسية بحمام داخلي"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 3,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 10, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Standard Single En suite",
+          "ar": "غرفة فردية قياسية بحمام داخلي"
+        },
+        "amount": 175,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "accommodationName": {
+      "en": "Residences - Premium Single En suite",
+      "ar": "سكن طلابي - غرفة فردية مميزة بحمام داخلي"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 3,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 10, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Premium Single En suite",
+          "ar": "غرفة فردية مميزة بحمام داخلي"
+        },
+        "amount": 205,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "accommodationName": {
+      "en": "Residences - Premium Studio",
+      "ar": "سكن طلابي - ستوديو مميز"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 3,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 10, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Premium Studio", "ar": "ستوديو مميز" },
+        "amount": 265,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "accommodationName": {
+      "en": "Homestay - Single Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة فردية بحمام مشترك"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 4,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 20, "max": 60, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 165,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 210,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "accommodationName": {
+      "en": "Homestay - Twin Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة مشتركة لشخصين بحمام مشترك"
+    },
+    "note": {
+      "en": "Twin rooms are only available for two people traveling together",
+      "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معاً"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 4,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 20, "max": 60, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 145,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 190,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "accommodationName": {
+      "en": "Residences - Standard Single En suite",
+      "ar": "سكن طلابي - غرفة فردية قياسية بحمام داخلي"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 4,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 5, "max": 10, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Standard Single En suite (1 - 11 weeks)",
+          "ar": "غرفة فردية قياسية بحمام داخلي (1 - 11 أسبوعاً)"
+        },
+        "amount": 350,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": {
+          "en": "Standard Single En suite (12+ weeks)",
+          "ar": "غرفة فردية قياسية بحمام داخلي (+12 أسبوعاً)"
+        },
+        "amount": 325,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "accommodationName": {
+      "en": "Residences - Standard Single En suite (Summer only)",
+      "ar": "سكن طلابي - غرفة فردية قياسية بحمام داخلي (الصيف فقط)"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 4,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 30, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      },
+      {
+        "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Standard Single En suite (Summer only)",
+          "ar": "غرفة فردية قياسية بحمام داخلي (الصيف فقط)"
+        },
+        "amount": 350,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "accommodationName": {
+      "en": "Residences - Budget Single En Suite",
+      "ar": "سكن طلابي - غرفة فردية اقتصادية بحمام داخلي"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 4,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 30, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      },
+      {
+        "travelTime": { "min": 20, "max": 20, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Budget Single En Suite",
+          "ar": "غرفة فردية اقتصادية بحمام داخلي"
+        },
+        "amount": 275,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "accommodationName": {
+      "en": "Residences - Premium Studio",
+      "ar": "سكن طلابي - ستوديو مميز"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 4,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 30, "max": 30, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      },
+      {
+        "travelTime": { "min": 20, "max": 20, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Premium Studio", "ar": "ستوديو مميز" },
+        "amount": 350,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "accommodationName": {
+      "en": "Homestay - Single Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة فردية بحمام مشترك"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 5,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 20, "max": 50, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 160,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 190,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "accommodationName": {
+      "en": "Homestay - Twin Shared Bathroom",
+      "ar": "إقامة مع عائلة - غرفة مشتركة لشخصين بحمام مشترك"
+    },
+    "note": {
+      "en": "Twin rooms are only available for two people traveling together",
+      "ar": "الغرف المشتركة لشخصين متاحة فقط لشخصين يسافران معاً"
+    },
+    "accommodationCategoryId": 1,
+    "minimumAge": 16,
+    "schoolId": 5,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 20, "max": 50, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": { "en": "Bed & Breakfast", "ar": "سرير وإفطار" },
+        "amount": 140,
+        "frequency": "weekly",
+        "optional": false
+      },
+      {
+        "planName": { "en": "Half Board", "ar": "نصف إقامة" },
+        "amount": 170,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "accommodationName": {
+      "en": "Residences - Standard Single En suite (Age 18+)",
+      "ar": "سكن طلابي - غرفة فردية قياسية بحمام داخلي (عمر +18)"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 5,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 18, "max": 18, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      },
+      {
+        "travelTime": { "min": 10, "max": 10, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Standard Single En suite",
+          "ar": "غرفة فردية قياسية بحمام داخلي"
+        },
+        "amount": 175,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "accommodationName": {
+      "en": "Residences - Premium Single En suite (Age 18+)",
+      "ar": "سكن طلابي - غرفة فردية مميزة بحمام داخلي (عمر +18)"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 18,
+    "schoolId": 5,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      },
+      {
+        "travelTime": { "min": 8, "max": 8, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Premium Single En suite",
+          "ar": "غرفة فردية مميزة بحمام داخلي"
+        },
+        "amount": 275,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "accommodationName": {
+      "en": "Residences - Standard Single En suite Half Board (Summer only) (Age 16+)",
+      "ar": "سكن طلابي - غرفة فردية قياسية بحمام داخلي نصف إقامة (الصيف فقط) (عمر +16)"
+    },
+    "accommodationCategoryId": 2,
+    "minimumAge": 16,
+    "schoolId": 5,
+    "priceFrequency": "weekly",
+    "commuteOptions": [
+      {
+        "travelTime": { "min": 15, "max": 15, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Walk", "ar": "مشياً على الأقدام" },
+          "icon": "walk"
+        }
+      },
+      {
+        "travelTime": { "min": 8, "max": 8, "unit": "minutes" },
+        "transport": {
+          "mode": { "en": "Bus", "ar": "الحافلة" },
+          "icon": "bus"
+        }
+      }
+    ],
+    "accommodationPlans": [
+      {
+        "planName": {
+          "en": "Standard Single En suite Half Board",
+          "ar": "غرفة فردية قياسية بحمام داخلي نصف إقامة"
+        },
+        "amount": 445,
+        "frequency": "weekly",
+        "optional": false
+      }
+    ]
   }
 ]

@@ -36,7 +36,7 @@ type Props = {
 };
 
 function formatPrice(value: number) {
-  return `$${value.toFixed(0)}`;
+  return `£${value.toFixed(0)}`;
 }
 
 export default function QuotationPage({

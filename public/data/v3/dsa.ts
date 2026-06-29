@@ -115,8 +115,8 @@ export type Course = {
   minimumAge?: number;
   courseDates?: Dates;
   note?: Localized;
-  // Hours per week is 45 mins * number of lessons per week
 };
+// Hours per week is 45 mins * number of lessons per week
 
 // <---------- ACCOMMODATION -------------> [Accommodation Addons/Extras will be added later]
 export type RoomLocation = {
