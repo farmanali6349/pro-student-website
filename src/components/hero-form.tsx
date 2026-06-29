@@ -119,6 +119,22 @@ export function HeroForm() {
           </div>
         </div>
 
+        {/* Duration */}
+        <div>
+          <label className={labelClass}>{t("courseDuration")}</label>
+          <div className="relative">
+            <select className={selectClass} {...register("duration")}>
+              <option value="">{t("courseDurationPlaceholder")}</option>
+              {durations.map((d) => (
+                <option key={d} value={d}>
+                  {d}
+                </option>
+              ))}
+            </select>
+            <Chevron />
+          </div>
+        </div>
+
         {/* Start date */}
         <div className="lg:col-span-2">
           <label className={labelClass}>{t("courseStartDate")}</label>
@@ -144,22 +160,6 @@ export function HeroForm() {
                 />
               )}
             />
-          </div>
-        </div>
-
-        {/* Duration */}
-        <div>
-          <label className={labelClass}>{t("courseDuration")}</label>
-          <div className="relative">
-            <select className={selectClass} {...register("duration")}>
-              <option value="">{t("courseDurationPlaceholder")}</option>
-              {durations.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-            <Chevron />
           </div>
         </div>
       </div>
