@@ -14,8 +14,8 @@ type Props = {
   category: string;
   hours: number;
   requiredLevel: string;
-  instituteName: string;
-  location: string;
+  instituteName?: string;
+  location?: string;
   onApply?: () => void;
 };
 export default function CourseCard({
@@ -28,8 +28,8 @@ export default function CourseCard({
   hours,
   requiredLevel,
   price,
-  instituteName,
-  location,
+  instituteName = "",
+  location = "",
   onApply,
 }: Props) {
   const t = useTranslations("coursesPage.courseCard");
