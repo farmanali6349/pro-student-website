@@ -1,0 +1,754 @@
+[
+  {
+    "id": 1,
+    "name": {
+      "en": "General English and IELTS Preparation",
+      "ar": "اللغة الإنجليزية العامة والإعداد لاختبار الآيلتس"
+    },
+    "description": {
+      "en": "Prices and lessons are per week. Minimum level for IELTS Preparation: Level 4 (Bayswater)/B1 (CEFR).",
+      "ar": "الأسعار والدروس تُحسب لكل أسبوع. الحد الأدنى لمستوى الإعداد لاختبار الآيلتس: المستوى 4 (بايسووتر)/B1 (CEFR)."
+    },
+    "image": "general-english.jpg",
+    "discount": 0,
+    "schoolId": 1,
+    "instituteId": 1,
+    "cityId": 1,
+    "countryId": 1,
+    "programs": [
+      {
+        "programName": {
+          "en": "General English and IELTS Preparation",
+          "ar": "اللغة الإنجليزية العامة والإعداد لاختبار الآيلتس"
+        },
+        "description": {
+          "en": "IELTS Preparation is available in Standard 20 lessons, or can be combined with an additional 5 or 10 General English lessons as part of an Intensive or Super Intensive Course.",
+          "ar": "يتوفر برنامج الإعداد لاختبار الآيلتس في الدورة القياسية المكونة من 20 درسًا، أو يمكن دمجه مع 5 أو 10 دروس إضافية من الإنجليزية العامة كجزء من الدورة المكثفة أو المكثفة للغاية."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "Standard",
+              "ar": "البرنامج القياسي"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 375,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 335,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 290,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "Intensive",
+              "ar": "البرنامج المكثف"
+            },
+            "lessonsPerWeek": 25,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 420,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 375,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 320,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "Super Intensive",
+              "ar": "البرنامج المكثف للغاية"
+            },
+            "lessonsPerWeek": 30,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 465,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 420,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 370,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ],
+        "addOns": [
+          {
+            "addonName": {
+              "en": "One to one lessons",
+              "ar": "دروس فردية (واحد لواحد)"
+            },
+            "lessons": 5,
+            "price": 445,
+            "note": {
+              "en": "Custom packages available",
+              "ar": "تتوفر باقات مخصصة"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": {
+      "en": "General English and IELTS Preparation",
+      "ar": "اللغة الإنجليزية العامة والإعداد لاختبار الآيلتس"
+    },
+    "description": {
+      "en": "Prices and lessons are per week. Minimum level for IELTS Preparation: Level 4 (Bayswater)/B1 (CEFR).",
+      "ar": "الأسعار والدروس تُحسب لكل أسبوع. الحد الأدنى لمستوى الإعداد لاختبار الآيلتس: المستوى 4 (بايسووتر)/B1 (CEFR)."
+    },
+    "image": "liverpool-general-english.jpg",
+    "discount": 0,
+    "schoolId": 2,
+    "instituteId": 1,
+    "cityId": 2,
+    "countryId": 1,
+    "programs": [
+      {
+        "programName": {
+          "en": "General English and IELTS Preparation",
+          "ar": "اللغة الإنجليزية العامة والإعداد لاختبار الآيلتس"
+        },
+        "description": {
+          "en": "IELTS Preparation is available in Standard 20 lessons, or can be combined with an additional 5 or 10 General English lessons as part of an Intensive or Super Intensive Course.",
+          "ar": "يتوفر برنامج الإعداد لاختبار الآيلتس في الدورة القياسية المكونة من 20 درسًا، أو يمكن دمجه مع 5 أو 10 دروس إضافية من الإنجليزية العامة كجزء من الدورة المكثفة أو المكثفة للغاية."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "Standard",
+              "ar": "البرنامج القياسي"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 290,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 260,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 225,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "Intensive",
+              "ar": "البرنامج المكثف"
+            },
+            "lessonsPerWeek": 25,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 335,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 295,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 255,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "Super Intensive",
+              "ar": "البرنامج المكثف للغاية"
+            },
+            "lessonsPerWeek": 30,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 380,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 335,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 295,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ],
+        "addOns": [
+          {
+            "addonName": {
+              "en": "One to one lessons",
+              "ar": "دروس فردية (واحد لواحد)"
+            },
+            "lessons": 5,
+            "price": 345,
+            "note": {
+              "en": "Custom packages available",
+              "ar": "تتوفر باقات مخصصة"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": {
+      "en": "English Language Courses",
+      "ar": "دورات اللغة الإنجليزية"
+    },
+    "description": {
+      "en": "General and Intensive English programs at Bayswater Leeds",
+      "ar": "برامج اللغة الإنجليزية العامة والمكثفة في بيزووتر ليدز"
+    },
+    "discount": 0,
+    "schoolId": 3,
+    "instituteId": 1,
+    "cityId": 3,
+    "countryId": 1,
+    "programs": [
+      {
+        "programName": {
+          "en": "General English",
+          "ar": "اللغة الإنجليزية العامة"
+        },
+        "description": {
+          "en": "Standard English course focusing on core language skills.",
+          "ar": "دورة اللغة الإنجليزية القياسية التي تركز على مهارات اللغة الأساسية."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "General English 20",
+              "ar": "اللغة الإنجليزية العامة 20"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 280,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 250,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 220,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 210,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "General English 25",
+              "ar": "اللغة الإنجليزية العامة 25"
+            },
+            "lessonsPerWeek": 25,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 325,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 290,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 250,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 235,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "General English 30",
+              "ar": "اللغة الإنجليزية العامة 30"
+            },
+            "lessonsPerWeek": 30,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 365,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 325,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 280,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 260,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "programName": {
+          "en": "IELTS Preparation",
+          "ar": "التحضير لاختبار آيلتس"
+        },
+        "description": {
+          "en": "Preparation for the IELTS exam with 20 lessons per week.",
+          "ar": "التحضير لامتحان الآيلتس بمعدل 20 درساً في الأسبوع."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "IELTS Preparation 20",
+              "ar": "التحضير لاختبار آيلتس 20"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 280,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 250,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 220,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 210,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "programName": {
+          "en": "One to One Lessons",
+          "ar": "دروس فردية (واحد لواحد)"
+        },
+        "description": {
+          "en": "Private individual lessons tailored to the student's needs.",
+          "ar": "دروس فردية خاصة مصممة خصيصاً لتلبية احتياجات الطالب."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "Individual Lessons (per lesson)",
+              "ar": "دروس فردية (لكل درس)"
+            },
+            "discount": 0,
+            "pricingTiers": [
+              { "weekRange": null, "price": 65, "frequency": "fixed" }
+            ]
+          }
+        ],
+        "addOns": [
+          {
+            "addonName": {
+              "en": "One to One Add-on (5 lessons)",
+              "ar": "إضافة دروس فردية (5 دروس)"
+            },
+            "lessons": 5,
+            "price": 275,
+            "note": {
+              "en": "Can be added to any full-time course",
+              "ar": "يمكن إضافتها إلى أي دورة بدوام كامل"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": {
+      "en": "English Language Courses",
+      "ar": "دورات اللغة الإنجليزية"
+    },
+    "description": {
+      "en": "General English and IELTS preparation courses at Bayswater Brighton",
+      "ar": "دورات اللغة الإنجليزية العامة والتحضير لاختبار آيلتس في بيزووتر برايتون"
+    },
+    "image": "brighton-courses.jpg",
+    "discount": 0,
+    "schoolId": 4,
+    "instituteId": 1,
+    "cityId": 4,
+    "countryId": 1,
+    "programs": [
+      {
+        "programName": {
+          "en": "General English",
+          "ar": "اللغة الإنجليزية العامة"
+        },
+        "description": {
+          "en": "Standard General English courses designed to improve core communication skills.",
+          "ar": "دورات اللغة الإنجليزية العامة القياسية المصممة لتحسين مهارات التواصل الأساسية."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "General English 20",
+              "ar": "اللغة الإنجليزية العامة 20"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 290,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 260,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 225,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 215,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "General English 25",
+              "ar": "اللغة الإنجليزية العامة 25"
+            },
+            "lessonsPerWeek": 25,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 340,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 300,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 260,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 240,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "General English 30",
+              "ar": "اللغة الإنجليزية العامة 30"
+            },
+            "lessonsPerWeek": 30,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 380,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 340,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 290,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 270,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "programName": {
+          "en": "IELTS Preparation",
+          "ar": "التحضير لاختبار آيلتس"
+        },
+        "description": {
+          "en": "Intensive training program targeted at passing the IELTS examination.",
+          "ar": "برنامج تدريبي مكثف يستهدف اجتياز اختبار الآيلتس بنجاح."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "IELTS Preparation 20",
+              "ar": "التحضير لاختبار آيلتس 20"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 290,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 260,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": 35 },
+                "price": 225,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 36, "max": null },
+                "price": 215,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "programName": {
+          "en": "One to One Lessons",
+          "ar": "دروس فردية (واحد لواحد)"
+        },
+        "description": {
+          "en": "Private tuition personalized entirely around individual academic objectives.",
+          "ar": "دروس خصوصية مخصصة بالكامل لتلبية الأهداف الأكاديمية الفردية للطالب."
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "Individual Lessons (per lesson)",
+              "ar": "دروس فردية (لكل درس)"
+            },
+            "discount": 0,
+            "pricingTiers": [
+              { "weekRange": null, "price": 65, "frequency": "fixed" }
+            ]
+          }
+        ],
+        "addOns": [
+          {
+            "addonName": {
+              "en": "One to One Add-on (5 lessons)",
+              "ar": "إضافة دروس فردية (5 دروس)"
+            },
+            "lessons": 5,
+            "price": 275,
+            "note": {
+              "en": "Can be added to any full-time course",
+              "ar": "يمكن إضافتها إلى أي دورة بدوام كامل"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": {
+      "en": "General English and IELTS Preparation",
+      "ar": "اللغة الإنجليزية العامة والتحضير لاختبار آيلتس"
+    },
+    "description": {
+      "en": "General English and IELTS Preparation courses in Bournemouth",
+      "ar": "دورات اللغة الإنجليزية العامة والتحضير لاختبار آيلتس في بورنموث"
+    },
+    "discount": 0,
+    "schoolId": 5,
+    "instituteId": 1,
+    "cityId": 5,
+    "countryId": 1,
+    "programs": [
+      {
+        "programName": {
+          "en": "General English and IELTS Preparation",
+          "ar": "اللغة الإنجليزية العامة والتحضير لاختبار آيلتس"
+        },
+        "courses": [
+          {
+            "courseName": {
+              "en": "Standard",
+              "ar": "قياسي"
+            },
+            "lessonsPerWeek": 20,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 285,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 250,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 230,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "Intensive",
+              "ar": "مكثف"
+            },
+            "lessonsPerWeek": 25,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 315,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 285,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 255,
+                "frequency": "weekly"
+              }
+            ]
+          },
+          {
+            "courseName": {
+              "en": "Super Intensive",
+              "ar": "مكثف للغاية"
+            },
+            "lessonsPerWeek": 30,
+            "discount": 0,
+            "pricingTiers": [
+              {
+                "weekRange": { "min": 1, "max": 11 },
+                "price": 355,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 12, "max": 23 },
+                "price": 340,
+                "frequency": "weekly"
+              },
+              {
+                "weekRange": { "min": 24, "max": null },
+                "price": 300,
+                "frequency": "weekly"
+              }
+            ]
+          }
+        ],
+        "addOns": [
+          {
+            "addonName": {
+              "en": "One to one lessons",
+              "ar": "دروس فردية (واحد لواحد)"
+            },
+            "lessons": 5,
+            "price": 390,
+            "note": {
+              "en": "Custom packages available",
+              "ar": "تتوفر باقات مخصصة"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

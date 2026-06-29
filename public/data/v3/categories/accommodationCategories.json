@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "slug": "homestay",
+    "categoryName": {
+      "en": "Homestay",
+      "ar": "الإقامة مع عائلة"
+    },
+    "categoryDescription": {
+      "en": "Homestay accommodation",
+      "ar": "إقامة مع عائلة"
+    }
+  },
+  {
+    "id": 2,
+    "slug": "student-residence",
+    "categoryName": {
+      "en": "Student Residence",
+      "ar": "إقامة الطلاب"
+    },
+    "categoryDescription": {
+      "en": "Student residence accommodation",
+      "ar": "إقامة طلاب"
+    }
+  },
+  {
+    "id": 3,
+    "slug": "hotel",
+    "categoryName": {
+      "en": "Hotel",
+      "ar": "فندق"
+    },
+    "categoryDescription": {
+      "en": "Hotel accommodation",
+      "ar": "إقامة فندقية"
+    }
+  }
+]

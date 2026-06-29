@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "slug": "admission-fee",
+    "categoryName": {
+      "en": "Admission Fee",
+      "ar": "رسوم القبول"
+    },
+    "categoryDescription": {
+      "en": "School admission charges",
+      "ar": "رسوم قبول المدرسة"
+    }
+  },
+  {
+    "id": 2,
+    "slug": "material-fee",
+    "categoryName": {
+      "en": "Material Fee",
+      "ar": "رسوم المواد"
+    },
+    "categoryDescription": {
+      "en": "Course materials charges",
+      "ar": "رسوم مواد الدراسة"
+    }
+  },
+  {
+    "id": 3,
+    "slug": "exam-fee",
+    "categoryName": {
+      "en": "Exam Fee",
+      "ar": "رسوم الامتحان"
+    },
+    "categoryDescription": {
+      "en": "Exam charges",
+      "ar": "رسوم الامتحانات"
+    }
+  },
+  {
+    "id": 4,
+    "slug": "insurance-fee",
+    "categoryName": {
+      "en": "Insurance Fee",
+      "ar": "رسوم التأمين"
+    },
+    "categoryDescription": {
+      "en": "Insurance charges",
+      "ar": "رسوم التأمين"
+    }
+  }
+]

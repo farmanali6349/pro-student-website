@@ -1,0 +1,289 @@
+[
+  {
+    "id": 1,
+    "schoolId": 1,
+    "serviceName": { "en": "Airport Transfers", "ar": "خدمات نقل المطار" },
+    "serviceNote": {
+      "en": "Transfer prices can include up to 2 people per vehicle - same flight and address.",
+      "ar": "يمكن أن تشمل أسعار النقل ما يصل إلى شخصين لكل مركبة - نفس الرحلة والعنوان."
+    },
+    "transferPackages": [
+      {
+        "packageName": {
+          "en": "London Airport Transfers",
+          "ar": "خدمات النقل لمطارات لندن"
+        },
+        "transferOptions": [
+          {
+            "optionName": {
+              "en": "Heathrow Airport Transfer",
+              "ar": "نقل مطار هيثرو"
+            },
+            "pickupLocation": { "en": "Heathrow Airport", "ar": "مطار هيثرو" },
+            "amount": 180,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "London City Airport Transfer",
+              "ar": "نقل مطار لندن سيتي"
+            },
+            "pickupLocation": {
+              "en": "London City Airport",
+              "ar": "مطار لندن سيتي"
+            },
+            "amount": 135,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "Luton Airport Transfer",
+              "ar": "نقل مطار لوتون"
+            },
+            "pickupLocation": { "en": "Luton Airport", "ar": "مطار لوتون" },
+            "amount": 215,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "Gatwick Airport Transfer",
+              "ar": "نقل مطار غاتويك"
+            },
+            "pickupLocation": { "en": "Gatwick Airport", "ar": "مطار غاتويك" },
+            "amount": 235,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "Stansted Airport Transfer",
+              "ar": "نقل مطار ستانستد"
+            },
+            "pickupLocation": {
+              "en": "Stansted Airport",
+              "ar": "مطار ستانستد"
+            },
+            "amount": 225,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "St Pancras Station Transfer",
+              "ar": "نقل محطة سانت بانكراس"
+            },
+            "pickupLocation": {
+              "en": "St Pancras International Station",
+              "ar": "محطة سانت بانكراس الدولية"
+            },
+            "amount": 105,
+            "tripType": "oneWay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "schoolId": 2,
+    "serviceName": {
+      "en": "Airport Transfer Service",
+      "ar": "خدمة التوصيل من وإلى المطار"
+    },
+    "serviceNote": {
+      "en": "Prices are for one-way journeys. Supplements apply for shared transfers or specific flight details.",
+      "ar": "الأسعار لرحلة ذهاب فقط. تطبق رسوم إضافية على النقل المشترك أو تفاصيل رحلات طيران معينة."
+    },
+    "transferPackages": [
+      {
+        "packageName": {
+          "en": "Liverpool Airport Transfers",
+          "ar": "خدمات نقل مطار ليفربول"
+        },
+        "transferOptions": [
+          {
+            "optionName": {
+              "en": "Liverpool Airport (LPL)",
+              "ar": "مطار ليفربول (LPL)"
+            },
+            "pickupLocation": {
+              "en": "Liverpool John Lennon Airport",
+              "ar": "مطار ليفربول جون لينون"
+            },
+            "amount": 75,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "Manchester Airport (MAN)",
+              "ar": "مطار مانشستر (MAN)"
+            },
+            "pickupLocation": {
+              "en": "Manchester International Airport",
+              "ar": "مطار مانشستر الدولي"
+            },
+            "amount": 115,
+            "tripType": "oneWay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "schoolId": 3,
+    "serviceName": {
+      "en": "Airport Transfer Service",
+      "ar": "خدمة التوصيل من وإلى المطار"
+    },
+    "serviceNote": {
+      "en": "Prices are for one-way journeys. Supplements apply for shared transfers or specific flight details.",
+      "ar": "الأسعار لرحلة ذهاب فقط. تطبق رسوم إضافية على النقل المشترك أو تفاصيل رحلات طيران معينة."
+    },
+    "transferPackages": [
+      {
+        "packageName": {
+          "en": "Leeds Airport Transfers",
+          "ar": "خدمات نقل مطار ليدز"
+        },
+        "transferOptions": [
+          {
+            "optionName": {
+              "en": "Leeds Bradford Airport (LBA)",
+              "ar": "مطار ليدز برادفورد (LBA)"
+            },
+            "pickupLocation": {
+              "en": "Leeds Bradford Airport",
+              "ar": "مطار ليدز برادفورد"
+            },
+            "amount": 80,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "Manchester Airport (MAN)",
+              "ar": "مطار مانشستر (MAN)"
+            },
+            "pickupLocation": {
+              "en": "Manchester International Airport",
+              "ar": "مطار مانشستر الدولي"
+            },
+            "amount": 165,
+            "tripType": "oneWay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "schoolId": 4,
+    "serviceName": {
+      "en": "Airport Transfer Service",
+      "ar": "خدمة التوصيل من وإلى المطار"
+    },
+    "serviceNote": {
+      "en": "Prices are for one-way journeys. Supplements apply for shared transfers or specific flight details.",
+      "ar": "الأسعار لرحلة ذهاب فقط. تطبق رسوم إضافية على النقل المشترك أو تفاصيل رحلات طيران معينة."
+    },
+    "transferPackages": [
+      {
+        "packageName": {
+          "en": "Brighton Airport Transfers",
+          "ar": "خدمات نقل مطار برايتون"
+        },
+        "transferOptions": [
+          {
+            "optionName": {
+              "en": "London Gatwick Airport (LGW)",
+              "ar": "مطار لندن غاتويك (LGW)"
+            },
+            "pickupLocation": {
+              "en": "Gatwick Airport",
+              "ar": "مطار غاتويك"
+            },
+            "amount": 115,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "London Heathrow Airport (LHR)",
+              "ar": "مطار لندن هيثرو (LHR)"
+            },
+            "pickupLocation": {
+              "en": "Heathrow Airport",
+              "ar": "مطار هيثرو"
+            },
+            "amount": 185,
+            "tripType": "oneWay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "schoolId": 5,
+    "serviceName": { "en": "Airport Transfers", "ar": "خدمات النقل من المطار" },
+    "serviceNote": {
+      "en": "Transfer prices can include up to 2 people per vehicle - same flight and address",
+      "ar": "يمكن أن تشمل أسعار النقل ما يصل إلى شخصين لكل مركبة - نفس الرحلة والعنوان"
+    },
+    "transferPackages": [
+      {
+        "packageName": {
+          "en": "Private Airport Transfer",
+          "ar": "نقل خاص من المطار"
+        },
+        "transferOptions": [
+          {
+            "optionName": {
+              "en": "Bournemouth Airport Transfer",
+              "ar": "نقل مطار بورنموث"
+            },
+            "pickupLocation": {
+              "en": "Bournemouth Airport",
+              "ar": "مطار بورنموث"
+            },
+            "amount": 65,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "London Gatwick Airport Transfer",
+              "ar": "نقل مطار لندن غاتويك"
+            },
+            "pickupLocation": { "en": "London Gatwick", "ar": "لندن غاتويك" },
+            "amount": 230,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "London Heathrow Airport Transfer",
+              "ar": "نقل مطار لندن هيثرو"
+            },
+            "pickupLocation": { "en": "London Heathrow", "ar": "لندن هيثرو" },
+            "amount": 210,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "Luton Airport Transfer",
+              "ar": "نقل مطار لوتون"
+            },
+            "pickupLocation": { "en": "Luton", "ar": "لوتون" },
+            "amount": 265,
+            "tripType": "oneWay"
+          },
+          {
+            "optionName": {
+              "en": "London Stansted Airport Transfer",
+              "ar": "نقل مطار لندن ستانستد"
+            },
+            "pickupLocation": { "en": "London Stansted", "ar": "لندن ستانستد" },
+            "amount": 290,
+            "tripType": "oneWay"
+          }
+        ]
+      }
+    ]
+  }
+]

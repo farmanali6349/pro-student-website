@@ -1,28 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react";
-import {
-  countries,
-  cities,
-  citiesByCountry,
-  schoolsByCity,
-  coursesBySchool,
-  tx,
-  type Locale,
-} from "@/lib/data";
+import { tx, type Locale } from "@/lib/data";
+import { countriesV2, getCitiesByCountry } from "@/lib/v2-search-data";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 type FormValues = {
   country: string;
   city: string;
-  school: string;
-  course: string;
   startDate: string;
   duration: string;
   accommodation: string;
   airportPickup: string;
+  insurance: string;
 };
 
 const durations = Array.from({ length: 48 }, (_, i) => i + 1);
@@ -31,30 +25,42 @@ export function HeroForm() {
   const t = useTranslations("hero");
   const locale = useLocale() as Locale;
 
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const { register, handleSubmit, watch, setValue, control } =
     useForm<FormValues>({
       defaultValues: {
         country: "",
         city: "",
-        school: "",
-        course: "",
         startDate: "",
         duration: "",
         accommodation: "no",
         airportPickup: "no",
+        insurance: "no",
       },
     });
 
   const country = watch("country");
-  const city = watch("city");
-  const school = watch("school");
 
-  const availableCities = country ? citiesByCountry(Number(country)) : [];
-  const availableSchools = city ? schoolsByCity(Number(city)) : [];
-  const availableCourses = school ? coursesBySchool(Number(school)) : [];
+  const availableCities = country ? getCitiesByCountry(Number(country)) : [];
+
+  const router = useRouter();
+  const routerLocale = useLocale() as Locale;
 
   function onSubmit(data: FormValues) {
-    console.log("[v0] Hero quote form submitted:", data);
+    const params = new URLSearchParams();
+
+    if (data.country) params.set("country_id", data.country);
+    if (data.city) params.set("city_id", data.city);
+    if (data.duration) params.set("duration_weeks", data.duration);
+    if (data.startDate) params.set("start_date", data.startDate);
+    if (data.accommodation === "yes") params.set("accommodation", "1");
+    if (data.airportPickup === "yes") params.set("airport_pickup", "1");
+    if (data.insurance === "yes") params.set("insurance", "1");
+
+    const queryString = params.toString();
+    const href = `/${routerLocale}/schools${queryString ? `?${queryString}` : ""}`;
+
+    router.push(href);
   }
 
   const selectClass =
@@ -77,14 +83,12 @@ export function HeroForm() {
               onChange={(e) => {
                 setValue("country", e.target.value);
                 setValue("city", "");
-                setValue("school", "");
-                setValue("course", "");
               }}
             >
               <option value="">{t("selectCountryPlaceholder")}</option>
-              {countries.map((c) => (
+              {countriesV2.map((c) => (
                 <option key={c.id} value={c.id}>
-                  {tx(c.name, locale)}
+                  {c.name[locale]}
                 </option>
               ))}
             </select>
@@ -102,58 +106,12 @@ export function HeroForm() {
               {...register("city")}
               onChange={(e) => {
                 setValue("city", e.target.value);
-                setValue("school", "");
-                setValue("course", "");
               }}
             >
               <option value="">{t("selectCityPlaceholder")}</option>
               {availableCities.map((c) => (
                 <option key={c.id} value={c.id}>
-                  {tx(c.name, locale)}
-                </option>
-              ))}
-            </select>
-            <Chevron />
-          </div>
-        </div>
-
-        {/* School */}
-        <div>
-          <label className={labelClass}>{t("selectSchool")}</label>
-          <div className="relative">
-            <select
-              className={selectClass}
-              disabled={!city}
-              {...register("school")}
-              onChange={(e) => {
-                setValue("school", e.target.value);
-                setValue("course", "");
-              }}
-            >
-              <option value="">{t("selectSchoolPlaceholder")}</option>
-              {availableSchools.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {tx(s.name, locale)}
-                </option>
-              ))}
-            </select>
-            <Chevron />
-          </div>
-        </div>
-
-        {/* Course */}
-        <div>
-          <label className={labelClass}>{t("selectCourse")}</label>
-          <div className="relative">
-            <select
-              className={selectClass}
-              disabled={!school}
-              {...register("course")}
-            >
-              <option value="">{t("selectCourse")}</option>
-              {availableCourses.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {tx(c.name, locale)}
+                  {c.name[locale]}
                 </option>
               ))}
             </select>
@@ -162,8 +120,8 @@ export function HeroForm() {
         </div>
 
         {/* Start date */}
-        <div className="w-full">
-          <label className="labelClass w-full">{t("courseStartDate")}</label>
+        <div className="lg:col-span-2">
+          <label className={labelClass}>{t("courseStartDate")}</label>
           <div className="w-full" dir="ltr">
             <Controller
               name="startDate"
@@ -172,13 +130,17 @@ export function HeroForm() {
                 <DatePicker
                   {...field}
                   placeholderText={t("courseStartDatePlaceholder")}
-                  filterDate={(date) => date.getDay() === 1} // only Mondays
+                  filterDate={(date) => date.getDay() === 1}
                   dateFormat="yyyy-MM-dd"
                   className={selectClass}
-                  calendarStartDay={1} // Monday as first column
-                  selected={field.value as unknown as Date} // ensures selected date shows in input
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  onChange={(date: any) => field.onChange(date)} // updates form state
+                  calendarStartDay={1}
+                  selected={field.value ? new Date(field.value) : null}
+                  onChange={(date: Date | null) => {
+                    setValue(
+                      "startDate",
+                      date ? date.toISOString().split("T")[0] : "",
+                    );
+                  }}
                 />
               )}
             />
@@ -202,32 +164,70 @@ export function HeroForm() {
         </div>
       </div>
 
-      {/* Yes / No options */}
-      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        <YesNo
-          label={t("accommodation")}
-          name="accommodation"
-          value={watch("accommodation")}
-          onChange={(v) => setValue("accommodation", v)}
-          yes={t("yes")}
-          no={t("no")}
-        />
-        <YesNo
-          label={t("airportPickup")}
-          name="airportPickup"
-          value={watch("airportPickup")}
-          onChange={(v) => setValue("airportPickup", v)}
-          yes={t("yes")}
-          no={t("no")}
-        />
-        <div className="mt-6">
-          <button
-            type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-dark-orange px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red"
-          >
-            {t("search")}
-          </button>
+      <div className="mt-4">
+        <button
+          type="button"
+          className="text-sm font-semibold text-dark-orange"
+          onClick={() => setShowAdvanced(!showAdvanced)}
+        >
+          {showAdvanced ? t("hideAdvancedOptions") : t("showAdvancedOptions")}
+        </button>
+      </div>
+
+      {showAdvanced ? (
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="flex items-center gap-3">
+            <input
+              id="accommodation"
+              type="checkbox"
+              checked={watch("accommodation") === "yes"}
+              onChange={(event) =>
+                setValue("accommodation", event.target.checked ? "yes" : "no")
+              }
+              className="h-4 w-4 accent-dark-orange"
+            />
+            <label htmlFor="accommodation" className="text-sm text-gray-dark">
+              {t("accommodation")}
+            </label>
+          </div>
+          <div className="flex items-center gap-3">
+            <input
+              id="airportPickup"
+              type="checkbox"
+              checked={watch("airportPickup") === "yes"}
+              onChange={(event) =>
+                setValue("airportPickup", event.target.checked ? "yes" : "no")
+              }
+              className="h-4 w-4 accent-dark-orange"
+            />
+            <label htmlFor="airportPickup" className="text-sm text-gray-dark">
+              {t("airportPickup")}
+            </label>
+          </div>
+          <div className="flex items-center gap-3">
+            <input
+              id="insurance"
+              type="checkbox"
+              checked={watch("insurance") === "yes"}
+              onChange={(event) =>
+                setValue("insurance", event.target.checked ? "yes" : "no")
+              }
+              className="h-4 w-4 accent-dark-orange"
+            />
+            <label htmlFor="insurance" className="text-sm text-gray-dark">
+              {t("requireInsurance")}
+            </label>
+          </div>
         </div>
+      ) : null}
+
+      <div className="mt-4">
+        <button
+          type="submit"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-dark-orange px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red"
+        >
+          {t("search")}
+        </button>
       </div>
     </form>
   );

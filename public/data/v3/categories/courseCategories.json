@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "slug": "general-english",
+    "categoryName": {
+      "en": "General English",
+      "ar": "اللغة الإنجليزية العامة"
+    },
+    "categoryDescription": {
+      "en": "General English courses",
+      "ar": "دورات اللغة الإنجليزية العامة"
+    }
+  },
+  {
+    "id": 2,
+    "slug": "business-english",
+    "categoryName": {
+      "en": "Business English",
+      "ar": "اللغة الإنجليزية للأعمال"
+    },
+    "categoryDescription": {
+      "en": "Business English courses",
+      "ar": "دورات اللغة الإنجليزية للأعمال"
+    }
+  },
+  {
+    "id": 3,
+    "slug": "exam-preparation",
+    "categoryName": {
+      "en": "Exam Preparation",
+      "ar": "التحضير للامتحانات"
+    },
+    "categoryDescription": {
+      "en": "Exam preparation courses",
+      "ar": "دورات التحضير للامتحانات"
+    }
+  },
+  {
+    "id": 4,
+    "slug": "english-for-specific-purposes",
+    "categoryName": {
+      "en": "English for Specific Purposes",
+      "ar": "اللغة الإنجليزية لأغراض محددة"
+    },
+    "categoryDescription": {
+      "en": "ESP courses",
+      "ar": "دورات اللغة الإنجليزية لأغراض محددة"
+    }
+  },
+  {
+    "id": 5,
+    "slug": "other-courses",
+    "categoryName": {
+      "en": "Other Courses",
+      "ar": "دورات أخرى"
+    },
+    "categoryDescription": {
+      "en": "Other study options",
+      "ar": "خيارات دراسة أخرى"
+    }
+  },
+  {
+    "id": 6,
+    "slug": "ielts-preparation",
+    "categoryName": {
+      "en": "IELTS Preparation",
+      "ar": "التحضير لامتحان IELTS"
+    },
+    "categoryDescription": {
+      "en": "IELTS preparation courses",
+      "ar": "دورات التحضير لامتحان IELTS"
+    }
+  }
+]
