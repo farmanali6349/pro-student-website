@@ -237,6 +237,12 @@ export default function InvoiceQuotePage({
             <p>
               <span className="font-bold">{t("date")}:</span> {formattedDate}
             </p>
+            {offerNumber ? (
+              <p>
+                <span className="font-bold">{t("offerNumber")}:</span>{" "}
+                {offerNumber}
+              </p>
+            ) : null}
             <p className="leading-6">
               {tx(school.name ?? { en: "School", ar: "مدرسة" }, locale)} ,
               <br />
@@ -374,6 +380,40 @@ export default function InvoiceQuotePage({
             />
           </div>
         ) : null}
+
+        <div className="mt-6">
+          <h3 className="text-lg font-bold text-gray-dark mb-4">
+            {t("bankDetails")}
+          </h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-base">
+                <span className="font-medium">{t("accountName")}:</span>{" "}
+                <span>{t("bankAccountNameValue")}</span>
+              </p>
+              <p className="text-base">
+                <span className="font-medium">{t("accountNumber")}:</span>{" "}
+                <span>25500000605207</span>
+              </p>
+              <p className="text-base">
+                <span className="font-medium">{t("iban")}:</span>{" "}
+                <span>SA7710000025500000605207</span>
+              </p>
+            </div>
+            <div className="flex items-center justify-center flex-col gap-2">
+              <Image
+                src="/images/snb.svg"
+                alt={t("bankName")}
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
+              <p className="text-lg font-bold text-gray-dark">
+                {t("bankName")}
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="mt-6 border-t border-gray-200" />
 
