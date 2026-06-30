@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { tx, type Locale } from "@/lib/data";
@@ -11,6 +10,13 @@ import {
   type Transfer,
 } from "@/lib/new_data";
 import { getCityById, getCountryById } from "@/lib/v2-search-data";
+
+// This invoice uses the "Study Abroad" / Kaplan brand teal, which isn't part
+// of the orange Pro Student theme in globals.css. Either add a token there:
+//   --color-brand-teal: #009993;
+// and swap the bg-[#009993] / text-[#009993] / border-[#009993] usages below
+// for bg-brand-teal / text-brand-teal / border-brand-teal, or leave the
+// arbitrary values as-is — both work with Tailwind v4.
 
 type Props = {
   school: School;
@@ -35,16 +41,16 @@ type Props = {
   insurancePrice: number;
   fixedFeesTotal: number;
   subtotal: number;
-  offerNumber?: string | number;
+  offerNumber: string | number;
   /** ISO date string for the "Date:" line. Defaults to today. */
   issueDate?: string;
   currency?: string;
-  bank?: {
-    accountNameArabic?: string;
-    iban?: string;
-    accountNumber?: string;
+  bank: {
+    accountNameArabic: string;
+    iban: string;
+    accountNumber: string;
   };
-  phoneNumber?: string;
+  phoneNumber: string;
   whatsappNumber?: string;
 };
 
@@ -86,7 +92,7 @@ export default function InvoiceQuotePage({
   subtotal,
   offerNumber,
   issueDate,
-  currency = "GBP",
+  currency = "SAR",
   bank,
   phoneNumber,
   whatsappNumber,
@@ -184,7 +190,7 @@ export default function InvoiceQuotePage({
           id: `weekly-fee-${i}`,
           title: fee.name?.[locale] ?? fee.name?.en ?? "",
           subLines: [],
-          duration: t("frequency.weekly"),
+          duration: t("week"),
           amount: fee.amount ?? null,
         });
       });
@@ -229,54 +235,66 @@ export default function InvoiceQuotePage({
       dir={isRtl ? "rtl" : "ltr"}
       className="min-h-screen bg-white font-sans text-gray-dark"
     >
-      <div className="h-0.75 bg-dark-orange" />
+      <div className="h-[3px] bg-gray-dark" />
 
-      <header className="bg-orange-50 border-b border-orange-100 px-6 py-6 shadow-sm sm:px-10 sm:py-8">
+      <header className="bg-[#f1f1f1] px-6 py-6 sm:px-10 sm:py-8">
         <div className="mx-auto flex max-w-4xl flex-wrap items-start justify-between gap-6">
           <div className="space-y-3 text-sm">
             <p>
               <span className="font-bold">{t("date")}:</span> {formattedDate}
             </p>
-            {offerNumber ? (
-              <p>
-                <span className="font-bold">{t("offerNumber")}:</span>{" "}
-                {offerNumber}
-              </p>
-            ) : null}
             <p className="leading-6">
               {tx(school.name ?? { en: "School", ar: "مدرسة" }, locale)} ,
               <br />
               {country ? tx(country.name, locale) : ""},{" "}
               {city ? tx(city.name, locale) : ""}
             </p>
+            <p>
+              <span className="font-bold">{t("offerNumber")}:</span>{" "}
+              {offerNumber}
+            </p>
           </div>
 
           <div className="flex flex-col items-end gap-3">
-            <Image
-              src="/logo.png"
+            <img
+              src="/logos/study-abroad-logo.svg"
               alt={t("studyAbroadLogoAlt")}
-              width={100}
-              height={40}
-              className=""
+              className="h-10 w-auto"
+            />
+            <img
+              src="/logos/kaplan-logo.svg"
+              alt="Kaplan International Languages"
+              className="h-7 w-auto"
             />
           </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-4xl px-6 py-8 sm:px-10">
-        <div className="relative mt-4 overflow-hidden rounded-md border border-orange-100 bg-orange-50/70 shadow-sm">
-          <Image
+        <p className="text-center text-sm text-gray-dark">
+          {t("confirmBookingIntro")}
+        </p>
+
+        <div className="mt-4 flex items-center gap-3 rounded-full bg-[#009993] px-5 py-3 text-white sm:px-6">
+          <span className="flex h-6 w-9 flex-none items-center justify-center rounded-sm border border-white/70 text-[8px] font-bold leading-none">
+            {t("bestPriceBadge")}
+          </span>
+          <p className="text-xs font-medium sm:text-sm">
+            {t("bestPriceMessage")}
+          </p>
+        </div>
+
+        <div className="relative mt-4 overflow-hidden rounded-md border border-gray-200">
+          <img
             src="/logos/study-abroad-watermark.svg"
             alt=""
             aria-hidden="true"
-            width={192}
-            height={192}
             className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 opacity-10"
           />
 
           <table className="relative w-full border-collapse text-xs sm:text-sm">
             <thead>
-              <tr className="bg-dark-orange text-white">
+              <tr className="bg-[#009993] text-white">
                 <th className="px-4 py-3 text-start font-semibold">
                   {t("bookingDetails")}
                 </th>
@@ -321,7 +339,7 @@ export default function InvoiceQuotePage({
               ))}
             </tbody>
             <tfoot>
-              <tr className="bg-dark-orange text-white">
+              <tr className="bg-[#009993] text-white">
                 <td colSpan={3} className="px-4 py-3 font-semibold">
                   {t("total")}
                 </td>
@@ -335,108 +353,59 @@ export default function InvoiceQuotePage({
         </div>
 
         <ul className="mt-4 space-y-2 text-xs sm:text-sm">
-          <li className="flex gap-2 text-dark-orange">
-            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-dark-orange" />
+          <li className="flex gap-2 text-red">
+            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-red" />
             <span>{t("noticeExchangeRate")}</span>
           </li>
-          <li className="flex gap-2 text-dark-orange">
-            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-dark-orange" />
+          <li className="flex gap-2 text-red">
+            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-red" />
             <span>{t("noticeInstitutePrices")}</span>
           </li>
           <li className="flex gap-2 font-bold text-gray-dark">
-            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-dark-orange" />
+            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-gray-dark" />
             <span>{t("noticeQuoteValidity")}</span>
           </li>
-          <li className="flex gap-2 text-dark-orange">
-            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-dark-orange" />
+          <li className="flex gap-2 text-red">
+            <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-red" />
             <span>{t("noticeBookingNotConfirmed")}</span>
           </li>
         </ul>
 
         <div className="mt-6 border-t border-gray-200" />
 
-        {bank && (bank.accountNameArabic || bank.iban || bank.accountNumber) ? (
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-orange-100 bg-orange-50/70 p-4">
-            <div className="space-y-2 text-xs sm:text-sm">
-              <p>
-                <span className="font-bold">{t("accountName")}:</span>{" "}
-                <span dir="rtl">{bank.accountNameArabic ?? ""}</span>
-              </p>
-              <p>
-                <span className="font-bold">{t("iban")}:</span>{" "}
-                {bank.iban ?? ""}
-              </p>
-              <p>
-                <span className="font-bold">{t("accountNumber")}:</span>{" "}
-                {bank.accountNumber ?? ""}
-              </p>
-            </div>
-            <Image
-              src="/logos/al-rajhi-bank-logo.svg"
-              alt="Al Rajhi Bank"
-              width={120}
-              height={48}
-              className="h-12 w-auto"
-            />
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
+          <div className="space-y-2 text-xs sm:text-sm">
+            <p>
+              <span className="font-bold">{t("accountName")}:</span>{" "}
+              <span dir="rtl">{bank.accountNameArabic}</span>
+            </p>
+            <p>
+              <span className="font-bold">{t("iban")}:</span> {bank.iban}
+            </p>
+            <p>
+              <span className="font-bold">{t("accountNumber")}:</span>{" "}
+              {bank.accountNumber}
+            </p>
           </div>
-        ) : null}
-
-        <div className="mt-6">
-          <h3 className="text-lg font-bold text-gray-dark mb-4">
-            {t("bankDetails")}
-          </h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-base">
-                <span className="font-medium">{t("accountName")}:</span>{" "}
-                <span>{t("bankAccountNameValue")}</span>
-              </p>
-              <p className="text-base">
-                <span className="font-medium">{t("accountNumber")}:</span>{" "}
-                <span>25500000605207</span>
-              </p>
-              <p className="text-base">
-                <span className="font-medium">{t("iban")}:</span>{" "}
-                <span>SA7710000025500000605207</span>
-              </p>
-            </div>
-            <div className="flex items-center justify-center flex-col gap-2">
-              <Image
-                src="/images/snb.svg"
-                alt={t("bankName")}
-                width={120}
-                height={48}
-                className="h-12 w-auto"
-              />
-              <p className="text-lg font-bold text-gray-dark">
-                {t("bankName")}
-              </p>
-            </div>
-          </div>
+          <img
+            src="/logos/al-rajhi-bank-logo.svg"
+            alt="Al Rajhi Bank"
+            className="h-12 w-auto"
+          />
         </div>
 
         <div className="mt-6 border-t border-gray-200" />
 
-        <div className="mt-6 flex flex-col items-center justify-center gap-3 text-sm font-medium text-dark-orange sm:flex-row">
-          <a
-            href="tel:966580666525"
-            className="flex items-center gap-2 rounded-full border border-orange-100 bg-orange-50/80 px-4 py-2 transition hover:bg-orange-100"
-          >
+        <div className="mt-6 flex items-center justify-center gap-3 text-sm font-medium text-[#009993]">
+          <span dir="ltr" className="flex items-center gap-2">
+            {phoneNumber}
             <CallIcon />
-            <span dir="ltr">{phoneNumber ?? "966580666525"}</span>
-          </a>
+          </span>
           <span className="text-gray-200">|</span>
-          <a
-            href="https://wa.me/966580666525"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full border border-orange-100 bg-orange-50/80 px-4 py-2 transition hover:bg-orange-100"
-          >
+          <span dir="ltr" className="flex items-center gap-2">
+            {whatsappNumber ?? phoneNumber}
             <WhatsAppIcon />
-            <span dir="ltr">
-              {whatsappNumber ?? phoneNumber ?? "966580666525"}
-            </span>
-          </a>
+          </span>
         </div>
       </main>
     </div>
@@ -447,7 +416,7 @@ function CallIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-5 w-5 flex-none rounded-full bg-dark-orange p-1 text-white"
+      className="h-5 w-5 flex-none rounded-full bg-[#009993] p-1 text-white"
       fill="currentColor"
       aria-hidden="true"
     >
@@ -460,7 +429,7 @@ function WhatsAppIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-5 w-5 flex-none rounded-full bg-dark-orange p-1 text-white"
+      className="h-5 w-5 flex-none rounded-full bg-[#009993] p-1 text-white"
       fill="currentColor"
       aria-hidden="true"
     >
