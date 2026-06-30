@@ -6,7 +6,6 @@ import {
   schoolsV2,
   transfersV2,
 } from "@/lib/v2-search-data";
-import { getTranslations } from "next-intl/server";
 
 function parseNumber(value: string | string[] | undefined): number | undefined {
   if (typeof value !== "string") return undefined;
@@ -26,7 +25,6 @@ export default async function QuotationRoute({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations("schoolBooking");
   const resolvedSearchParams = await searchParams;
 
   const schoolId = parseNumber(resolvedSearchParams.schoolId);
@@ -116,7 +114,6 @@ export default async function QuotationRoute({
       insurancePrice={insurancePrice}
       fixedFeesTotal={fixedFeesTotal}
       subtotal={subtotal}
-      pageTitle={t("pageTitle")}
     />
   );
 }
