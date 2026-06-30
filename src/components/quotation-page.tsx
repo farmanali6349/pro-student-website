@@ -86,7 +86,7 @@ export default function InvoiceQuotePage({
   subtotal,
   offerNumber,
   issueDate,
-  currency = "SAR",
+  currency = "GBP",
   bank,
   phoneNumber,
   whatsappNumber,

@@ -184,7 +184,7 @@ export default function InvoiceQuotePage({
       });
 
     fees
-      .filter((fee) => fee.frequency === "week")
+      .filter((fee) => fee.frequency === "weekly")
       .forEach((fee, i) => {
         list.push({
           id: `weekly-fee-${i}`,
