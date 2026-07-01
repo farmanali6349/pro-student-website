@@ -4,7 +4,7 @@ import {
   coursesV2,
   schoolsV2,
   transfersV2,
-} from "@/lib/v2-search-data";
+} from "@/lib/search-data";
 import { type Locale } from "@/lib/data";
 import { getTranslations } from "next-intl/server";
 

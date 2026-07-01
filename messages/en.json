@@ -38,6 +38,8 @@
     "courseStartDatePlaceholder": "Choose start date",
     "courseDuration": "Course Duration (Weeks)",
     "courseDurationPlaceholder": "Number of weeks",
+    "selectCourseType": "Course type",
+    "selectCourseTypePlaceholder": "Select a course type",
     "showAdvancedOptions": "Show Advance Options",
     "hideAdvancedOptions": "Hide Advance Options",
     "accommodation": "Accommodation",
@@ -390,14 +392,16 @@
     "allLevels": "All levels",
     "results": "results found",
     "noCoursesFound": "No courses found",
-    "noCoursesFoundDescription": "Try a different category, search term, or required level.",
+    "noCoursesFoundDescription": "Based on your filters, there are no courses available. Please change your filters to display relevant results.",
+    "contactSupport": "Contact us for a custom package or query:",
     "courseCard": {
       "lessons": "Lessons / Week",
       "hours": "Hours / Week",
       "required": "Required Level",
       "sar": "SAR",
       "applyNow": "Apply Now",
-      "learnMore": "Learn More"
+      "learnMore": "Learn More",
+      "perWeek": "/ week"
     }
   },
   "blogsPage": {

@@ -5,7 +5,7 @@ import {
   coursesV2,
   schoolsV2,
   transfersV2,
-} from "@/lib/v2-search-data";
+} from "../../../lib/search-data";
 
 function parseNumber(value: string | string[] | undefined): number | undefined {
   if (typeof value !== "string") return undefined;
@@ -55,36 +55,32 @@ export default async function QuotationRoute({
   const transfer = transfersV2.find((item) => item.id === selectedAirportId);
 
   const coursePrice = course
-    ? (course.programs
-        .flatMap((program) => program.courses)
-        .flatMap((programCourse) => programCourse.pricingTiers)
-        .find((tier) => {
-          const min = tier.weekRange?.min ?? 1;
-          const max = tier.weekRange?.max ?? min;
-          return weeks >= min && weeks <= max;
-        })?.price ?? 0) * weeks
+    ? (course.coursePlans.find((plan) => {
+        const min = plan.weekRange?.min ?? 1;
+        const max = plan.weekRange?.max ?? min;
+        return weeks >= min && weeks <= max;
+      })?.price ??
+        course.coursePlans[0]?.price ??
+        0) * weeks
     : 0;
 
   const accommodationPrice =
     hasAccommodation && accommodation
-      ? (accommodation.accommodationPlans?.[0]?.amount ??
-          accommodation.price ??
-          0) * residenceWeeks
+      ? (accommodation.price ?? 0) * residenceWeeks
       : 0;
 
-  const transferPrice =
-    hasAirport && transfer
-      ? (transfer.transferPackages?.[0]?.transferOptions?.[0]?.amount ?? 0)
-      : 0;
+  const transferPrice = hasAirport && transfer ? (transfer.amount ?? 0) : 0;
   const insuranceFee = school.fees.find((fee) => {
-    const name = fee.name?.en?.toLowerCase() ?? "";
-    const arabicName = fee.name?.ar?.toLowerCase() ?? "";
+    const name = fee.feeName?.en?.toLowerCase() ?? "";
+    const arabicName = fee.feeName?.ar?.toLowerCase() ?? "";
     return name.includes("insurance") || arabicName.includes("التأمين");
   });
-  const insurancePrice = hasInsurance ? (insuranceFee?.amount ?? 0) * weeks : 0;
+  const insurancePrice = hasInsurance
+    ? (insuranceFee?.feeAmount ?? 0) * weeks
+    : 0;
   const fixedFeesTotal = school.fees
-    .filter((fee) => fee.frequency === "fixed")
-    .reduce((sum, fee) => sum + fee.amount, 0);
+    .filter((fee) => fee.feeFrequency === "fixed")
+    .reduce((sum, fee) => sum + fee.feeAmount, 0);
   const subtotal =
     coursePrice +
     accommodationPrice +

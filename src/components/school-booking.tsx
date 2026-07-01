@@ -12,13 +12,13 @@ import {
   courseCategoriesV3,
   getCityById,
   getCountryById,
-} from "@/lib/v2-search-data";
+} from "../lib/search-data";
 import {
   type Course,
   type School,
   type Accommodation,
   type Transfer,
-} from "@/lib/new_data";
+} from "@/lib/v4-dsa";
 import Image from "next/image";
 
 const weeksRange = Array.from({ length: 48 }, (_, index) => index + 1);
@@ -123,45 +123,40 @@ export default function SchoolBooking({
 
   const coursePrice = useMemo(() => {
     if (!course) return 0;
-    const priceTier = course.programs
-      .flatMap((program) => program.courses)
-      .flatMap((programCourse) => programCourse.pricingTiers)
-      .find((tier) => {
-        const min = tier.weekRange?.min ?? 1;
-        const max = tier.weekRange?.max ?? min;
-        return weeks >= min && weeks <= max;
-      });
+    const priceTier = course.coursePlans.find((plan) => {
+      const min = plan.weekRange?.min ?? 1;
+      const max = plan.weekRange?.max ?? min;
+      return weeks >= min && weeks <= max;
+    });
 
-    return (priceTier?.price ?? 0) * weeks;
+    return (priceTier?.price ?? course.coursePlans[0]?.price ?? 0) * weeks;
   }, [course, weeks]);
 
   const accommodationPrice = useMemo(() => {
     if (!selectedResidence || !hasAccommodation) return 0;
-    const firstPlan = selectedResidence.accommodationPlans?.[0];
-    const basePrice = firstPlan?.amount ?? selectedResidence.price ?? 0;
+    const basePrice = selectedResidence.price ?? 0;
     return basePrice * (residenceWeeks || weeks);
   }, [selectedResidence, residenceWeeks, weeks, hasAccommodation]);
 
   const transferPrice = useMemo(() => {
     if (!selectedAirport || !hasAirport) return 0;
-    const firstPackage = selectedAirport.transferPackages?.[0];
-    return firstPackage?.transferOptions?.[0]?.amount ?? 0;
+    return selectedAirport.amount ?? 0;
   }, [selectedAirport, hasAirport]);
 
   const insurancePrice = useMemo(() => {
     if (!hasInsurance) return 0;
     const insuranceFee = school.fees.find((fee) => {
-      const name = fee.name?.en?.toLowerCase() ?? "";
-      const arabicName = fee.name?.ar?.toLowerCase() ?? "";
+      const name = fee.feeName?.en?.toLowerCase() ?? "";
+      const arabicName = fee.feeName?.ar?.toLowerCase() ?? "";
       return name.includes("insurance") || arabicName.includes("التأمين");
     });
-    return (insuranceFee?.amount ?? 0) * weeks;
+    return (insuranceFee?.feeAmount ?? 0) * weeks;
   }, [hasInsurance, school.fees, weeks]);
 
   const fixedFeesTotal = useMemo(() => {
     return school.fees
-      .filter((fee) => fee.frequency === "fixed")
-      .reduce((sum, fee) => sum + fee.amount, 0);
+      .filter((fee) => fee.feeFrequency === "fixed")
+      .reduce((sum, fee) => sum + fee.feeAmount, 0);
   }, [school.fees]);
 
   const subtotal = useMemo(() => {
@@ -239,7 +234,7 @@ export default function SchoolBooking({
               <div className="flex flex-col gap-4 rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm sm:flex-row sm:items-center">
                 <Image
                   src={`/images/schools/bayswater-english-school.png`}
-                  alt={school.name?.[locale] ?? t("school")}
+                  alt={school.schoolName?.[locale] ?? t("school")}
                   width={200}
                   height={200}
                   className="h-28 w-28 rounded-2xl object-cover"
@@ -249,14 +244,17 @@ export default function SchoolBooking({
                     {pageTitle ?? t("pageTitle")}
                   </p>
                   <h1 className="text-2xl font-bold text-gray-dark">
-                    {tx(school.name ?? { en: "School", ar: "مدرسة" }, locale)}
+                    {tx(
+                      school.schoolName ?? { en: "School", ar: "مدرسة" },
+                      locale,
+                    )}
                   </h1>
                   <p className="mt-1 text-sm text-gray-dark/70">
-                    {city ? tx(city.name, locale) : ""},{" "}
-                    {country ? tx(country.name, locale) : ""}
+                    {city ? tx(city.cityName, locale) : ""},{" "}
+                    {country ? tx(country.countryName, locale) : ""}
                   </p>
                   <p className="mt-2 text-sm text-gray-dark/75">
-                    {tx(school.description ?? { en: "", ar: "" }, locale)}
+                    {tx(school.schoolDescription ?? { en: "", ar: "" }, locale)}
                   </p>
                 </div>
               </div>
@@ -312,27 +310,20 @@ export default function SchoolBooking({
                   {availableCourses.map((item) => {
                     const selected = item.id === selectedCourseId;
                     const price =
-                      (item.programs
-                        ?.flatMap((program) => program.courses)
-                        .flatMap((programCourse) => programCourse.pricingTiers)
-                        .find((tier) => {
-                          const min = tier.weekRange?.min ?? 1;
-                          const max = tier.weekRange?.max ?? min;
-                          return weeks >= min && weeks <= max;
-                        })?.price ?? 0) * weeks;
+                      (item.coursePlans.find((plan) => {
+                        const min = plan.weekRange?.min ?? 1;
+                        const max = plan.weekRange?.max ?? min;
+                        return weeks >= min && weeks <= max;
+                      })?.price ??
+                        item.coursePlans[0]?.price ??
+                        0) * weeks;
                     const lessons =
-                      item.programs
-                        .flatMap((program) => program.courses)
-                        .reduce(
-                          (sum, programCourse) =>
-                            sum + (programCourse.lessonsPerWeek ?? 0),
-                          0,
-                        ) || 0;
+                      item.coursePlans.reduce(
+                        (sum, plan) => sum + (plan.lessonsPerWeek ?? 0),
+                        0,
+                      ) || 0;
                     const category = courseCategoriesV3.find(
-                      (entry) =>
-                        entry.id ===
-                        (item as Course & { courseCategoryId?: number })
-                          .courseCategoryId,
+                      (entry) => entry.id === item.categoryId,
                     );
 
                     return (
@@ -344,7 +335,7 @@ export default function SchoolBooking({
                           <Image
                             src={`/images/courses/course-placeholder.png`}
                             // src={`/images/courses/${item.image ?? "course-placeholder.png"}`}
-                            alt={item.name?.[locale] ?? t("course")}
+                            alt={item.courseName?.[locale] ?? t("course")}
                             fill
                             sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover"
@@ -356,10 +347,10 @@ export default function SchoolBooking({
                               {category?.categoryName?.[locale] ?? t("course")}
                             </p>
                             <h3 className="mt-1 text-lg font-semibold text-gray-dark">
-                              {item.name?.[locale] ?? item.name}
+                              {item.courseName?.[locale] ?? item.courseName}
                             </h3>
                             <p className="mt-2 text-sm text-gray-dark/70">
-                              {item.description?.[locale] ?? ""}
+                              {item.courseDescription?.[locale] ?? ""}
                             </p>
                           </div>
                           <div className="mt-4 space-y-3">
@@ -455,10 +446,7 @@ export default function SchoolBooking({
                     <div className="space-y-3">
                       {accommodations.map((item) => {
                         const selected = item.id === selectedResidenceId;
-                        const basePrice =
-                          item.accommodationPlans?.[0]?.amount ??
-                          item.price ??
-                          0;
+                        const basePrice = item.price ?? 0;
                         const totalPrice =
                           basePrice * (residenceWeeks || weeks);
 
@@ -634,11 +622,9 @@ export default function SchoolBooking({
                   <div className="mt-4 space-y-3">
                     {transfers.map((item) => {
                       const selected = item.id === selectedAirportId;
-                      const firstOption =
-                        item.transferPackages?.[0]?.transferOptions?.[0];
-                      const amount = firstOption?.amount ?? 0;
-                      const pickupLocation = firstOption?.pickupLocation;
-                      const tripType = firstOption?.tripType;
+                      const amount = item.amount ?? 0;
+                      const pickupLocation = item.pickupLocation;
+                      const tripType = item.tripType;
 
                       return (
                         <label
@@ -656,11 +642,11 @@ export default function SchoolBooking({
                               />
                               <div>
                                 <h3 className="font-semibold text-gray-dark">
-                                  {tx(item.serviceName, locale)}
+                                  {tx(item.transferName, locale)}
                                 </h3>
-                                {item.serviceNote ? (
+                                {item.transferDescription ? (
                                   <p className="mt-1 text-sm text-gray-dark/70">
-                                    {tx(item.serviceNote, locale)}
+                                    {tx(item.transferDescription, locale)}
                                   </p>
                                 ) : null}
                                 <div className="mt-2 flex flex-wrap gap-2">
@@ -775,22 +761,22 @@ export default function SchoolBooking({
                   {t("fixedFeeSection")}
                 </h3>
                 {school.fees
-                  .filter((fee) => fee.frequency === "fixed")
+                  .filter((fee) => fee.feeFrequency === "fixed")
                   .map((fee) => (
                     <div
-                      key={fee.name?.en}
+                      key={fee.feeName?.en}
                       className="rounded-2xl border border-white/40 bg-white/70 p-3"
                     >
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-sm font-semibold text-gray-dark">
-                          {fee.name?.[locale] ?? fee.name?.en}
+                          {fee.feeName?.[locale] ?? fee.feeName?.en}
                         </span>
                         <span className="text-sm font-semibold text-gray-dark">
-                          {formatPrice(fee.amount)}
+                          {formatPrice(fee.feeAmount)}
                         </span>
                       </div>
                       <p className="mt-1 text-xs text-gray-dark/70">
-                        {fee.name?.[locale] ?? ""}
+                        {fee.feeName?.[locale] ?? ""}
                       </p>
                     </div>
                   ))}

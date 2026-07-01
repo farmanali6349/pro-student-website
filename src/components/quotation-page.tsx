@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { tx, type Locale } from "@/lib/data";
+import { tx, type Locale } from "../lib/data";
 import {
   type Accommodation,
   type Course,
   type School,
   type Transfer,
-} from "@/lib/new_data";
-import { getCityById, getCountryById } from "@/lib/v2-search-data";
+} from "../lib/v4-dsa";
+import { getCityById, getCountryById } from "../lib/search-data";
 
 type Props = {
   school: School;
@@ -48,8 +48,8 @@ type Props = {
   whatsappNumber?: string;
 };
 
-function formatAmount(value: number) {
-  return value.toLocaleString("en-US", { maximumFractionDigits: 0 });
+function formatAmount(value: number, symbol: string) {
+  return `${symbol}${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 }
 
 function addWeeks(dateStr: string | undefined, weeks: number) {
@@ -96,21 +96,15 @@ export default function InvoiceQuotePage({
   const country = getCountryById(school.countryId);
   const city = getCityById(school.cityId);
 
-  // Optional, additive fields. If your Course / Accommodation types grow
-  // lessonsPerWeek / hoursPerWeek / studyTime / single-line service names,
-  // they'll be picked up automatically here without touching the markup.
-  const courseExtra = course as
-    | (Course & {
-        lessonsPerWeek?: number;
-        hoursPerWeek?: number;
-        studyTime?: string;
-      })
-    | undefined;
+  const firstCoursePlan = course?.coursePlans?.[0];
 
   const courseEnd = useMemo(
     () => addWeeks(initial.startDate, initial.weeks),
     [initial.startDate, initial.weeks],
   );
+
+  const currencySymbol = country?.currency?.symbol || "£";
+  const currencyCode = country?.currency?.code || "GBP";
 
   const formattedDate = useMemo(() => {
     const d = issueDate ? new Date(issueDate) : new Date();
@@ -126,17 +120,13 @@ export default function InvoiceQuotePage({
 
     if (course) {
       const subLines = [
-        ...(courseExtra?.lessonsPerWeek
-          ? [`${courseExtra.lessonsPerWeek} ${t("lessonsPerWeek")}`]
+        ...(firstCoursePlan?.lessonsPerWeek
+          ? [`${firstCoursePlan.lessonsPerWeek} ${t("lessonsPerWeek")}`]
           : []),
-        ...(courseExtra?.hoursPerWeek
-          ? [`${courseExtra.hoursPerWeek} ${t("hoursPerWeek")}`]
-          : []),
-        ...(courseExtra?.studyTime ? [courseExtra.studyTime] : []),
       ];
       list.push({
         id: "course",
-        title: tx(course.name, locale),
+        title: tx(course.courseName, locale),
         subLines,
         from: initial.startDate,
         to: courseEnd,
@@ -148,7 +138,7 @@ export default function InvoiceQuotePage({
     if (initial.hasAirport && transfer) {
       list.push({
         id: "transfer",
-        title: tx(transfer.serviceName, locale),
+        title: tx(transfer.transferName, locale),
         subLines: [],
         amount: transferPrice,
       });
@@ -167,25 +157,25 @@ export default function InvoiceQuotePage({
     }
 
     fees
-      .filter((fee) => fee.frequency === "fixed")
+      .filter((fee) => fee.feeFrequency === "fixed")
       .forEach((fee, i) => {
         list.push({
           id: `fixed-fee-${i}`,
-          title: fee.name?.[locale] ?? fee.name?.en ?? "",
+          title: fee.feeName?.[locale] ?? fee.feeName?.en ?? "",
           subLines: [],
-          amount: fee.amount ?? null,
+          amount: fee.feeAmount ?? null,
         });
       });
 
     fees
-      .filter((fee) => fee.frequency === "weekly")
+      .filter((fee) => fee.feeFrequency === "weekly")
       .forEach((fee, i) => {
         list.push({
           id: `weekly-fee-${i}`,
-          title: fee.name?.[locale] ?? fee.name?.en ?? "",
+          title: fee.feeName?.[locale] ?? fee.feeName?.en ?? "",
           subLines: [],
           duration: t("frequency.weekly"),
-          amount: fee.amount ?? null,
+          amount: fee.feeAmount ?? null,
         });
       });
 
@@ -204,7 +194,7 @@ export default function InvoiceQuotePage({
     accommodationPrice,
     course,
     courseEnd,
-    courseExtra,
+    firstCoursePlan,
     coursePrice,
     fees,
     initial.accommodationEndDate,
@@ -244,10 +234,10 @@ export default function InvoiceQuotePage({
               </p>
             ) : null}
             <p className="leading-6">
-              {tx(school.name ?? { en: "School", ar: "مدرسة" }, locale)} ,
+              {tx(school.schoolName ?? { en: "School", ar: "مدرسة" }, locale)} ,
               <br />
-              {country ? tx(country.name, locale) : ""},{" "}
-              {city ? tx(city.name, locale) : ""}
+              {country ? tx(country.countryName, locale) : ""},{" "}
+              {city ? tx(city.cityName, locale) : ""}
             </p>
           </div>
 
@@ -290,7 +280,7 @@ export default function InvoiceQuotePage({
                   {t("duration")}
                 </th>
                 <th className="px-4 py-3 text-end font-semibold">
-                  {t("amount")} | {t("sarShort")}
+                  {t("amount")} | {currencyCode}
                 </th>
               </tr>
             </thead>
@@ -315,7 +305,9 @@ export default function InvoiceQuotePage({
                     {row.duration ?? ""}
                   </td>
                   <td className="px-4 py-3 text-end align-top font-medium text-gray-dark">
-                    {row.amount != null ? formatAmount(row.amount) : ""}
+                    {row.amount != null
+                      ? formatAmount(row.amount, currencySymbol)
+                      : ""}
                   </td>
                 </tr>
               ))}
@@ -327,7 +319,7 @@ export default function InvoiceQuotePage({
                 </td>
                 <td className="px-3 py-3" />
                 <td className="px-4 py-3 text-end font-semibold">
-                  {formatAmount(subtotal)} {currency}
+                  {formatAmount(subtotal, currencySymbol)}
                 </td>
               </tr>
             </tfoot>

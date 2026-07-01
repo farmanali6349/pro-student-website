@@ -38,6 +38,8 @@
     "courseStartDatePlaceholder": "اختر تاريخ البداية",
     "courseDuration": "عدد أسابيع الكورس",
     "courseDurationPlaceholder": "عدد الأسابيع",
+    "selectCourseType": "نوع الكورس",
+    "selectCourseTypePlaceholder": "اختر نوع الكورس",
     "showAdvancedOptions": "عرض الخيارات المتقدمة",
     "hideAdvancedOptions": "إخفاء الخيارات المتقدمة",
     "accommodation": "السكن",
@@ -156,6 +158,8 @@
     "chooseCountryPlaceholder": "اختر دولة",
     "chooseCity": "اختر المدينة",
     "chooseCityPlaceholder": "اختر مدينة",
+    "courseType": "نوع الكورس",
+    "courseTypePlaceholder": "اختر نوع الكورس",
     "durationWeeks": "عدد الأسابيع",
     "durationPlaceholder": "اختر عدد الأسابيع",
     "courseStartDate": "تاريخ بداية الكورس",
@@ -398,14 +402,16 @@
     "allLevels": "كل المستويات",
     "results": "نتائج",
     "noCoursesFound": "لم يتم العثور على دورات",
-    "noCoursesFoundDescription": "جرّب فئة مختلفة أو مصطلح بحث أو مستوى مطلوب آخر.",
+    "noCoursesFoundDescription": "بناءً على الفلاتر الحالية، لا توجد دورات متاحة. يرجى تعديل الفلاتر لعرض نتائج ذات صلة.",
+    "contactSupport": "تواصل معنا للحصول على باقة مخصصة أو استفسار:",
     "courseCard": {
       "lessons": "دروس / أسبوع",
       "hours": "ساعات / أسبوع",
       "required": "المستوى المطلوب",
       "sar": "ريال سعودي",
       "applyNow": "قدّم الآن",
-      "learnMore": "اعرف المزيد"
+      "learnMore": "اعرف المزيد",
+      "perWeek": " / أسبوع"
     }
   },
   "blogsPage": {
