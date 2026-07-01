@@ -7,6 +7,7 @@ import { tx, type Locale } from "../lib/data";
 import {
   type Accommodation,
   type Course,
+  type CourseAddon,
   type School,
   type Transfer,
 } from "../lib/v4-dsa";
@@ -29,7 +30,9 @@ type Props = {
     hasInsurance: boolean;
   };
   fees: School["fees"];
+  courseAddons?: CourseAddon[];
   coursePrice: number;
+  courseAddonsPrice: number;
   accommodationPrice: number;
   transferPrice: number;
   insurancePrice: number;
@@ -78,7 +81,9 @@ export default function InvoiceQuotePage({
   locale,
   initial,
   fees,
+  courseAddons,
   coursePrice,
+  courseAddonsPrice,
   accommodationPrice,
   transferPrice,
   insurancePrice,
@@ -104,7 +109,7 @@ export default function InvoiceQuotePage({
   );
 
   const currencySymbol = country?.currency?.symbol || "£";
-  const currencyCode = country?.currency?.code || "GBP";
+  const currencyCode = currency ?? country?.currency?.code ?? "GBP";
 
   const formattedDate = useMemo(() => {
     const d = issueDate ? new Date(issueDate) : new Date();
@@ -132,6 +137,20 @@ export default function InvoiceQuotePage({
         to: courseEnd,
         duration: `${initial.weeks} ${t("weekCount", { count: initial.weeks })}`,
         amount: coursePrice,
+      });
+    }
+
+    if (courseAddons?.length) {
+      courseAddons.forEach((addon) => {
+        list.push({
+          id: `course-addon-${addon.id}`,
+          title: tx(addon.addonName, locale),
+          subLines:
+            typeof addon.lessons === "number"
+              ? [`${addon.lessons} ${t("lessonsPerWeek")}`]
+              : [],
+          amount: addon.price,
+        });
       });
     }
 
@@ -195,6 +214,7 @@ export default function InvoiceQuotePage({
     course,
     courseEnd,
     firstCoursePlan,
+    courseAddons,
     coursePrice,
     fees,
     initial.accommodationEndDate,
@@ -213,6 +233,7 @@ export default function InvoiceQuotePage({
   ]);
 
   void fixedFeesTotal;
+  void courseAddonsPrice;
 
   return (
     <div

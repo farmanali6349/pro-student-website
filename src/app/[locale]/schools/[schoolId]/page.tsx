@@ -19,6 +19,15 @@ function parseNumber(value: string | string[] | undefined): number | undefined {
   return Number.isNaN(parsed) ? undefined : parsed;
 }
 
+function parseNumberArray(value: string | string[] | undefined): number[] {
+  if (typeof value !== "string") return [];
+
+  return value
+    .split(",")
+    .map((item) => Number(item.trim()))
+    .filter((item) => !Number.isNaN(item));
+}
+
 function parseString(value: string | string[] | undefined): string {
   return typeof value === "string" ? value : "";
 }
@@ -60,6 +69,7 @@ export default async function SchoolsPage({ params, searchParams }: Props) {
         accommodation: (await searchParams).accommodation === "1",
         airportPickup: (await searchParams).airport_pickup === "1",
         insurance: (await searchParams).insurance === "1",
+        courseAddonIds: parseNumberArray((await searchParams).course_addon_ids),
       }}
       locale={locale as Locale}
       pageTitle={t("pageTitle")}

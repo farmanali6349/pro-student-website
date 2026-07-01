@@ -6,6 +6,8 @@ import {
   schoolsV2,
   transfersV2,
 } from "../../../lib/search-data";
+import courseAddonsData from "../../../../public/data/v4/courseAddons.json";
+import { type CourseAddon } from "@/lib/v4-dsa";
 
 function parseNumber(value: string | string[] | undefined): number | undefined {
   if (typeof value !== "string") return undefined;
@@ -15,6 +17,15 @@ function parseNumber(value: string | string[] | undefined): number | undefined {
 
 function parseBoolean(value: string | string[] | undefined): boolean {
   return value === "1";
+}
+
+function parseNumberArray(value: string | string[] | undefined): number[] {
+  if (typeof value !== "string") return [];
+
+  return value
+    .split(",")
+    .map((item) => Number(item.trim()))
+    .filter((item) => !Number.isNaN(item));
 }
 
 export default async function QuotationRoute({
@@ -39,6 +50,9 @@ export default async function QuotationRoute({
   const selectedCourseId = parseNumber(resolvedSearchParams.course_id);
   const selectedResidenceId = parseNumber(resolvedSearchParams.residence_id);
   const selectedAirportId = parseNumber(resolvedSearchParams.airport_id);
+  const selectedAddonIds = parseNumberArray(
+    resolvedSearchParams.course_addon_ids,
+  );
   const weeks = parseNumber(resolvedSearchParams.weeks) ?? 1;
   const residenceWeeks =
     parseNumber(resolvedSearchParams.residence_weeks) ?? weeks;
@@ -53,6 +67,12 @@ export default async function QuotationRoute({
     (item) => item.id === selectedResidenceId,
   );
   const transfer = transfersV2.find((item) => item.id === selectedAirportId);
+  const courseAddons = (courseAddonsData as CourseAddon[]).filter(
+    (addon) =>
+      addon.schoolId === school.id &&
+      selectedAddonIds.includes(addon.id) &&
+      typeof addon.price === "number",
+  );
 
   const coursePrice = course
     ? (course.coursePlans.find((plan) => {
@@ -70,6 +90,10 @@ export default async function QuotationRoute({
       : 0;
 
   const transferPrice = hasAirport && transfer ? (transfer.amount ?? 0) : 0;
+  const courseAddonsPrice = courseAddons.reduce(
+    (sum, addon) => sum + addon.price,
+    0,
+  );
   const insuranceFee = school.fees.find((fee) => {
     const name = fee.feeName?.en?.toLowerCase() ?? "";
     const arabicName = fee.feeName?.ar?.toLowerCase() ?? "";
@@ -83,6 +107,7 @@ export default async function QuotationRoute({
     .reduce((sum, fee) => sum + fee.feeAmount, 0);
   const subtotal =
     coursePrice +
+    courseAddonsPrice +
     accommodationPrice +
     transferPrice +
     insurancePrice +
@@ -104,7 +129,9 @@ export default async function QuotationRoute({
         hasInsurance,
       }}
       fees={school.fees}
+      courseAddons={courseAddons}
       coursePrice={coursePrice}
+      courseAddonsPrice={courseAddonsPrice}
       accommodationPrice={accommodationPrice}
       transferPrice={transferPrice}
       insurancePrice={insurancePrice}
