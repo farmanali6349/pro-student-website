@@ -309,8 +309,6 @@ export default function InvoiceQuotePage({
     courseAddons,
     coursePrice,
     fees,
-    initial.accommodationEndDate,
-    initial.accommodationStartDate,
     initial.hasAccommodation,
     initial.hasAirport,
     initial.hasInsurance,
