@@ -7,7 +7,8 @@ import {
   transfersV2,
 } from "../../../lib/search-data";
 import courseAddonsData from "../../../../public/data/v4/courseAddons.json";
-import { type CourseAddon } from "@/lib/v4-dsa";
+import accommodationAddonsData from "../../../../public/data/v4/accommodationAddons.json";
+import { type AccommodationAddon, type CourseAddon } from "@/lib/v4-dsa";
 
 function parseNumber(value: string | string[] | undefined): number | undefined {
   if (typeof value !== "string") return undefined;
@@ -53,6 +54,9 @@ export default async function QuotationRoute({
   const selectedAddonIds = parseNumberArray(
     resolvedSearchParams.course_addon_ids,
   );
+  const selectedAccommodationAddonIds = parseNumberArray(
+    resolvedSearchParams.accommodation_addon_ids,
+  );
   const weeks = parseNumber(resolvedSearchParams.weeks) ?? 1;
   const residenceWeeks =
     parseNumber(resolvedSearchParams.residence_weeks) ?? weeks;
@@ -73,6 +77,14 @@ export default async function QuotationRoute({
       selectedAddonIds.includes(addon.id) &&
       typeof addon.price === "number",
   );
+  const accommodationAddons = (
+    accommodationAddonsData as AccommodationAddon[]
+  ).filter(
+    (addon) =>
+      addon.schoolId === school.id &&
+      selectedAccommodationAddonIds.includes(addon.id) &&
+      typeof addon.amount === "number",
+  );
 
   const coursePrice = course
     ? (course.coursePlans.find((plan) => {
@@ -88,10 +100,14 @@ export default async function QuotationRoute({
     hasAccommodation && accommodation
       ? (accommodation.price ?? 0) * residenceWeeks
       : 0;
+  const accommodationAddonsPrice = accommodationAddons.reduce(
+    (sum, addon) => sum + addon.amount * residenceWeeks,
+    0,
+  );
 
   const transferPrice = hasAirport && transfer ? (transfer.amount ?? 0) : 0;
   const courseAddonsPrice = courseAddons.reduce(
-    (sum, addon) => sum + addon.price,
+    (sum, addon) => sum + addon.price * weeks,
     0,
   );
   const insuranceFee = school.fees.find((fee) => {
@@ -109,6 +125,7 @@ export default async function QuotationRoute({
     coursePrice +
     courseAddonsPrice +
     accommodationPrice +
+    accommodationAddonsPrice +
     transferPrice +
     insurancePrice +
     fixedFeesTotal;
@@ -124,6 +141,16 @@ export default async function QuotationRoute({
         weeks,
         residenceWeeks,
         startDate: resolvedSearchParams.start_date as string | undefined,
+        accommodationStartDate: resolvedSearchParams.start_date as
+          | string
+          | undefined,
+        accommodationEndDate: (() => {
+          const start = resolvedSearchParams.start_date as string | undefined;
+          if (!start) return undefined;
+          const date = new Date(start);
+          date.setDate(date.getDate() + residenceWeeks * 7);
+          return date.toISOString().slice(0, 10);
+        })(),
         hasAccommodation,
         hasAirport,
         hasInsurance,
@@ -132,6 +159,8 @@ export default async function QuotationRoute({
       courseAddons={courseAddons}
       coursePrice={coursePrice}
       courseAddonsPrice={courseAddonsPrice}
+      accommodationAddons={accommodationAddons}
+      accommodationAddonsPrice={accommodationAddonsPrice}
       accommodationPrice={accommodationPrice}
       transferPrice={transferPrice}
       insurancePrice={insurancePrice}

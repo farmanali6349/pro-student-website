@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { tx, type Locale } from "../lib/data";
 import {
   type Accommodation,
+  type AccommodationAddon,
   type Course,
   type CourseAddon,
   type School,
@@ -31,8 +32,10 @@ type Props = {
   };
   fees: School["fees"];
   courseAddons?: CourseAddon[];
+  accommodationAddons?: AccommodationAddon[];
   coursePrice: number;
   courseAddonsPrice: number;
+  accommodationAddonsPrice: number;
   accommodationPrice: number;
   transferPrice: number;
   insurancePrice: number;
@@ -63,6 +66,17 @@ function addWeeks(dateStr: string | undefined, weeks: number) {
   return d.toISOString().slice(0, 10);
 }
 
+function formatDateLabel(value: string | undefined, locale: Locale) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value;
+  return d.toLocaleDateString(locale === "ar" ? "ar-SA" : "en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 type QuoteRow = {
   id: string;
   title: string;
@@ -82,8 +96,10 @@ export default function InvoiceQuotePage({
   initial,
   fees,
   courseAddons,
+  accommodationAddons,
   coursePrice,
   courseAddonsPrice,
+  accommodationAddonsPrice,
   accommodationPrice,
   transferPrice,
   insurancePrice,
@@ -108,6 +124,11 @@ export default function InvoiceQuotePage({
     [initial.startDate, initial.weeks],
   );
 
+  const accommodationEnd = useMemo(
+    () => addWeeks(initial.startDate, initial.residenceWeeks),
+    [initial.startDate, initial.residenceWeeks],
+  );
+
   const currencySymbol = country?.currency?.symbol || "£";
   const currencyCode = currency ?? country?.currency?.code ?? "GBP";
 
@@ -128,28 +149,43 @@ export default function InvoiceQuotePage({
         ...(firstCoursePlan?.lessonsPerWeek
           ? [`${firstCoursePlan.lessonsPerWeek} ${t("lessonsPerWeek")}`]
           : []),
-      ];
+        ...(course.courseDescription
+          ? [tx(course.courseDescription, locale)]
+          : []),
+        ...(course.courseIntensity
+          ? [`${t("courseIntensity")}: ${tx(course.courseIntensity, locale)}`]
+          : []),
+        ...(course.requiredLevel
+          ? [`${t("requiredLevel")}: ${tx(course.requiredLevel, locale)}`]
+          : []),
+        ...(firstCoursePlan?.note ? [tx(firstCoursePlan.note, locale)] : []),
+      ].filter(Boolean);
+
       list.push({
         id: "course",
         title: tx(course.courseName, locale),
         subLines,
         from: initial.startDate,
         to: courseEnd,
-        duration: `${initial.weeks} ${t("weekCount", { count: initial.weeks })}`,
+        duration: `${t("weekCount", { count: initial.weeks })}`,
         amount: coursePrice,
       });
     }
 
     if (courseAddons?.length) {
       courseAddons.forEach((addon) => {
+        const subLines = [
+          ...(typeof addon.lessons === "number"
+            ? [`${addon.lessons} ${t("lessonsPerWeek")}`]
+            : []),
+          ...(addon.note ? [tx(addon.note, locale)] : []),
+        ].filter(Boolean);
+
         list.push({
           id: `course-addon-${addon.id}`,
           title: tx(addon.addonName, locale),
-          subLines:
-            typeof addon.lessons === "number"
-              ? [`${addon.lessons} ${t("lessonsPerWeek")}`]
-              : [],
-          amount: addon.price,
+          subLines,
+          amount: addon.price * initial.weeks,
         });
       });
     }
@@ -158,20 +194,66 @@ export default function InvoiceQuotePage({
       list.push({
         id: "transfer",
         title: tx(transfer.transferName, locale),
-        subLines: [],
+        subLines: [
+          ...(transfer.transferDescription
+            ? [tx(transfer.transferDescription, locale)]
+            : []),
+          `${t("pickup")}: ${tx(transfer.pickupLocation, locale)}`,
+          `${t("tripType")}: ${t(transfer.tripType === "roundTrip" ? "roundTrip" : "oneWay")}`,
+          ...(transfer.note ? [tx(transfer.note, locale)] : []),
+        ].filter(Boolean),
         amount: transferPrice,
       });
     }
 
     if (initial.hasAccommodation && accommodation) {
+      const subLines = [
+        ...(accommodation.accommodationDescription
+          ? [tx(accommodation.accommodationDescription, locale)]
+          : []),
+        ...(accommodation.note ? [tx(accommodation.note, locale)] : []),
+        ...(accommodation.location?.length
+          ? [
+              `${t("location")}: ${accommodation.location
+                .map((entry) => tx(entry.name, locale))
+                .join(", ")}`,
+            ]
+          : []),
+        ...(accommodation.minimumAge
+          ? [`${t("minAge", { age: accommodation.minimumAge })}`]
+          : []),
+      ].filter(Boolean);
+
       list.push({
         id: "accommodation",
         title: tx(accommodation.accommodationName, locale),
-        subLines: [],
-        from: initial.accommodationStartDate,
-        to: initial.accommodationEndDate,
-        duration: `${initial.residenceWeeks} ${t("weekCount", { count: initial.residenceWeeks })}`,
+        subLines,
+        from: initial.startDate,
+        to: accommodationEnd,
+        duration: `${t("weekCount", { count: initial.residenceWeeks })}`,
         amount: accommodationPrice,
+      });
+    }
+
+    if (accommodationAddons?.length) {
+      accommodationAddons.forEach((addon) => {
+        list.push({
+          id: `accommodation-addon-${addon.id}`,
+          title: tx(addon.addonName, locale),
+          subLines: [
+            ...(addon.location
+              ? [`${t("location")}: ${tx(addon.location, locale)}`]
+              : []),
+            ...(addon.note ? [tx(addon.note, locale)] : []),
+            ...(addon.duration
+              ? [
+                  `${t("from")}: ${formatDateLabel(addon.duration.from as string, locale)} · ${t("to")}: ${formatDateLabel(addon.duration.to as string, locale)}`,
+                ]
+              : []),
+          ].filter(Boolean),
+          duration: `${t("weekCount", { count: initial.residenceWeeks })}`,
+          amount: addon.amount * initial.residenceWeeks,
+        });
       });
     }
 
@@ -202,7 +284,15 @@ export default function InvoiceQuotePage({
       list.push({
         id: "insurance",
         title: t("addInsurance"),
-        subLines: [],
+        subLines: [
+          t("insuranceSummary", {
+            total: formatAmount(insurancePrice, currencySymbol),
+            weekly: formatAmount(
+              insurancePrice / Math.max(initial.weeks || 1, 1),
+              currencySymbol,
+            ),
+          }),
+        ],
         amount: insurancePrice,
       });
     }
@@ -210,7 +300,9 @@ export default function InvoiceQuotePage({
     return list;
   }, [
     accommodation,
+    accommodationAddons,
     accommodationPrice,
+    accommodationEnd,
     course,
     courseEnd,
     firstCoursePlan,
@@ -230,10 +322,12 @@ export default function InvoiceQuotePage({
     t,
     transfer,
     transferPrice,
+    currencySymbol,
   ]);
 
   void fixedFeesTotal;
   void courseAddonsPrice;
+  void accommodationAddonsPrice;
 
   return (
     <div
@@ -317,10 +411,10 @@ export default function InvoiceQuotePage({
                     ))}
                   </td>
                   <td className="px-3 py-3 align-top text-gray-dark">
-                    {row.from ?? ""}
+                    {formatDateLabel(row.from, locale)}
                   </td>
                   <td className="px-3 py-3 align-top text-gray-dark">
-                    {row.to ?? ""}
+                    {formatDateLabel(row.to, locale)}
                   </td>
                   <td className="px-3 py-3 align-top text-gray-dark">
                     {row.duration ?? ""}

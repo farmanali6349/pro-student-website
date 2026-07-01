@@ -13,6 +13,7 @@ import {
   getCountryById,
 } from "../lib/search-data";
 import {
+  type AccommodationAddon,
   type Category,
   type Course,
   type CourseAddon,
@@ -22,6 +23,7 @@ import {
 } from "@/lib/v4-dsa";
 import Image from "next/image";
 import courseAddonsData from "../../public/data/v4/courseAddons.json";
+import accommodationAddonsData from "../../public/data/v4/accommodationAddons.json";
 import accommodationCategoriesData from "../../public/data/v4/categories.json";
 import CourseSelectCard from "./course-select-card";
 import CourseAddonSelectCard from "./course-addon-select-card";
@@ -59,6 +61,7 @@ export default function SchoolBooking({
     airportPickup?: boolean;
     insurance?: boolean;
     courseAddonIds?: number[];
+    accommodationAddonIds?: number[];
   };
   locale: Locale;
   pageTitle?: string;
@@ -106,6 +109,8 @@ export default function SchoolBooking({
   >(resolvedResidenceId);
   const [selectedAccommodationTypeId, setSelectedAccommodationTypeId] =
     useState<number | "all">("all");
+  const [selectedAccommodationAddonIds, setSelectedAccommodationAddonIds] =
+    useState<number[]>(initial.accommodationAddonIds ?? []);
   const [residenceWeeks, setResidenceWeeks] = useState<number>(
     initial.residenceWeeks ?? initial.weeks ?? 1,
   );
@@ -158,6 +163,41 @@ export default function SchoolBooking({
     );
   }, [accommodations, selectedAccommodationTypeId]);
 
+  const availableAccommodationAddons = useMemo(() => {
+    if (!hasAccommodation || !selectedResidence?.categoryId) {
+      return [];
+    }
+
+    return (accommodationAddonsData as AccommodationAddon[]).filter(
+      (addon) =>
+        addon.schoolId === school.id &&
+        addon.categoryId === selectedResidence.categoryId &&
+        typeof addon.amount === "number",
+    );
+  }, [hasAccommodation, school.id, selectedResidence]);
+
+  const activeAccommodationAddonIds = useMemo(() => {
+    const availableIds = new Set(
+      availableAccommodationAddons.map((addon) => addon.id),
+    );
+    return selectedAccommodationAddonIds.filter((id) => availableIds.has(id));
+  }, [availableAccommodationAddons, selectedAccommodationAddonIds]);
+
+  const selectedAccommodationAddons = useMemo(
+    () =>
+      availableAccommodationAddons.filter((addon) =>
+        activeAccommodationAddonIds.includes(addon.id),
+      ),
+    [activeAccommodationAddonIds, availableAccommodationAddons],
+  );
+
+  const accommodationAddonsPrice = useMemo(() => {
+    return selectedAccommodationAddons.reduce(
+      (sum, addon) => sum + addon.amount * (residenceWeeks || weeks),
+      0,
+    );
+  }, [residenceWeeks, selectedAccommodationAddons, weeks]);
+
   const coursePrice = useMemo(() => {
     if (!course) return 0;
     const priceTier = course.coursePlans.find((plan) => {
@@ -178,8 +218,11 @@ export default function SchoolBooking({
   );
 
   const courseAddonsPrice = useMemo(() => {
-    return selectedCourseAddons.reduce((sum, addon) => sum + addon.price, 0);
-  }, [selectedCourseAddons]);
+    return selectedCourseAddons.reduce(
+      (sum, addon) => sum + addon.price * weeks,
+      0,
+    );
+  }, [selectedCourseAddons, weeks]);
 
   const accommodationPrice = useMemo(() => {
     if (!selectedResidence || !hasAccommodation) return 0;
@@ -213,6 +256,7 @@ export default function SchoolBooking({
       coursePrice +
       courseAddonsPrice +
       accommodationPrice +
+      accommodationAddonsPrice +
       transferPrice +
       insurancePrice +
       fixedFeesTotal
@@ -221,6 +265,7 @@ export default function SchoolBooking({
     coursePrice,
     courseAddonsPrice,
     accommodationPrice,
+    accommodationAddonsPrice,
     transferPrice,
     insurancePrice,
     fixedFeesTotal,
@@ -253,6 +298,14 @@ export default function SchoolBooking({
     } else {
       params.delete("course_addon_ids");
     }
+    if (activeAccommodationAddonIds.length > 0) {
+      params.set(
+        "accommodation_addon_ids",
+        activeAccommodationAddonIds.join(","),
+      );
+    } else {
+      params.delete("accommodation_addon_ids");
+    }
     if (typeof initial.courseTypeId === "number") {
       params.set("course_type_id", String(initial.courseTypeId));
     }
@@ -277,6 +330,7 @@ export default function SchoolBooking({
     selectedAirportId,
     hasInsurance,
     selectedAddonIds,
+    activeAccommodationAddonIds,
     initial.courseTypeId,
     pathname,
     router,
@@ -426,6 +480,7 @@ export default function SchoolBooking({
                           addon={addon}
                           locale={locale}
                           selected={selected}
+                          weeks={weeks}
                           onToggle={() => {
                             setSelectedAddonIds((current) =>
                               current.includes(addon.id)
@@ -456,9 +511,11 @@ export default function SchoolBooking({
                       type="checkbox"
                       checked={hasAccommodation}
                       onChange={(event) => {
-                        setHasAccommodation(event.target.checked);
-                        if (!event.target.checked) {
+                        const checked = event.target.checked;
+                        setHasAccommodation(checked);
+                        if (!checked) {
                           setSelectedResidenceId(undefined);
+                          setSelectedAccommodationAddonIds([]);
                         } else if (!selectedResidenceId && accommodations[0]) {
                           setSelectedResidenceId(accommodations[0].id);
                         }
@@ -499,9 +556,25 @@ export default function SchoolBooking({
                           value={selectedAccommodationTypeId}
                           onChange={(event) => {
                             const nextValue = event.target.value;
-                            setSelectedAccommodationTypeId(
-                              nextValue === "all" ? "all" : Number(nextValue),
-                            );
+                            const nextTypeId =
+                              nextValue === "all" ? "all" : Number(nextValue);
+                            const nextMatches =
+                              nextTypeId === "all"
+                                ? accommodations
+                                : accommodations.filter(
+                                    (item) => item.categoryId === nextTypeId,
+                                  );
+
+                            setSelectedAccommodationTypeId(nextTypeId);
+
+                            if (
+                              !selectedResidenceId ||
+                              !nextMatches.some(
+                                (item) => item.id === selectedResidenceId,
+                              )
+                            ) {
+                              setSelectedResidenceId(nextMatches[0]?.id);
+                            }
                           }}
                           className="w-full rounded-2xl border border-white/40 bg-white/70 px-4 py-3 text-sm text-gray-dark outline-none transition focus:border-dark-orange focus:bg-white"
                         >
@@ -544,6 +617,111 @@ export default function SchoolBooking({
                         {t("noAccommodationOptions")}
                       </p>
                     )}
+
+                    {hasAccommodation && selectedResidence ? (
+                      <div className="rounded-2xl border border-white/40 bg-orange-50/40 p-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <div>
+                            <h3 className="text-base font-semibold text-gray-dark">
+                              {t("accommodationAddons")}
+                            </h3>
+                            {availableAccommodationAddons.length > 0 && (
+                              <p className="mt-1 text-sm text-gray-dark/70">
+                                {t("accommodationAddonsDescription")}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+
+                        {availableAccommodationAddons.length > 0 ? (
+                          <div className="mt-4 space-y-3">
+                            {availableAccommodationAddons.map((addon) => {
+                              const selected =
+                                activeAccommodationAddonIds.includes(addon.id);
+                              const addonPrice =
+                                addon.amount * (residenceWeeks || weeks);
+
+                              return (
+                                <label
+                                  key={addon.id}
+                                  className={`flex cursor-pointer flex-col gap-3 rounded-2xl border p-4 transition ${selected ? "border-dark-orange bg-white" : "border-white/40 bg-white/70"}`}
+                                >
+                                  <div className="flex items-start justify-between gap-3">
+                                    <div className="flex items-start gap-3">
+                                      <input
+                                        type="checkbox"
+                                        checked={selected}
+                                        onChange={() => {
+                                          setSelectedAccommodationAddonIds(
+                                            (current) =>
+                                              current.includes(addon.id)
+                                                ? current.filter(
+                                                    (id) => id !== addon.id,
+                                                  )
+                                                : [...current, addon.id],
+                                          );
+                                        }}
+                                        className="mt-1 h-4 w-4 accent-dark-orange"
+                                      />
+                                      <div>
+                                        <h4 className="font-semibold text-gray-dark">
+                                          {tx(addon.addonName, locale)}
+                                        </h4>
+                                        {addon.duration ? (
+                                          <p className="mt-1 text-sm text-gray-dark/70">
+                                            {t("from")}:{" "}
+                                            {new Date(
+                                              addon.duration.from,
+                                            ).toLocaleDateString(
+                                              locale === "ar"
+                                                ? "ar-SA"
+                                                : "en-GB",
+                                            )}{" "}
+                                            · {t("to")}:{" "}
+                                            {new Date(
+                                              addon.duration.to,
+                                            ).toLocaleDateString(
+                                              locale === "ar"
+                                                ? "ar-SA"
+                                                : "en-GB",
+                                            )}
+                                          </p>
+                                        ) : null}
+                                        {addon.location ? (
+                                          <p className="mt-1 text-sm text-gray-dark/70">
+                                            {t("location")}:{" "}
+                                            {tx(addon.location, locale)}
+                                          </p>
+                                        ) : null}
+                                        {addon.note ? (
+                                          <p className="mt-1 text-sm text-gray-dark/70">
+                                            {tx(addon.note, locale)}
+                                          </p>
+                                        ) : null}
+                                      </div>
+                                    </div>
+                                    <div className="text-right">
+                                      <p className="text-sm font-semibold text-gray-dark">
+                                        {formatPrice(addonPrice)}
+                                      </p>
+                                      <p className="text-xs text-gray-dark/60">
+                                        {t("forWeeks", {
+                                          count: residenceWeeks || weeks,
+                                        })}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <p className="mt-4 text-sm text-gray-dark/70">
+                            {t("noAccommodationAddons")}
+                          </p>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
               </section>
@@ -634,6 +812,12 @@ export default function SchoolBooking({
                   <span>{t("accommodation")}</span>
                   <span>{formatPrice(accommodationPrice)}</span>
                 </div>
+                {selectedAccommodationAddons.length > 0 ? (
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span>{t("accommodationAddons")}</span>
+                    <span>{formatPrice(accommodationAddonsPrice)}</span>
+                  </div>
+                ) : null}
                 <div className="flex items-center justify-between border-b border-gray-100 pb-2">
                   <span>{t("airportPickup")}</span>
                   <span>{formatPrice(transferPrice)}</span>

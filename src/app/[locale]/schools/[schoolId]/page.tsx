@@ -70,6 +70,9 @@ export default async function SchoolsPage({ params, searchParams }: Props) {
         airportPickup: (await searchParams).airport_pickup === "1",
         insurance: (await searchParams).insurance === "1",
         courseAddonIds: parseNumberArray((await searchParams).course_addon_ids),
+        accommodationAddonIds: parseNumberArray(
+          (await searchParams).accommodation_addon_ids,
+        ),
       }}
       locale={locale as Locale}
       pageTitle={t("pageTitle")}

@@ -8,6 +8,7 @@ type Props = {
   addon: CourseAddon;
   locale: Locale;
   selected: boolean;
+  weeks: number;
   onToggle: () => void;
   formatPrice: (value: number) => string;
 };
@@ -16,6 +17,7 @@ export default function CourseAddonSelectCard({
   addon,
   locale,
   selected,
+  weeks,
   onToggle,
   formatPrice,
 }: Props) {
@@ -50,7 +52,7 @@ export default function CourseAddonSelectCard({
       </div>
       <div className="text-right">
         <p className="text-sm font-semibold text-gray-dark">
-          {formatPrice(addon.price)}
+          {formatPrice(addon.price * weeks)}
         </p>
       </div>
     </label>
