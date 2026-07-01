@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Icon } from "@iconify/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslations } from "next-intl";
@@ -14,6 +13,7 @@ import {
   getCountryById,
 } from "../lib/search-data";
 import {
+  type Category,
   type Course,
   type CourseAddon,
   type School,
@@ -22,6 +22,11 @@ import {
 } from "@/lib/v4-dsa";
 import Image from "next/image";
 import courseAddonsData from "../../public/data/v4/courseAddons.json";
+import accommodationCategoriesData from "../../public/data/v4/categories.json";
+import CourseSelectCard from "./course-select-card";
+import CourseAddonSelectCard from "./course-addon-select-card";
+import AccommodationSelectCard from "./accommodation-select-card";
+import TransferSelectCard from "./transfer-select-card";
 
 const weeksRange = Array.from({ length: 48 }, (_, index) => index + 1);
 
@@ -99,6 +104,8 @@ export default function SchoolBooking({
   const [selectedResidenceId, setSelectedResidenceId] = useState<
     number | undefined
   >(resolvedResidenceId);
+  const [selectedAccommodationTypeId, setSelectedAccommodationTypeId] =
+    useState<number | "all">("all");
   const [residenceWeeks, setResidenceWeeks] = useState<number>(
     initial.residenceWeeks ?? initial.weeks ?? 1,
   );
@@ -134,6 +141,22 @@ export default function SchoolBooking({
     () => transfers.find((item) => item.id === selectedAirportId),
     [transfers, selectedAirportId],
   );
+
+  const accommodationTypeOptions = useMemo(() => {
+    return (accommodationCategoriesData as Category[]).filter(
+      (category) => category.type === "accommodation",
+    );
+  }, []);
+
+  const filteredAccommodations = useMemo(() => {
+    if (selectedAccommodationTypeId === "all") {
+      return accommodations;
+    }
+
+    return accommodations.filter(
+      (item) => item.categoryId === selectedAccommodationTypeId,
+    );
+  }, [accommodations, selectedAccommodationTypeId]);
 
   const coursePrice = useMemo(() => {
     if (!course) return 0;
@@ -293,6 +316,7 @@ export default function SchoolBooking({
                 </div>
               </div>
 
+              {/* Booking configuration section: start date and study duration */}
               <section className="rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
@@ -334,6 +358,7 @@ export default function SchoolBooking({
                 </div>
               </section>
 
+              {/* Course selection section */}
               <section className="rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-gray-dark">
@@ -361,78 +386,26 @@ export default function SchoolBooking({
                     );
 
                     return (
-                      <label
+                      <CourseSelectCard
                         key={item.id}
-                        className={`flex cursor-pointer flex-col overflow-hidden rounded-2xl border shadow-sm transition ${selected ? "border-dark-orange bg-orange-50" : "border-white/40 bg-white/70"}`}
-                      >
-                        <div className="relative h-36">
-                          <Image
-                            src={`/images/courses/course-placeholder.png`}
-                            // src={`/images/courses/${item.image ?? "course-placeholder.png"}`}
-                            alt={item.courseName?.[locale] ?? t("course")}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="flex flex-1 flex-col justify-between p-4">
-                          <div>
-                            <p className="text-sm text-gray-light">
-                              {category?.categoryName?.[locale] ?? t("course")}
-                            </p>
-                            <h3 className="mt-1 text-lg font-semibold text-gray-dark">
-                              {item.courseName?.[locale] ?? item.courseName}
-                            </h3>
-                            <p className="mt-2 text-sm text-gray-dark/70">
-                              {item.courseDescription?.[locale] ?? ""}
-                            </p>
-                          </div>
-                          <div className="mt-4 space-y-3">
-                            <div className="grid grid-cols-2 gap-1 text-sm text-gray-dark/70">
-                              <div className="flex items-center gap-2 rounded-full border border-white/40 bg-white px-2 py-1">
-                                <Icon
-                                  icon="mdi:teach"
-                                  width={16}
-                                  className="text-dark-orange"
-                                />
-                                {t("lessonsPerWeek", { count: lessons })}
-                              </div>
-                              <div className="flex items-center gap-2 rounded-full border border-white/40 bg-white px-2 py-1">
-                                <Icon
-                                  icon="mdi:clock-outline"
-                                  width={16}
-                                  className="text-dark-orange"
-                                />
-                                {t("hoursPerWeek", { count: hours })}
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2">
-                                <input
-                                  type="radio"
-                                  name="course"
-                                  checked={selected}
-                                  onChange={() => setSelectedCourseId(item.id)}
-                                  className="h-4 w-4 accent-dark-orange"
-                                />
-                                <span className="text-sm text-gray-dark/80">
-                                  {t("select")}
-                                </span>
-                              </div>
-                              <div className="text-right">
-                                <p className="text-sm font-semibold text-gray-dark">
-                                  {formatPrice(price)}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </label>
+                        course={item}
+                        locale={locale}
+                        selected={selected}
+                        lessons={lessons}
+                        hours={hours}
+                        price={price}
+                        categoryLabel={
+                          category?.categoryName?.[locale] ?? t("course")
+                        }
+                        onSelect={() => setSelectedCourseId(item.id)}
+                        formatPrice={formatPrice}
+                      />
                     );
                   })}
                 </div>
               </section>
 
+              {/* Optional course addon selection */}
               <section className="rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-gray-dark">
@@ -448,47 +421,20 @@ export default function SchoolBooking({
                       const selected = selectedAddonIds.includes(addon.id);
 
                       return (
-                        <label
+                        <CourseAddonSelectCard
                           key={addon.id}
-                          className={`flex cursor-pointer items-start justify-between gap-3 rounded-2xl border p-4 transition ${selected ? "border-dark-orange bg-orange-50" : "border-white/40 bg-white/70"}`}
-                        >
-                          <div className="flex items-start gap-3">
-                            <input
-                              type="checkbox"
-                              checked={selected}
-                              onChange={() => {
-                                setSelectedAddonIds((current) =>
-                                  current.includes(addon.id)
-                                    ? current.filter((id) => id !== addon.id)
-                                    : [...current, addon.id],
-                                );
-                              }}
-                              className="mt-1 h-4 w-4 accent-dark-orange"
-                            />
-                            <div>
-                              <h3 className="font-semibold text-gray-dark">
-                                {tx(addon.addonName, locale)}
-                              </h3>
-                              {addon.note ? (
-                                <p className="mt-1 text-sm text-gray-dark/70">
-                                  {tx(addon.note, locale)}
-                                </p>
-                              ) : null}
-                              {typeof addon.lessons === "number" ? (
-                                <p className="mt-2 text-sm text-gray-dark/70">
-                                  {t("lessonsPerWeek", {
-                                    count: addon.lessons,
-                                  })}
-                                </p>
-                              ) : null}
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-sm font-semibold text-gray-dark">
-                              {formatPrice(addon.price)}
-                            </p>
-                          </div>
-                        </label>
+                          addon={addon}
+                          locale={locale}
+                          selected={selected}
+                          onToggle={() => {
+                            setSelectedAddonIds((current) =>
+                              current.includes(addon.id)
+                                ? current.filter((id) => id !== addon.id)
+                                : [...current, addon.id],
+                            );
+                          }}
+                          formatPrice={formatPrice}
+                        />
                       );
                     })}
                   </div>
@@ -499,6 +445,7 @@ export default function SchoolBooking({
                 )}
               </section>
 
+              {/* Accommodation selection section */}
               <section className="rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-gray-dark">
@@ -524,147 +471,84 @@ export default function SchoolBooking({
 
                 {hasAccommodation ? (
                   <div className="mt-4 space-y-4">
-                    <div className="mx-auto max-w-xl">
-                      <label className="mb-2 block text-sm font-semibold text-gray-dark">
-                        {t("accommodationDuration")}
-                      </label>
-                      <select
-                        value={residenceWeeks}
-                        onChange={(event) =>
-                          setResidenceWeeks(Number(event.target.value))
-                        }
-                        className="w-full rounded-2xl border border-white/40 bg-white/70 px-4 py-3 text-sm text-gray-dark outline-none transition focus:border-dark-orange focus:bg-white"
-                      >
-                        {weeksRange.map((week) => (
-                          <option key={week} value={week}>
-                            {t("weekCount", { count: week })}
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div>
+                        <label className="mb-2 block text-sm font-semibold text-gray-dark">
+                          {t("accommodationDuration")}
+                        </label>
+                        <select
+                          value={residenceWeeks}
+                          onChange={(event) =>
+                            setResidenceWeeks(Number(event.target.value))
+                          }
+                          className="w-full rounded-2xl border border-white/40 bg-white/70 px-4 py-3 text-sm text-gray-dark outline-none transition focus:border-dark-orange focus:bg-white"
+                        >
+                          {weeksRange.map((week) => (
+                            <option key={week} value={week}>
+                              {t("weekCount", { count: week })}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="mb-2 block text-sm font-semibold text-gray-dark">
+                          {t("accommodationType")}
+                        </label>
+                        <select
+                          value={selectedAccommodationTypeId}
+                          onChange={(event) => {
+                            const nextValue = event.target.value;
+                            setSelectedAccommodationTypeId(
+                              nextValue === "all" ? "all" : Number(nextValue),
+                            );
+                          }}
+                          className="w-full rounded-2xl border border-white/40 bg-white/70 px-4 py-3 text-sm text-gray-dark outline-none transition focus:border-dark-orange focus:bg-white"
+                        >
+                          <option value="all">
+                            {t("allAccommodationTypes")}
                           </option>
-                        ))}
-                      </select>
+                          {accommodationTypeOptions.map((category) => (
+                            <option key={category.id} value={category.id}>
+                              {tx(category.categoryName, locale)}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                     </div>
 
-                    <div className="space-y-3 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                      {accommodations.map((item) => {
-                        const selected = item.id === selectedResidenceId;
-                        const basePrice = item.price ?? 0;
-                        const totalPrice =
-                          basePrice * (residenceWeeks || weeks);
+                    {filteredAccommodations.length > 0 ? (
+                      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        {filteredAccommodations.map((item) => {
+                          const selected = item.id === selectedResidenceId;
+                          const basePrice = item.price ?? 0;
+                          const totalPrice =
+                            basePrice * (residenceWeeks || weeks);
 
-                        return (
-                          <label
-                            key={item.id}
-                            className={`flex cursor-pointer flex-col gap-3 rounded-2xl border p-4 transition ${selected ? "border-dark-orange bg-orange-50" : "border-gray-500/20 bg-white/70"}`}
-                          >
-                            <div className="flex items-start justify-between gap-3">
-                              <div className="flex items-start gap-3">
-                                <input
-                                  type="radio"
-                                  name="accommodation"
-                                  checked={selected}
-                                  onChange={() =>
-                                    setSelectedResidenceId(item.id)
-                                  }
-                                  className="mt-1 h-4 w-4 accent-dark-orange"
-                                />
-                                <div>
-                                  <h3 className="font-semibold text-gray-dark">
-                                    {tx(item.accommodationName, locale)}
-                                  </h3>
-                                  {item.accommodationDescription ? (
-                                    <p className="mt-1 text-sm text-gray-dark/70">
-                                      {tx(
-                                        item.accommodationDescription,
-                                        locale,
-                                      )}
-                                    </p>
-                                  ) : null}
-                                  <div className="mt-2 flex flex-wrap gap-2">
-                                    {typeof item.minimumAge === "number" ? (
-                                      <span className="rounded-full border border-white/40 bg-white px-2 py-1 text-xs text-gray-dark/70">
-                                        {t("minAge", { age: item.minimumAge })}
-                                      </span>
-                                    ) : null}
-                                    <span className="rounded-full border border-white/40 bg-white px-2 py-1 text-xs text-gray-dark/70">
-                                      {t(
-                                        `frequency.${item.priceFrequency ?? "weekly"}`,
-                                      )}
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="text-right">
-                                <p className="text-sm font-semibold text-gray-dark">
-                                  {formatPrice(totalPrice)}
-                                </p>
-                                <p className="text-xs text-gray-dark/60">
-                                  {t("forWeeks", {
-                                    count: residenceWeeks || weeks,
-                                  })}
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="space-y-3 rounded-2xl border border-white/40 bg-white/70 p-3">
-                              {item.location && item.location.length > 0 ? (
-                                <div>
-                                  <p className="text-sm font-semibold text-gray-dark">
-                                    {t("location")}
-                                  </p>
-                                  <div className="mt-2 flex flex-wrap gap-2">
-                                    {item.location.map(
-                                      (location, locationIndex) => (
-                                        <span
-                                          key={`${item.id}-location-${locationIndex}`}
-                                          className="rounded-full border border-white/40 bg-orange-50 px-2 py-1 text-xs text-gray-dark"
-                                        >
-                                          {location.name?.[locale] ??
-                                            location.name?.en}
-                                        </span>
-                                      ),
-                                    )}
-                                  </div>
-                                </div>
-                              ) : null}
-
-                              {item.commuteOptions &&
-                              item.commuteOptions.length > 0 ? (
-                                <div>
-                                  <p className="text-sm font-semibold text-gray-dark">
-                                    {t("commute")}
-                                  </p>
-                                  <div className="mt-2 flex flex-wrap gap-2">
-                                    {item.commuteOptions.map(
-                                      (option, optionIndex) => (
-                                        <span
-                                          key={`${item.id}-commute-${optionIndex}`}
-                                          className="rounded-full border border-white/40 bg-white px-2 py-1 text-xs text-gray-dark"
-                                        >
-                                          {option.transport?.mode?.[locale] ??
-                                            option.transport?.mode?.en}{" "}
-                                          · {option.travelTime.min}-
-                                          {option.travelTime.max}{" "}
-                                          {option.travelTime.unit}
-                                        </span>
-                                      ),
-                                    )}
-                                  </div>
-                                </div>
-                              ) : null}
-
-                              {item.note ? (
-                                <p className="text-sm text-gray-dark/70">
-                                  {tx(item.note, locale)}
-                                </p>
-                              ) : null}
-                            </div>
-                          </label>
-                        );
-                      })}
-                    </div>
+                          return (
+                            <AccommodationSelectCard
+                              key={item.id}
+                              accommodation={item}
+                              locale={locale}
+                              selected={selected}
+                              price={totalPrice}
+                              weeks={residenceWeeks || weeks}
+                              onSelect={() => setSelectedResidenceId(item.id)}
+                              formatPrice={formatPrice}
+                            />
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <p className="rounded-2xl border border-dashed border-white/40 bg-white/70 p-4 text-sm text-gray-dark/70">
+                        {t("noAccommodationOptions")}
+                      </p>
+                    )}
                   </div>
                 ) : null}
               </section>
 
+              {/* Transfer selection section */}
               <section className="rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-gray-dark">
@@ -692,92 +576,24 @@ export default function SchoolBooking({
                     {transfers.map((item) => {
                       const selected = item.id === selectedAirportId;
                       const amount = item.amount ?? 0;
-                      const pickupLocation = item.pickupLocation;
-                      const tripType = item.tripType;
 
                       return (
-                        <label
+                        <TransferSelectCard
                           key={item.id}
-                          className={`flex cursor-pointer flex-col gap-3 rounded-2xl border p-4 transition ${selected ? "border-dark-orange bg-orange-50" : "border-gray-400/20 bg-white/70"}`}
-                        >
-                          <div className="flex items-start justify-between gap-3">
-                            <div className="flex items-start gap-3">
-                              <input
-                                type="radio"
-                                name="transfer"
-                                checked={selected}
-                                onChange={() => setSelectedAirportId(item.id)}
-                                className="mt-1 h-4 w-4 accent-dark-orange"
-                              />
-                              <div>
-                                <h3 className="font-semibold text-gray-dark">
-                                  {tx(item.transferName, locale)}
-                                </h3>
-                                {item.transferDescription ? (
-                                  <p className="mt-1 text-sm text-gray-dark/70">
-                                    {tx(item.transferDescription, locale)}
-                                  </p>
-                                ) : null}
-                                <div className="mt-2 flex flex-wrap gap-2">
-                                  {pickupLocation ? (
-                                    <span className="rounded-full border border-white/40 bg-white px-2 py-1 text-xs text-gray-dark/70">
-                                      {t("pickup", {
-                                        location: tx(pickupLocation, locale),
-                                      })}
-                                    </span>
-                                  ) : null}
-                                  <span className="rounded-full border border-white/40 bg-white px-2 py-1 text-xs text-gray-dark/70">
-                                    {tripType === "roundTrip"
-                                      ? t("roundTrip")
-                                      : t("oneWay")}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <p className="text-sm font-semibold text-gray-dark">
-                                {formatPrice(amount)}
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* <div className="space-y-2 rounded-2xl border border-white/40 bg-blue-600/70 p-3">
-                            {item.transferPackages?.map((pkg, pkgIndex) => (
-                              <div key={`${item.id}-package-${pkgIndex}`}>
-                                <p className="text-sm font-semibold text-gray-dark">
-                                  {tx(pkg.packageName, locale)}
-                                </p>
-                                <div className="mt-2 flex flex-wrap gap-2">
-                                  {pkg.transferOptions.map(
-                                    (option, optionIndex) => (
-                                      <div
-                                        key={`${item.id}-option-${pkgIndex}-${optionIndex}`}
-                                        className="rounded-xl border border-white/40 bg-white p-3 text-sm"
-                                      >
-                                        <p className="font-medium text-gray-dark">
-                                          {tx(option.optionName, locale)}
-                                        </p>
-                                        <p className="mt-1 text-xs text-gray-dark/70">
-                                          Pickup:{" "}
-                                          {tx(option.pickupLocation, locale)}
-                                        </p>
-                                        <p className="mt-1 text-xs font-semibold text-dark-orange">
-                                          {formatPrice(option.amount)}
-                                        </p>
-                                      </div>
-                                    ),
-                                  )}
-                                </div>
-                              </div>
-                            ))}
-                          </div> */}
-                        </label>
+                          transfer={item}
+                          locale={locale}
+                          selected={selected}
+                          amount={amount}
+                          onSelect={() => setSelectedAirportId(item.id)}
+                          formatPrice={formatPrice}
+                        />
                       );
                     })}
                   </div>
                 ) : null}
               </section>
 
+              {/* Insurance toggle section */}
               <section className="rounded-2xl border border-white/40 bg-white/70 p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-gray-dark">
@@ -798,6 +614,7 @@ export default function SchoolBooking({
               </section>
             </div>
 
+            {/* Quote summary sidebar */}
             <aside className="rounded-4xl border border-white/40 bg-white/80 p-6 shadow-xl">
               <h2 className="text-xl font-semibold text-gray-dark">
                 {t("summary")}
