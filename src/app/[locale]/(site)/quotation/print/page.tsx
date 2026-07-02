@@ -29,7 +29,7 @@ function parseNumberArray(value: string | string[] | undefined): number[] {
     .filter((item) => !Number.isNaN(item));
 }
 
-export default async function QuotationRoute({
+export default async function QuotationPrintRoute({
   params,
   searchParams,
 }: {
@@ -137,7 +137,6 @@ export default async function QuotationRoute({
       accommodation={accommodation}
       transfer={transfer}
       locale={locale as Locale}
-      showPrintButton={true}
       initial={{
         weeks,
         residenceWeeks,
