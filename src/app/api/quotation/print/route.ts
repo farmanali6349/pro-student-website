@@ -57,7 +57,7 @@ export async function GET(req: Request) {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="quotation.pdf"',
+        "Content-Disposition": 'inline; filename="quotation.pdf"',
         "Cache-Control": "no-store",
       },
     });

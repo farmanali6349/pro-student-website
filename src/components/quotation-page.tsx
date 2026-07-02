@@ -379,19 +379,14 @@ export default function InvoiceQuotePage({
               className=""
             />
             {showPrintButton ? (
-              <button
-                type="button"
-                onClick={() => {
-                  const params = new URLSearchParams(window.location.search);
-                  params.delete("locale");
-                  const queryString = params.toString();
-                  const url = `/api/quotation/print?locale=${locale}${queryString ? `&${queryString}` : ""}`;
-                  window.location.href = url;
-                }}
+              <a
+                href={printUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-dark-orange px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600"
               >
                 {t("printQuote")}
-              </button>
+              </a>
             ) : null}
           </div>
         </div>
